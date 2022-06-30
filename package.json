@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "formik": "^2.2.9",
     "semantic-ui-css": "^2.4.1"
   }
 }
