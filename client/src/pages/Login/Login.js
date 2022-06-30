@@ -7,7 +7,7 @@ Quiero poder logearme a la aplicación
 
 Para poder utilizar la aplicación
 
- 
+ "28:35"
 
 Criterios de aceptación
 
@@ -23,19 +23,23 @@ En la barra de navegación, el botón de login debe cambiar a “Mi perfil”, y
  */
 
 import React from "react";
+import Title from './components/Title/Title'
 import { Header, Button } from "semantic-ui-react";
 
-const login = () => {
+const Login = () => {
   return (
     <div>
       <Header as="h1">login Page Devsafio</Header>
+      <br></br>
+      <Title text='soy el titulo'/>
+      <br></br>
       <Button>inicia sesion</Button>
       <Button>cerrar sesion</Button>
+     
       
     </div>
   );
 };
 
-export default login;
+export default Login;
 
-"rafce" = "tofo el codigo que esta arriba"
