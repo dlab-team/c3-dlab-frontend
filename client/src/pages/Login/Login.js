@@ -7,7 +7,6 @@ Quiero poder logearme a la aplicación
 
 Para poder utilizar la aplicación
 
- "28:35"
 
 Criterios de aceptación
 
@@ -23,23 +22,44 @@ En la barra de navegación, el botón de login debe cambiar a “Mi perfil”, y
  */
 
 import React from "react";
-import Title from './components/Title/Title'
+import Title from "./components/Title/Title";
+import Label from "./components/Label/Label";
+import Input from "./components/Input/Input";
+import "./Login.css";
+
 import { Header, Button } from "semantic-ui-react";
 
 const Login = () => {
   return (
-    <div>
-      <Header as="h1">login Page Devsafio</Header>
+    <div className="login-container">
+      <Header as="h4">login Page Devsafio</Header>
       <br></br>
-      <Title text='soy el titulo'/>
+      <Title text="añade un titulo para el login" />
+      <br></br>
+      <Label text="Usuario" />
+      <Input
+        attribute={{
+          id: "usuario",
+          name: "usuario",
+          type: "text",
+          placeholder: "Ingrese su usuario",
+        }}
+      />
+      <Label text="contraseña" />
+      <Input
+        attribute={{
+          id: "contraseña",
+          name: "contraseña",
+          type: "password",
+          placeholder: "Ingrese su contraseña",
+        }}
+      />
       <br></br>
       <Button>inicia sesion</Button>
+      <br></br>
       <Button>cerrar sesion</Button>
-     
-      
     </div>
   );
 };
 
 export default Login;
-

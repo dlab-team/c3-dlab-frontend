@@ -6,6 +6,18 @@ function App() {
   return (
     <div className="App">
       <Login />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Home />
     </div>
   );
 }
