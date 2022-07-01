@@ -1,7 +1,26 @@
 .login-container{
-    color: brown;
+    background-color: aquamarine;
+    color: blue;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 180px;
+    padding-top: 200px;
+}
+
+.iniciasesion{
+    width: 45%;
+    height: 35px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: darkblue;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.iniciasesion:hover{
+    opacity: 0.8;
 }

@@ -10,7 +10,8 @@ const Input = ({ attribute, handleChange, param }) => {
             placeholder={attribute.placeholder}
             type={attribute.type}
             onChange= { (e) => handleChange (e.target.name, e.target.value)}
-            className= 'regular-style'
+            //Si hay un error en la password, muestra un estilo en rojo, si no, muestra todo normal
+            className= { param ? 'input-error' : 'regular-style'}
             />
         </div>
     )
