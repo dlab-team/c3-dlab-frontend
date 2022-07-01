@@ -1,0 +1,40 @@
+.login-container{
+    background-color: aquamarine;
+    color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 180px;
+    padding-top: 200px;
+}
+
+.iniciasesion{
+    width: 45%;
+    height: 35px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: darkblue;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.iniciasesion:hover{
+    opacity: 0.8;
+}
+
+.label-alert{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 55px;
+    color: red;
+    background: rgb(231, 225, 225);
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 10px;
+}
