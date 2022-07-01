@@ -1,7 +1,7 @@
 /*
 Descripción
 
-Como usuario registrado
+Como email registrado
 
 Quiero poder logearme a la aplicación
 
@@ -10,15 +10,15 @@ Para poder utilizar la aplicación
 
 Criterios de aceptación
 
-Se me debe presentar un formulario con inputs para email y password
+X -> Se me debe presentar un formulario con inputs para email y password
 
-Si el login falla, se me debe avisar con el mensaje “El usuario o contraseña ingresados no son correctos
+X -> Si el login falla, se me debe avisar con el mensaje “El email o contraseña ingresados no son correctos
 
-Se debe verificar que el email sea un email
+X -> Se debe verificar que el email sea un email -- Falta implementarlo correctamente
 
-Al hacer login, se me debe redirigir a mi perfil
+X -> Al hacer login, se me debe redirigir a mi perfil -- Falta linkear la ruta
 
-En la barra de navegación, el botón de login debe cambiar a “Mi perfil”, y el boton de “Registro” debe desaparecer
+-> En la barra de navegación, el botón de login debe cambiar a “Mi perfil”, y el boton de “Registro” debe desaparecer
  */
 
 import React, { useState } from "react";
@@ -31,64 +31,83 @@ import { Header, Button } from "semantic-ui-react";
 
 const Login = () => {
 
-  const [ user, setUser ] = useState('');
+  const [ email, setEmail ] = useState('');
   const [ password, setPassword] = useState('');
   const [passwordError, setPasswordError ] = useState(false);
   const [ isloging, setIsloging ] = useState(false);
+  const [ hasError, setHaserror ] = useState(false);
 
   function handleChange(name, value) {
-    if(name === 'usuario') {
-      setUser(value)
+    if(name === 'email') {
+      setEmail(value)
+      setHaserror(false);
       //Variable de almacenamiento
     } else {
       if(value.length < 8) {
         setPasswordError(true);
+        setHaserror(false);
 
       } else {
         setPasswordError(false);
         setPassword(value)
+        setHaserror(false);
       }
     }
   }
 
   //Funcion para validar contraseñas
   function ifMatch(param){
-    if(param.user.length > 0 && param.password.length > 0) {
-      if(param.user === 'Camilo' && param.password === '12345678') {
-        const { user, password } = param;
-        let ac = { user, password };
+    if(param.email.length > 0 && param.password.length > 0) {
+      if(param.email === 'Camilo' && param.password === '12345678') {
+        const { email, password } = param;
+        let ac = { email, password };
         let account = JSON.stringify(ac);
         localStorage.setItem('account', account);
         setIsloging(true);
       } else {
         setIsloging(false);
+        setHaserror(true);
       }
     } else {
       setIsloging(false);
     }
   }
 
+  //funcion para validar el email
+  function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+
   //Funcion para el click del boton inicia sesión.
   function handleSubmit () {
-    let account = { user, password}
+    let account = { email, password}
     if (account) {
       ifMatch(account);
+      validateEmail(email);
     }
   }
 
   return (
     <div className="login-container">
       <Header as="h4">login Page Devsafio</Header>
+      { isloging ? 
+      
+       <a href="client\src\pages\profile.js"> </a> : null } 
+      <Title text="Bienvenido" />
       <br></br>
-      <Title text="añade un titulo para el login" />
-      <br></br>
-      <Label text="Usuario" />
+      {
+        hasError &&
+      <label className='label-alert'> El email o contraseña ingresados no son correctos</label>
+      }
+      <Label text="Email" />
       <Input
         attribute={{
-          id: "usuario",
-          name: "usuario",
+          id: "email",
+          name: "email",
           type: "text",
-          placeholder: "Ingrese su usuario",
+          placeholder: "Ingrese su email",
         }}
         handleChange = {handleChange}
       />
@@ -112,8 +131,9 @@ const Login = () => {
       <Button className='iniciasesion' onClick={handleSubmit}>
         inicia sesion</Button>
       <br></br>
-      <Button>cerrar sesion</Button>
+
     </div>
+      
   );
 };
 
