@@ -12,7 +12,7 @@ import {
 import "../assets/styles.css";
 import mainIlustration from "../assets/img/Humaaans - 3 Characters.png";
 
-const home = () => {
+const Home = () => {
   return (
     <div class="home">
       <Navbar />
@@ -23,14 +23,14 @@ const home = () => {
               <Header as="h1" style={{ fontSize: "3em", color: "white" }}>
                 Encuentra tu primer empleo en tecnología
               </Header>
-              <p style={{ fontSize: "1.33em", color: "white" }}>
+              <p style={{ fontSize: "1.5em", color: "white" }}>
                 Realizamos el match perfecto entre perfiles TI y las áreas
                 tecnológicas de las empresas para potenciar, desarrollar y
                 crecer sus áreas.
               </p>
             </GridColumn>
             <GridColumn width={8}>
-              <Image src={mainIlustration} />
+              <Image src={mainIlustration} size="huge" />
             </GridColumn>
           </GridRow>
         </Grid>
@@ -79,4 +79,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

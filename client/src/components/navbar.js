@@ -1,40 +1,31 @@
 import React from "react";
-import { Menu, Icon, IconGroup, Button, Image } from "semantic-ui-react";
-import logo from "../assets/img/DEV ISOTIPO WHITE.png";
+import { Menu, Button, Image, MenuItem, Container } from "semantic-ui-react";
+import logo from "../assets/img/DEV LOGOTIPO WHITE.png";
 import "../assets/styles.css";
 
-const navbar = () => {
+const Navbar = () => {
   return (
-    <Menu
-      secondary
-      inverted
-      stackable
-      style={{ backgroundColor: "#4060ab", color: "white", margin: "20px" }}
-      widths={10}
-      size="huge"
-    >
-      <Menu.Item>
-        <Image alt="logo" size="mini" src={logo} />
-      </Menu.Item>
-
-      <Menu.Item name="devsafio">Sobre Devsafio</Menu.Item>
-
-      <Menu.Item name="profiles">Contrata Talento TI</Menu.Item>
-
-      <Menu.Item name="blog">Educación</Menu.Item>
-      <Menu.Item name="signup" position="right">
-        Regístrate
-      </Menu.Item>
-      <Menu.Item name="login">
-        <Button style={{ color: "blue", borderRadius: "35px" }}>
-          Ingresa
-          <IconGroup style={{ margin: "none " }}>
-            <Icon name="circle" size="big" color="green" /> <Icon name="user" />
-          </IconGroup>
-        </Button>
-      </Menu.Item>
+    <Menu stackable inverted secondary size="huge">
+      <Container>
+        <MenuItem position="left">
+          <Image src={logo} size="small" />
+        </MenuItem>
+        <MenuItem as="a" active>
+          Sobre Devsafio{" "}
+        </MenuItem>
+        <MenuItem as="a">Perfiles</MenuItem>
+        <MenuItem as="a">Blog</MenuItem>
+        <MenuItem position="right">
+          <Button as="a" inverted>
+            Regístrate
+          </Button>
+          <Button as="a" inverted primary style={{ marginLeft: "0.5em" }}>
+            Ingresa
+          </Button>
+        </MenuItem>
+      </Container>
     </Menu>
   );
 };
 
-export default navbar;
+export default Navbar;
