@@ -1,4 +1,46 @@
-body #root {
-  background-color: #2078dc;
+body {
+  /* background-color: #2078dc; */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.sectional {
+  margin-bottom: 100px;
+  background-size: cover;
+  background-position: right 50% center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+    url("../assets/img/DEVsafio_landingPage1.jpg");
+}
+@media only screen and (max-width: 767px) {
+  .mobile-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+  }
+}
+.bg-box {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.h-300p {
+  height: 648px !important;
+}
+
+.value-prop {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.value-prop-details {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.company-wrapper {
+  margin-top: 80px;
+}
+
+.stats {
+  background-color: #eff3ff;
+  margin-top: 80px;
 }
