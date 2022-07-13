@@ -1,34 +1,6 @@
 import React from "react";
-import {
-  Image,
-  ListItem,
-  List,
-  Segment,
-  Header,
-  Container,
-  Grid,
-} from "semantic-ui-react";
-
-const companies = [
-  {
-    id: 1,
-    src: "https://www.logogenio.es/images/articles/tech-logos4.jpg",
-  },
-  {
-    id: 2,
-    src: "https://www.logogenio.es/images/articles/tech-logos3.jpg",
-  },
-  { id: 3, src: "https://www.logogenio.es/images/articles/tech-logos5.jpg" },
-  {
-    id: 4,
-    src: "https://www.logogenio.es/images/articles/tech-logos6.jpg",
-  },
-  {
-    id: 5,
-    src: "https://www.logogenio.es/images/articles/tech-logos7.jpg",
-  },
-  { id: 6, src: "https://www.logogenio.es/images/articles/tech-logos8.jpg" },
-];
+import { Image, ListItem, List, Header, Container } from "semantic-ui-react";
+import { companies } from "../../pages/home/data";
 
 const renderCompanies = (companies) => {
   return companies.map((company, index) => {

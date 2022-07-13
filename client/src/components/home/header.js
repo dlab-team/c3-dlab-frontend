@@ -1,6 +1,6 @@
 import React from "react";
 
-const HomeHeader = () => {
+const Header = () => {
   return (
     <section class="sectional text-left text-white">
       <div class="container">
@@ -23,4 +23,4 @@ const HomeHeader = () => {
   );
 };
 
-export default HomeHeader;
+export default Header;
