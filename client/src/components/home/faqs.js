@@ -1,19 +1,18 @@
 import React from "react";
 import { Accordion } from "semantic-ui-react";
-import { faqs } from "../../pages/home/data";
+import { aboutDesafioFaqs } from "../../pages/home/data";
 
 const Faqs = () => {
   return (
-    <>
-      <Accordion
-        inverted
-        style={{ backgroundColor: "#312C60", fontSize: "24px", color: "white" }}
-        fluid
-        styled
-        defaultActiveIndex={0}
-        panels={faqs}
-      />
-    </>
+    <Accordion
+      inverted
+      className="faq-accordion"
+      fluid
+      styled
+      defaultActiveIndex={0}
+      panels={aboutDesafioFaqs}
+      color="#fff"
+    />
   );
 };
 

@@ -104,7 +104,7 @@ export const mentorsImg = [
 
 //Data section FAQs
 
-export const faqs = [
+export const aboutDesafioFaqs = [
   {
     key: 1,
     title: {
@@ -114,7 +114,7 @@ export const faqs = [
     content: {
       content: (
         <span>
-          Devsafio es una iniciativa que une talento junior Latinoamericano
+          DEVsafio es una iniciativa que une talento junior Latinoamericano
           (trainee, bootcamp, entre otros) con mentores senior TI para potenciar
           su empleabilidad inicial e impactar la industria tecnológica.
         </span>
@@ -124,14 +124,31 @@ export const faqs = [
   {
     key: 2,
     title: {
-      content: "¿A quiénes está dirigido DEVsafio?",
+      content: "¿Quiénes pueden postular a DEVsafio?",
       icon: "dropdown",
     },
     content: {
       content: (
         <span>
-          Se dirige a quienes estén buscando empleo como Junior o Trainee
-          (Desarrollo, Diseño UX/UI y Data Science).
+          En DEVsafio apoyamos a quienes buscan empleo como Junior o Trainee en
+          las áreas de Desarrollo, Diseño UX/UI y Data Science.
+        </span>
+      ),
+    },
+  },
+  {
+    key: 3,
+    title: {
+      content: "¿Buscan Talentos para QA Testing?",
+      icon: "dropdown",
+    },
+    content: {
+      content: (
+        <span>
+          Por ahora estamos enfocados en el Desarrollo (Front, Back y Full),
+          Diseño UX/UI y Data Science, pero no rechazamos un Talento en otras
+          áreas del mundo TI. Puedes dejarnos tus datos y si nos piden ayuda en
+          esa área, te contactaremos.
         </span>
       ),
     },

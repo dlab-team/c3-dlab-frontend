@@ -7,6 +7,7 @@ import Companies from "../../components/home/companies";
 import Mentors from "../../components/home/mentors";
 import Testimonials from "../../components/home/testimonials";
 import Faqs from "../../components/home/faqs";
+import { Container } from "semantic-ui-react";
 import "../../assets/styles.css";
 
 const Home = () => {
@@ -18,9 +19,15 @@ const Home = () => {
       <Companies />
       <Stats />
       <SignUp />
-      <Mentors />
-      <Testimonials />
-      <Faqs />
+      <section className="mentors-section">
+        <Mentors />
+      </section>
+      <section>
+        <Testimonials />
+      </section>
+      <section className="faq-section">
+        <Faqs />
+      </section>
     </>
   );
 };

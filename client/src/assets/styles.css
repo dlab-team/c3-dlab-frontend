@@ -44,3 +44,16 @@ body {
   background-color: #eff3ff;
   margin-top: 80px;
 }
+
+.faq-section,
+.mentors-section {
+  margin: 56px 48px 0px;
+  border-radius: 12px;
+}
+
+.faq-accordion {
+  background-color: #312c60 !important;
+  font-size: 24px !important;
+  color: #fff !important;
+  text-align: left !important;
+}
