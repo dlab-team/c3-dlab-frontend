@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Image} from 'semantic-ui-react'
 
 //avatar y nombre
-export default function User() {
+export default function Name() {
     const [NameUser, setListUser] = useState([])
 
     useEffect(()=>{

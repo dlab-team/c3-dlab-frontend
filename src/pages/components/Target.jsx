@@ -1,19 +1,20 @@
 import React from 'react'
-import { Button, Card } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Target = (props) => (
-  <Card.Group>
-    <Card>
-      <Card.Content style={{backgroundColor:"#2078dc"}}>
-        <Card.Header style={{color:"white"}}><FontAwesomeIcon icon={props.icon} color="white"/> {props.titulo} </Card.Header>
-        <Card.Header style={{color:"white"}}>
-          {props.response}
-        </Card.Header>
-      </Card.Content>
-      <Button basic color='blue'>Ver</Button>
-    </Card>
-  </Card.Group>
+  
+      <Card color='blue'>
+        <Card.Content style={{backgroundColor:"#2078dc"}}>
+          <Card.Header style={{color:"white"}}><FontAwesomeIcon icon={props.icon} color="white"/> {props.titulo} </Card.Header>
+          <Card.Header style={{color:"white"}}>
+           {props.response}
+          </Card.Header>
+        </Card.Content>
+      </Card>
+ 
+    
+    
 )
 
 export default Target
