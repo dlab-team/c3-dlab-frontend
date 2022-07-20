@@ -1,12 +1,32 @@
-import React from 'react'
-import { Container } from 'semantic-ui-react'
+import React from "react";
+import Navbar from "../components/navbar";
+import HomeHeader from "../components/homeHeader";
+import StepsList from "../components/stepsList";
+import Stats from "../components/stats";
+import SignUp from "../components/signUp";
+import Companies from "../components/companies";
+import Mentors from "../components/mentors";
+import Testimonials from "../components/testimonials";
+import "../assets/styles.css";
+import { Menu, Button, Image, MenuItem, Container } from "semantic-ui-react";
 
-
-const home = () => {
+const Home = () => {
   return (
-    <Container textAlign='left'>
-    </Container>
+
+
+    <>
+      <Navbar />
+      <HomeHeader />
+      <StepsList />
+      <SignUp />
+      <Companies />
+      <Stats />
+      <SignUp />
+      <Mentors />
+      <Testimonials />
+    </>
+
   );
 };
 
-export default home;
+export default Home;
