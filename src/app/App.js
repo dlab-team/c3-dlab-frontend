@@ -5,7 +5,7 @@ import Home from "../pages/home";
 import Footer from "../components/footer/footer";
 import Profile from "../pages/profile"
 import Navbar from "../components/navbar/navbar"
-import Register from "../pages/register";
+import Register from "../pages/signup";
 
 
 function App() {
