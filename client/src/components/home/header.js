@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <section class="sectional text-left text-white">
+    <div class="sectional text-left text-white">
       <div class="container">
         <div class="h-300p row">
           <div class="col-sm-10 col-md-10 col-lg-8 d-flex align-items-center">
@@ -19,7 +19,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

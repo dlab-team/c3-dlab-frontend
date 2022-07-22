@@ -1,19 +1,47 @@
 import React from "react";
-import { Button, Comment, Form, Header } from "semantic-ui-react";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { testimonialsData } from "../../pages/home/data";
+import { Image, Header, HeaderSubheader } from "semantic-ui-react";
+import SignUp from "./signUp";
 
 const Testimonials = () => {
   return (
-    <>
-      <Comment.Group>
-        <Comment>
-          <Comment.Avatar src="https://images.pexels.com/photos/5704720/pexels-photo-5704720.jpeg?auto=compress&cs=tinysrgb&w=800" />
-          <Comment.Content>
-            <Comment.Author as="a">Matt</Comment.Author>
-            <Comment.Text>testimonial</Comment.Text>
-          </Comment.Content>
-        </Comment>
-      </Comment.Group>
-    </>
+    <div className="testimonial-wrapper">
+      <Swiper
+        className="swiper-container"
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        autoplay={{ delay: 5000 }}
+        pagination={{ clickable: true }}
+        centeredSlides={true}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+      >
+        {testimonialsData.map((testimonial) => (
+          <SwiperSlide key={testimonial.id} className="swiper-slide">
+            <div className="testimonial-body">
+              <Image src={testimonial.src} circular size="small" />
+              <span className="testimonial-experience">
+                <Header as="h4" content={testimonial.testimonial} />
+                <HeaderSubheader
+                  as="h5"
+                  content={testimonial.userName}
+                  className="testimonial-userName"
+                />
+              </span>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <SignUp />
+    </div>
   );
 };
 

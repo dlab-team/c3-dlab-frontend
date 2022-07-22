@@ -6,9 +6,9 @@ const SignUp = () => {
   return (
     <>
       <Button
+        className="landingPage-btns"
         content="Inscríbete"
         size="massive"
-        style={{ backgroundColor: "#16104A", color: "white", margin: "40px" }}
       />
     </>
   );

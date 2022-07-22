@@ -1,10 +1,5 @@
-body {
-  /* background-color: #2078dc; */
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
 .sectional {
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   background-size: cover;
   background-position: right 50% center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
@@ -24,6 +19,10 @@ body {
   height: 648px !important;
 }
 
+.navbar-menu {
+  background-color: #5a7eff !important;
+}
+
 .value-prop {
   font-size: 60px;
   font-weight: 700;
@@ -36,24 +35,111 @@ body {
   line-height: 30px;
 }
 
+.landingPage-btns {
+  background-color: #16104a !important;
+  color: #fff !important;
+  margin: 40px !important;
+}
+
+.landingPage-btns:hover {
+  background-color: #ff385c !important;
+  color: #fff !important;
+  margin-top: 40px !important;
+  transition: all 0.3s ease 0s !important;
+}
+
 .company-wrapper {
   margin-top: 80px;
 }
 
 .stats {
-  background-color: #eff3ff;
-  margin-top: 80px;
+  background-color: #5a7eff !important;
+  text-align: center !important;
 }
 
+.mentor-card {
+  margin-top: 5px !important;
+}
+
+.valueProp-section,
+.steps-section,
 .faq-section,
-.mentors-section {
-  margin: 56px 48px 0px;
+.stats-article,
+.mentors-section,
+.companies-section,
+.testimonial-wrapper {
+  margin: 86px 48px 0px;
   border-radius: 12px;
+  text-align: center;
+}
+
+.testimonial-wrapper,
+.testimonial-body {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.swiper-container {
+  background-color: #eff3ff;
+  height: 100%;
+  width: 70%;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 70px;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.testimonial-body {
+  padding: 40px !important;
+  margin: 20px !important;
+}
+
+.testimonial-experience {
+  padding-top: 40px !important;
+}
+
+.testimonial-userName {
+  font-family: cursive;
 }
 
 .faq-accordion {
   background-color: #312c60 !important;
-  font-size: 24px !important;
+  font-size: 18px !important;
   color: #fff !important;
   text-align: left !important;
+  line-height: 26px;
+  margin-top: 5px;
+}
+
+.mailto-button-faq {
+  background-color: #fff;
+  text-decoration: underline;
+  border: 0;
+  font-size: 21px;
+  color: #5a7eff;
+}
+
+.section-title {
+  font-size: 38px !important;
+  font-weight: 600;
+  line-height: 64px !important;
 }

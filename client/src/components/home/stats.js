@@ -1,26 +1,30 @@
 import React from "react";
-import { Statistic, Icon, Image } from "semantic-ui-react";
+import { Statistic, Segment } from "semantic-ui-react";
+import SignUp from "./signUp";
 
 const Stats = () => {
   return (
-    <div class="stats">
-      <Statistic.Group widths="three">
-        <Statistic>
-          <Statistic.Value>+300</Statistic.Value>
-          <Statistic.Label>Contratos de Junior o Trainees</Statistic.Label>
-        </Statistic>
+    <>
+      <Segment inverted className="stats">
+        <Statistic.Group inverted widths={3}>
+          <Statistic>
+            <Statistic.Value>+110</Statistic.Value>
+            <Statistic.Label>Contratos Junior/Trainee</Statistic.Label>
+          </Statistic>
 
-        <Statistic>
-          <Statistic.Value>55</Statistic.Value>
-          <Statistic.Label>Empresas Asociadas</Statistic.Label>
-        </Statistic>
+          <Statistic>
+            <Statistic.Value>+50</Statistic.Value>
+            <Statistic.Label>Empresas Asociadas</Statistic.Label>
+          </Statistic>
 
-        <Statistic>
-          <Statistic.Value>+1500</Statistic.Value>
-          <Statistic.Label>Show The Code Organizados</Statistic.Label>
-        </Statistic>
-      </Statistic.Group>
-    </div>
+          <Statistic>
+            <Statistic.Value>+400</Statistic.Value>
+            <Statistic.Label>Show The Code</Statistic.Label>
+          </Statistic>
+        </Statistic.Group>
+      </Segment>
+      <SignUp />
+    </>
   );
 };
 

@@ -1,26 +1,32 @@
 import React from "react";
 import Header from "../../components/home/header";
+import ValueProp from "../../components/home/valueProp";
 import StepsList from "../../components/home/stepsList";
 import Stats from "../../components/home/stats";
-import SignUp from "../../components/home/signUp";
 import Companies from "../../components/home/companies";
-import Mentors from "../../components/home/mentors";
+import MentorsList from "../../components/home/mentorsList";
 import Testimonials from "../../components/home/testimonials";
 import Faqs from "../../components/home/faqs";
-import { Container } from "semantic-ui-react";
 import "../../assets/styles.css";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <StepsList />
-      <SignUp />
-      <Companies />
-      <Stats />
-      <SignUp />
+      <section className="valueProp-section">
+        <ValueProp />
+      </section>
+      <section className="steps-section">
+        <StepsList />
+      </section>
+      <section className="companies-section">
+        <Companies />
+      </section>
+      <article className="stats-article">
+        <Stats />
+      </article>
       <section className="mentors-section">
-        <Mentors />
+        <MentorsList />
       </section>
       <section>
         <Testimonials />

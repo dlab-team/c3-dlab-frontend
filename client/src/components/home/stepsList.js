@@ -1,25 +1,26 @@
 import React from "react";
 import {
-  Grid,
-  GridColumn,
   Header,
-  HeaderSubheader,
-  Icon,
+  Step,
+  StepGroup,
+  StepContent,
+  StepTitle,
+  StepDescription,
 } from "semantic-ui-react";
 import "../../assets/styles.css";
 import { programSteps } from "../../pages/home/data";
+import SignUp from "./signUp";
 
 const renderSteps = (programSteps) => {
   return programSteps.map((step, index) => {
     return (
       <>
-        <GridColumn index={index}>
-          <Header as="h1" icon textAlign="center">
-            <Icon name={step.icon} circular inverted color={step.color} />
-            <Header.Content>{step.title}</Header.Content>
-          </Header>
-          <HeaderSubheader as="h5" content={step.subtitle} />
-        </GridColumn>
+        <Step active index={index} style={{ backgroundColor: "#EDF1FD" }}>
+          <StepContent>
+            <StepTitle content={step.title} />
+            <StepDescription content={step.subtitle} />
+          </StepContent>
+        </Step>
       </>
     );
   });
@@ -27,9 +28,17 @@ const renderSteps = (programSteps) => {
 
 const StepsList = () => {
   return (
-    <Grid stackable container columns={3}>
-      {renderSteps(programSteps)}
-    </Grid>
+    <div>
+      <Header
+        as="h1"
+        content="Encuentra trabajo en 3 simples pasos"
+        className="section-title"
+      />
+      <StepGroup ordered stackable="mobile" size="huge">
+        {renderSteps(programSteps)}
+      </StepGroup>
+      <SignUp />
+    </div>
   );
 };
 
