@@ -1,6 +1,7 @@
 import React from "react";
 import { Statistic, Segment } from "semantic-ui-react";
-import SignUp from "./signUp";
+import SignUpBtn from "../signUpBtn";
+import { Link } from "react-router-dom";
 
 const Stats = () => {
   return (
@@ -23,7 +24,9 @@ const Stats = () => {
           </Statistic>
         </Statistic.Group>
       </Segment>
-      <SignUp />
+      <Link to="/signup-form">
+        <SignUpBtn />
+      </Link>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
-import "../../assets/styles.css";
+import "../assets/styles.css";
 
-const SignUp = () => {
+const SignUpBtn = () => {
   return (
     <>
       <Button
@@ -14,4 +14,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpBtn;

@@ -26,7 +26,7 @@ const Navbar = () => {
             <MenuItem as="a">Blog</MenuItem>
           </NavLink>
           <MenuItem position="right">
-            <NavLink to="/signup">
+            <NavLink to="/signup-form">
               <Button as="a" inverted>
                 Regístrate
               </Button>

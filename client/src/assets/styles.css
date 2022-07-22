@@ -138,6 +138,10 @@
   color: #5a7eff;
 }
 
+.all-faqs-wrapper {
+  margin: 30px;
+}
+
 .section-title {
   font-size: 38px !important;
   font-weight: 600;

@@ -9,7 +9,8 @@ import {
 } from "semantic-ui-react";
 import "../../assets/styles.css";
 import { programSteps } from "../../pages/home/data";
-import SignUp from "./signUp";
+import SignUpBtn from "../signUpBtn";
+import { Link } from "react-router-dom";
 
 const renderSteps = (programSteps) => {
   return programSteps.map((step, index) => {
@@ -37,7 +38,9 @@ const StepsList = () => {
       <StepGroup ordered stackable="mobile" size="huge">
         {renderSteps(programSteps)}
       </StepGroup>
-      <SignUp />
+      <Link to="/signup-form">
+        <SignUpBtn />
+      </Link>
     </div>
   );
 };
