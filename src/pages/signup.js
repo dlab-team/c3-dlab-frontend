@@ -2,16 +2,12 @@ import React from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Message} from 'semantic-ui-react'
+import "./signup.css"
 // import axios from 'axios';
-import './signup.css'
 
-/* export default function Callto2 () {
-  return (
-    <h2> hola hola </h2>
-  )
-}
 
-const CallTo = (email,password) => {
+
+/* const CallTo = (email,password) => {
     state = {
         email: email,
         password:password,
@@ -36,7 +32,7 @@ const CallTo = (email,password) => {
           })
       }
       
-} */
+}  */
 
 
 const Signup = (props) => {
@@ -45,11 +41,19 @@ const Signup = (props) => {
 
     return (
           <Formik
-          initialValues={{
-          email:email,
-          password:password,
-          confirmPassword:confirmPassword,
+
+        onSubmit={(values, {setSubmitting,}) =>{
+            const timeOut = setTimeout(( )=>{
+                console.log(values);
+                onSubmitProp(values);
+                setSubmitting(false);
+                clearTimeout(timeOut);
+                console.log("pruebaonSubmit")
+            }, 1000);
         }}
+          
+        initialValues={{ email:email, password:password,confirmPassword:confirmPassword,}}
+
         validationSchema={Yup.object().shape({            
             email: Yup.string()
             .email("Correo no valido")
@@ -65,33 +69,21 @@ const Signup = (props) => {
             .equals([Yup.ref('password'), null], "Las contraseñas no son iguales")
             .min(8, "La clave debe contener más de 8 caracteres")
             .required("Por favor ingrese la confirmación de la contraseña"),
-        })}
-
-        
-
-        onSubmit={(values, {setSubmitting}) =>{
-            const timeOut = setTimeout(( )=>{
-                console.log(values);
-                onSubmitProp(values);
-                setSubmitting(false);
-                clearTimeout(timeOut);
-                console.log("pruebaonSubmit")
-            }, 1000);
-        }}>
+        })}>
 
 
-        {({ values,errors,touched,valid}) =>{
+        {({ values,errors,touched,valid,handleSubmit}) =>{
 
-        const handleSubmit = event => {
-          console.log("funciuona")
-          alert("el formulario se ha enviado")
-        }
+    
 
         return (
-            <div className='container'>
+            <div>
                 <h1>Registro</h1>
-                <form className='ui form' Method="post" onSubmit={handleSubmit}>
-                    <div className='field'>
+
+             
+             <div className='container'>
+             <form className='ui form' Method="post" onSubmit={handleSubmit}>
+                  <div className='field'>
                     <label className="registertext" htmlFor="email">Correo Electrónico</label>
                     <Field id='email' type="text" placeholder="Email" name='email'/>
                     <ErrorMessage name="email">{(msg) => <p>{msg}</p>}</ErrorMessage>
@@ -109,13 +101,17 @@ const Signup = (props) => {
                     <Field  id='confirmPassword' type="password" placeholder="Confirmar Contraseña" name='confirmPassword'/>
                     {errors.confirmPassword && touched.confirmPassword && <p>{errors.confirmPassword}</p>}
                     </div>
-                
-                    
+                                
                     <Message success header='Form Completed'content="You're all signed up for the newsletter"/>
                 </form>
+
                 <button type="submit" disabled={Object.values(errors).length > 0} className="ui blue button">
                     Registrarse
                 </button>
+             </div>
+                 
+
+                     
 
 
             </div>
