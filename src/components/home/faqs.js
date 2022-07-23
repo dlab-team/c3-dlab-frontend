@@ -1,7 +1,6 @@
 import React from "react";
-import { Accordion, Header, Button, HeaderSubheader } from "semantic-ui-react";
+import { Accordion, Header, HeaderSubheader } from "semantic-ui-react";
 import { aboutDesafioFaqs } from "../../pages/home/data";
-import { Link } from "react-router-dom";
 
 const emailTo = "contacto@devsafio.com";
 const openInNewTab = () => {
@@ -10,7 +9,7 @@ const openInNewTab = () => {
 
 const Faqs = () => {
   return (
-    <div>
+    <div className="faq-wrapper">
       <Header
         as="h1"
         content="Preguntas Frecuentes"
@@ -33,13 +32,6 @@ const Faqs = () => {
         panels={aboutDesafioFaqs}
         color="#fff"
       />
-      <Link to="/all-faqs">
-        <Button
-          className="landingPage-btns"
-          content="Ver Todas"
-          size="massive"
-        />
-      </Link>
     </div>
   );
 };

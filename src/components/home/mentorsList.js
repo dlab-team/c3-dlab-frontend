@@ -12,6 +12,7 @@ import { mentorsData } from "../../pages/home/data";
 export default function MentorsList() {
   const [mentorsToShow, setMentorsToShow] = useState([]);
   const [mentorsPerInstance, setMentorsPerInstance] = useState(4);
+  const [showBtn, setShowBtn] = useState(true);
 
   function loopWithSlice(start, end) {
     const slicedMentors = mentorsData.slice(start, end);
@@ -20,6 +21,11 @@ export default function MentorsList() {
 
   useEffect(() => {
     loopWithSlice(0, mentorsPerInstance);
+    if (mentorsPerInstance < mentorsData.length) {
+      setShowBtn(true);
+    } else {
+      setShowBtn(false);
+    }
   }, [mentorsPerInstance]);
 
   function handleShowMoreMentors() {
@@ -44,12 +50,14 @@ export default function MentorsList() {
           <Mentors mentorsToRender={mentorsToShow} />
         </Card.Group>
       </Container>
-      <Button
-        className="landingPage-btns"
-        content="Ver Más"
-        size="massive"
-        onClick={handleShowMoreMentors}
-      />
+      {showBtn && (
+        <Button
+          className="landingPage-btns"
+          content="Ver Más"
+          size="massive"
+          onClick={handleShowMoreMentors}
+        />
+      )}
     </>
   );
 }

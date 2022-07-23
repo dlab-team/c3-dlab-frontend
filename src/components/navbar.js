@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="navbar-wrapper">
       <Menu className="navbar-menu" stackable inverted secondary size="huge">
-        <Container>
+        <Container className="navbar-menu-items">
           <Link to="/">
             <MenuItem position="left">
               <Image src={logo} size="small" />

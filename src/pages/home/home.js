@@ -7,6 +7,7 @@ import Companies from "../../components/home/companies";
 import MentorsList from "../../components/home/mentorsList";
 import Testimonials from "../../components/home/testimonials";
 import Faqs from "../../components/home/faqs";
+import BackToTopBtn from "../../components/backToTopBtn";
 import "../../assets/styles.css";
 
 const Home = () => {
@@ -34,6 +35,7 @@ const Home = () => {
       <section className="faq-section">
         <Faqs />
       </section>
+      <BackToTopBtn />
     </>
   );
 };

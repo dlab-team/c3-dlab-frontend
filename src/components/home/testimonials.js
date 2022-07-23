@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { testimonialsData } from "../../pages/home/data";
 import { Image, Header, HeaderSubheader } from "semantic-ui-react";
-import SignUpBtn from "../signUpBtn";
+import SignUpBtn from "../home/signUpBtn";
 import { Link } from "react-router-dom";
 
 const Testimonials = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Statistic, Segment } from "semantic-ui-react";
-import SignUpBtn from "../signUpBtn";
+import SignUpBtn from "../home/signUpBtn";
 import { Link } from "react-router-dom";
 
 const Stats = () => {

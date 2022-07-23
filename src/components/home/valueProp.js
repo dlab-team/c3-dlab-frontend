@@ -10,10 +10,10 @@ import "../../assets/styles.css";
 import { valuePropData } from "../../pages/home/data";
 
 const renderValueProp = () => {
-  return valuePropData.map((info, index) => {
+  return valuePropData.map((info, i) => {
     return (
       <>
-        <GridColumn index={index}>
+        <GridColumn key={i}>
           <Header as="h1" icon textAlign="center">
             <Icon name={info.icon} color={info.color} />
             <Header.Content>{info.title}</Header.Content>

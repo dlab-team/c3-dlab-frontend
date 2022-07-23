@@ -9,14 +9,14 @@ import {
 } from "semantic-ui-react";
 import "../../assets/styles.css";
 import { programSteps } from "../../pages/home/data";
-import SignUpBtn from "../signUpBtn";
+import SignUpBtn from "../home/signUpBtn";
 import { Link } from "react-router-dom";
 
 const renderSteps = (programSteps) => {
-  return programSteps.map((step, index) => {
+  return programSteps.map((step, i) => {
     return (
       <>
-        <Step active index={index} style={{ backgroundColor: "#EDF1FD" }}>
+        <Step active key={i} style={{ backgroundColor: "#EDF1FD" }}>
           <StepContent>
             <StepTitle content={step.title} />
             <StepDescription content={step.subtitle} />

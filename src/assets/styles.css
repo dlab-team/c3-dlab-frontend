@@ -23,6 +23,10 @@
   background-color: #5a7eff !important;
 }
 
+.navbar-menu-items {
+  margin-top: 14px;
+}
+
 .value-prop {
   font-size: 60px;
   font-weight: 700;
@@ -46,10 +50,6 @@
   color: #fff !important;
   margin-top: 40px !important;
   transition: all 0.3s ease 0s !important;
-}
-
-.company-wrapper {
-  margin-top: 80px;
 }
 
 .stats {
@@ -126,8 +126,7 @@
   font-size: 18px !important;
   color: #fff !important;
   text-align: left !important;
-  line-height: 26px;
-  margin-top: 5px;
+  line-height: 26px !important;
 }
 
 .mailto-button-faq {
@@ -138,12 +137,14 @@
   color: #5a7eff;
 }
 
-.all-faqs-wrapper {
-  margin: 30px;
-}
-
 .section-title {
   font-size: 38px !important;
   font-weight: 600;
   line-height: 64px !important;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
