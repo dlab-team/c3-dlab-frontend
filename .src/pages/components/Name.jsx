@@ -5,7 +5,6 @@ import {Image} from 'semantic-ui-react'
 //avatar y nombre
 export default function Name() {
     const [NameUser, setListUser] = useState([])
-
     useEffect(()=>{
       const getUser= async () =>{
         const BaseURL="https://thronesapi.com/api/v2/Characters"
@@ -14,24 +13,17 @@ export default function Name() {
         setListUser(result.data)
       }
       getUser()
-      
     },[]) 
-      
-     
-
+    
   return (
     <Fragment>
       {NameUser.map((usuario, i)=>{
-
         return(
           <Fragment>
-            
             <h1 key={i}><Image src={usuario.imageUrl} avatar />Hola {usuario.fullName}!</h1>
           </Fragment>
         )
       })}
-        
     </Fragment>
-    
   )
 }

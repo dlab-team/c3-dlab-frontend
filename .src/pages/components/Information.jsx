@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Frameworks from './Frameworks'
 import Herramientas  from './Herramientas'
 import Lenguage from './Lenguage'
-import { Form, Select, Checkbox, TextArea, Header,} from 'semantic-ui-react'
+import { Form, Select, Checkbox, TextArea, Header, FormButton,} from 'semantic-ui-react'
+import ExperienciaTrabajo from './ExperienciaTrabajo'
 
 const genderOptions = [
   { key: 'm', text: 'Masculino', value: 'male' },
@@ -41,17 +42,29 @@ const EnglishOptions=[
 ]
 export default function Information()  {
 
+  const [form, setForm]=useState({})
+
+  const handleChange = e => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.checked
+    })
+  }
     return (
 
-      <div style={{ backgroundColor: "#F0F8FF" }} >
-        <Header as='h2'>Información Personal</Header>
+      <div style={{ backgroundColor: "#2078dc" }} >
+        <Header as='h2' style={{color:"white"}}>Información Personal</Header>
         <Form >
           <Form.Group widths='equal'>
             <Form.Field required>
-              <label>Nombre</label>
+              <label htmlFor='name'>Nombre</label>
               <Form.Input
+              type='text'
+              id='name'
               placeholder='Name'
               name='name'
+              value={name}
+              onChange={(e)=> setName(e.target.value)}
             />  
             </Form.Field>
             <Form.Field required>
@@ -125,7 +138,7 @@ export default function Information()  {
               <Form.Field control={Checkbox} label='Ingeniería de Datos'/> 
             </Form.Field>
           </Form.Group>
-          <Header as='h2'>Perfil Educacional</Header>
+          <Header as='h2' style={{color:"white"}}>Perfil Educacional</Header>
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Máximo nivel educacional</label>
@@ -148,42 +161,28 @@ export default function Information()  {
               /> 
             </Form.Field>
           </Form.Group>
-          <p>A continuación, indícanos 2 (dos) carreras profesionales, cursos, bootcamp o certificaciones cursadas relacionadas al desarrollo de software, diseño o TI (puedes indicarnos las más importantes o actuales):</p>
+          <p>A continuación, carreras profesionales, cursos, bootcamp o certificaciones cursadas relacionadas al desarrollo de software, diseño o TI (puedes indicarnos las más importantes o actuales):</p>
           <Form.Group widths='equal'>
             <Form.Field required>
-              <label>Nombre de la carrera, curso o bootcamp</label>
-                <Form.Field
-                  id='form-textarea-control'
+                <Form.Input
+                  label='Nombre de la carrera, curso o bootcamp'
+                  id='form-input-control'
                   control={TextArea}
                 />
-              <label>Nombre institución 1</label>
-                <Form.Field
-                  id='form-textarea-control'
-                  control={TextArea}
+                <Form.Input
+                  label='Nombre Institución'
+                  id='form-input-control'
+                  name=''
                 />
-              <label>Tipo Institución 1</label>
-                <Form.Field
-                  id='form-textarea-control'
-                  control={TextArea}
+                <Form.Input
+                  label='Tipo Institución'
+                  id=''
+                  name='(Universidad, CFT, Academia'
                 />
+              <Form.Checkbox name='importante'></Form.Checkbox>
+              <Form.Checkbox name='actual'></Form.Checkbox>
             </Form.Field>
-            <Form.Field>
-              <label>Nombre de la carrera, curso o bootcamp 2</label>
-                <Form.Field
-                  id='form-textarea-control'
-                  control={TextArea}
-                />
-              <label>Nombre institución 2</label>
-                <Form.Field
-                  id='form-textarea-control'
-                  control={TextArea}
-                />
-              <label>Tipo Institución 2</label>
-                <Form.Field
-                  id='form-textarea-control'
-                  control={TextArea}
-                />
-            </Form.Field>
+            <Form.Button onClick={addIntitute}>Agregar Institución</Form.Button>
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Field>
@@ -196,8 +195,8 @@ export default function Information()  {
                 searchInput={{ id: 'form-select-control-laboral' }}
               /> 
             </Form.Field>
-          </Form.Group>
-            <Header as='h2'>Perfil Laboral</Header>
+          </Form.Group >
+            <Header as='h2'style={{color:"white"}}>Perfil Laboral</Header>
             <p>
               Queremos conocer tus competencias y experiencia. 
               A continuación podrás elegir las competencias que conoces con respecto a 3 niveles:
@@ -232,36 +231,15 @@ export default function Information()  {
               <label>Lenguaje nivel 2</label>
             </Form.Field>
             <Lenguage></Lenguage>
-            <Form.Field>
-              <label>Bases o frameworks nivel 2</label>
+            <Form.Field label='Bases o Frameworks nivel 2'>
             </Form.Field>
             <Frameworks></Frameworks>
             <Form.Field>
               <label>Herramientas nivel 2</label>
             </Form.Field>
             <Herramientas></Herramientas>
-            <Header as='h2'>Experiencia y Trabajo</Header>
-            <Header as='h3'>¿Qué tipo de trabajo estás buscando?</Header>
-            <Form.Field>
-              <p>Indícanos tu disponibilidad laboral</p>
-              <Checkbox label={{ children: 'Full Time' }} />
-              <Checkbox label={{ children: 'Part Time' }} />
-              <Checkbox label={{ children: 'Freelancer' }} />
-            </Form.Field>
-            <Form.Field>
-              <p>Qué describe mejor tu situación actual</p>
-              <Checkbox radio label='Radio choice' />
-              <Checkbox radio label='Radio choice' />
-              <Checkbox radio label='Radio choice' />
-            </Form.Field>
-            <Form.Field>
-              <p>Cuentas con Visa de trabajo activa en: </p>
-              <Checkbox label={{ children: 'Mi pais de residencia actual' }} />
-              <Checkbox label={{ children: 'Unión Europea' }} />
-              <Checkbox label={{ children: 'Estados Unidos' }} />
-              <Checkbox label={{ children: 'Otros Países' }} />
-            </Form.Field>
-            <Form.Button content='Enviar' />
+            <ExperienciaTrabajo></ExperienciaTrabajo>
+            <Form.Button content='Enviar' primary/>
         </Form>
       </div>
     )
