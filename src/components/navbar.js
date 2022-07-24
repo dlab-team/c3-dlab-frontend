@@ -19,7 +19,7 @@ const Navbar = () => {
               Sobre Devsafio{" "}
             </MenuItem>
           </NavLink>
-          <NavLink to="/profile">
+          <NavLink to="/profileType">
             <MenuItem as="a">Perfiles</MenuItem>
           </NavLink>
           <NavLink to="/blog">
