@@ -8,10 +8,10 @@ const footer = () => {
   return (
     <footer>
         <section>
-            <img class="imageright" src={imageright}/>
+            <img className="imageright" src={imageright}/>
         </section>
         <section>
-            <img class="imageleft" src={imageleft}/>
+            <img className="imageleft" src={imageleft}/>
         </section>  
     </footer>      
   );
