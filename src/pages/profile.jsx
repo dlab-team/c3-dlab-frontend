@@ -9,6 +9,7 @@ import {
   faHive,
 } from "@fortawesome/free-solid-svg-icons";
 import Name from "../components/componentsProfile/Name";
+import Information from "../components/componentsProfile/Information";
 import { Card } from "semantic-ui-react";
 
 export function Profile() {
@@ -32,6 +33,7 @@ export function Profile() {
         {/* <Target icon={faHive} titulo="blog" response="dashboard"></Target>
         <Target icon={faBlockQuote}titulo="ver mi Perfil completo"></Target> */}
       </Card.Group>
+    <Information></Information>
     </Fragment>
   );
 }

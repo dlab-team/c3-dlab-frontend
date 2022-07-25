@@ -4,9 +4,9 @@ export default function Modal() {
   return (
     <div>            
       <Modal
-    trigger={<Button>Show Modal</Button>}
+    trigger={<Button>Ir a formulario</Button>}
     header='Recuerda!'
-    content='Debes completar el formulario de registro para estar Job .'
+    content='Debes completar el formulario de registro para estar Job Ready.'
     actions={['Snooze', { key: 'done', content: 'Done', positive: true }]}
   /></div>
   )

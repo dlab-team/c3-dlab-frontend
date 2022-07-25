@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import Frameworks from './Frameworks'
 import Herramientas  from './Herramientas'
 import Lenguage from './Lenguage'
@@ -50,7 +50,7 @@ export default function Information()  {
       [e.target.name]: e.target.checked
     })
   }
-
+  
   const addInstitute = () => {
     
   }
@@ -67,7 +67,6 @@ export default function Information()  {
               id='name'
               placeholder='Name'
               name='name'
-              value={name}
               onChange={(e)=> setName(e.target.value)}
             />  
             </Form.Field>
