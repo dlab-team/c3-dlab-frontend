@@ -9,10 +9,12 @@ import Testimonials from "../../components/home/testimonials";
 import Faqs from "../../components/home/faqs";
 import BackToTopBtn from "../../components/backToTopBtn";
 import "../../assets/styles.css";
+import Navbar from "../../components/navbar";
 
 const Home = () => {
   return (
     <>
+      <Navbar />
       <Header />
       <section className="valueProp-section">
         <ValueProp />

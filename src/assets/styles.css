@@ -1,3 +1,4 @@
+/* Styles for home and its components */
 .sectional {
   margin-bottom: 10px;
   background-size: cover;
@@ -147,4 +148,39 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+/* Styles for dashboard, profile, and its components */
+
+.user-stats-wrapper {
+  background-color: #2078dc !important;
+  border-radius: 15px !important;
+  border: none !important;
+  padding: 10px !important;
+  line-height: 40px !important;
+}
+
+.dashboard-stat-title {
+  display: inline-flex !important;
+  color: #fff !important;
+  padding: 10px !important;
+  font-size: 18px;
+}
+
+.dashboard-stat {
+  font-size: 24px !important;
+  color: #fff !important;
+}
+
+.dashboard-stat-wrapper,
+.dashboard-wrapper {
+  margin: 20px !important;
+}
+
+.profile-form-wrapper {
+  color: black;
+  background-color: #eff3ff;
+  margin: 20px;
+  border-radius: 12px;
+  padding: 30px;
 }
