@@ -49,7 +49,7 @@ const Signup = () => {
 					console.log('Formulario enviado');
                     console.log(valores) 
 					cambiarFormularioEnviado(true);
-					setTimeout(() => cambiarFormularioEnviado(false), 4000);
+					setTimeout(() => cambiarFormularioEnviado(false), 5000);
 				}}
 			>
 				{( {errors} ) => (
@@ -90,7 +90,11 @@ const Signup = () => {
 
 
 						<button type="submit">Enviar</button>
-						{formularioEnviado && <p className="exito">Formulario enviado con exito!</p>}
+						{formularioEnviado &&  <div class="ui success message"> <i class="close icon"></i> 
+                        <div className='header'>
+                            Tu registro fue exitoso.
+                        </div>
+                        </div>}
 					</Form>
 				)}
 
