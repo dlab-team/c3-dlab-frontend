@@ -35,19 +35,19 @@ const Signup = () => {
 
 				onSubmit={(valores, {resetForm}) => {
 					resetForm();
-                      axios.post('/user', {
+                      axios.post('http://localhost:8080/api/1/users/signup/', {
                       correo: valores.correo,
                       password: valores.password,
                       })
                       .then(function (response) {
-                        console.log(response);
+                        console.log("respuesta ok",response);
                       })
                       .catch(function (error) {
-                        console.log(error);
+                        console.log("error, no funcionó",error);
                       });
 
 					console.log('Formulario enviado');
-                    console.log(valores)
+                    console.log(valores) 
 					cambiarFormularioEnviado(true);
 					setTimeout(() => cambiarFormularioEnviado(false), 4000);
 				}}
