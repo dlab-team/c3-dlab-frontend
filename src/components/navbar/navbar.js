@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 
 const navbar = () => {
     return ( 
-             <navbar>
+        <navbar>
             <div className="ui inverted segment blue">
                 <div className="ui inverted secondary menu">
                     <Link  className="item" to="/home" > Home </Link> 

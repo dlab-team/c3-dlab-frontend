@@ -21,17 +21,17 @@ const Signup = () => {
                     .email("Correo no valido")
                     .min(3, "Faltan caracteres")
                     .required("Por favor, ingresa un correo electrónico válido"),
-                    
+
                     password: Yup.string()
-                    .equals([Yup.ref('confirmPassword'), null], "Las contraseñas no son iguales")
-                    .min(8, "La clave debe contener más de 8 caracteres")
+                    .equals([Yup.ref('confirmPassword'), null], "las contraseñas no son iguales")
+                    .min(8, "La clave debe contener más de 8 caractes")
                     .required("Por favor ingrese una contraseña"),
-        
+
                     confirmPassword: Yup.string()
-                    .equals([Yup.ref('password'), null], "Las contraseñas no son iguales")
-                    .min(8, "La clave debe contener más de 8 caracteres")
+                    .equals([Yup.ref('password'), null], "las contraseñas no son iguales")
+                    .min(8, "La clave debe contener más de 8 caractes")
                     .required("Por favor ingrese la confirmación de la contraseña"),
-                })}
+                        })}
 
 				onSubmit={(valores, {resetForm}) => {
 					resetForm();

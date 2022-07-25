@@ -9,7 +9,8 @@
 }
 
 .formulario {
-	max-width: 400px;
+	max-width: 300px;
+	min-width: 350px;
     min-height: 500px;
 	background: #fff;
 	border-radius: 5px;
@@ -72,7 +73,8 @@
 
 .formulario .exito {
 	text-align: center;
-	font-size: 14px;
+	font-weight: bold;
+	font-size: 16px;
 	padding-top: 20px;
 	color: #02a802;
 }
