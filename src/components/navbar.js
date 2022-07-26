@@ -4,8 +4,6 @@ import logo from "../assets/img/DEV LOGOTIPO WHITE.png";
 import "../assets/styles.css";
 import { NavLink, Link } from "react-router-dom";
 
-//ruta profile indicada bajo el boton "ingresa" (linea 36) es temporal. cuando esa vista este lista se debe cambiar la ruta a login ya que el profile viene posteriormente en el flujo
-
 const Navbar = () => {
   return (
     <div className="navbar-wrapper">
@@ -33,7 +31,7 @@ const Navbar = () => {
                 Regístrate
               </Button>
             </NavLink>
-            <NavLink to="/dashboard">
+            <NavLink to="/login">
               <Button as="a" inverted primary style={{ marginLeft: "0.5em" }}>
                 Ingresa
               </Button>
