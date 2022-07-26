@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
+/* Styles for home and its components */
+
 .sectional {
   margin-bottom: 10px;
   background-size: cover;
@@ -20,7 +24,7 @@
 }
 
 .navbar-menu {
-  background-color: #5a7eff !important;
+  background-color: #2078dc !important;
 }
 
 .navbar-menu-items {
@@ -53,7 +57,7 @@
 }
 
 .stats {
-  background-color: #5a7eff !important;
+  background-color: #2078dc !important;
   text-align: center !important;
 }
 
@@ -147,4 +151,168 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+/* Styles for dashboard, profile, and its components */
+
+.user-stats-wrapper {
+  background-color: #2078dc !important;
+  border-radius: 15px !important;
+  border: none !important;
+  padding: 10px !important;
+  line-height: 40px !important;
+}
+
+.dashboard-stat-title {
+  display: inline-flex !important;
+  color: #fff !important;
+  padding: 10px !important;
+  font-size: 18px;
+}
+
+.dashboard-stat {
+  font-size: 24px !important;
+  color: #fff !important;
+}
+
+.dashboard-stat-wrapper,
+.dashboard-wrapper {
+  margin: 20px !important;
+}
+
+.profile-form-wrapper {
+  color: black;
+  background-color: #eff3ff;
+  margin: 20px;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+/* Styles for signUpForm y Login Form */
+
+/* .contenedor {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+} */
+
+.signup-greeting,
+.login-greeting {
+  color: #2078dc;
+  text-align: center;
+}
+
+.signup-greeting-message {
+  text-align: justify;
+}
+
+.signup-terms {
+  margin-top: 10px;
+  text-align: center;
+  font-size: small;
+}
+
+.formulario {
+  max-width: 300px;
+  min-width: 350px;
+  min-height: 500px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 2%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 20px auto;
+}
+
+.formulario > div {
+  margin-bottom: 20px;
+}
+
+.formulario label {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.formulario input,
+.formulario textarea {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.formulario .error {
+  color: #e92b2d;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.formulario button[type="submit"] {
+  display: block;
+  background: #2185d0;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease all;
+}
+
+.signup-btn,
+.login-btn {
+  color: #fff !important;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+/* Styles footer */
+
+footer {
+  margin-top: 2%;
+  display: flex;
+  width: 100%;
+  height: 120px;
+  /* background-color: #2185d0; */
+  background-color: #2078dc;
+  bottom: 0;
+}
+
+footer section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+footer section .imageleft {
+  width: 200px;
+  height: 34px;
+  margin-right: 15%;
+}
+
+footer section .imageright {
+  width: 75px;
+  height: 80px;
 }
