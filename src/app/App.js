@@ -1,21 +1,19 @@
 import "./App.css";
 import Home from "../pages/home/home";
-import Navbar from "../components/navbar";
 import About from "../pages/about";
 import Blog from "../pages/blog";
 import Login from "../pages/login";
-import Profile from "../pages/profile";
 import ProfileType from "../pages/profileType";
 import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
-import Register from "../pages/register";
+import Dashboard from "../pages/profile/Dashboard";
+import ProfileForm from "../components/profile/ProfileForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />}></Route>
@@ -23,9 +21,9 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup-btn" element={<SignUpBtn />}></Route>
         <Route path="/signup-form" element={<SignUpForm />}></Route>
-        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/profile-form" element={<ProfileForm />}></Route>
         <Route path="/profileType" element={<ProfileType />}></Route>
-        <Route path="/register" element={<Register />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
     </BrowserRouter>
   );

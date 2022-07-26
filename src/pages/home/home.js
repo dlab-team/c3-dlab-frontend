@@ -9,10 +9,13 @@ import Testimonials from "../../components/home/testimonials";
 import Faqs from "../../components/home/faqs";
 import BackToTopBtn from "../../components/backToTopBtn";
 import "../../assets/styles.css";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
 
 const Home = () => {
   return (
     <>
+      <Navbar />
       <Header />
       <section className="valueProp-section">
         <ValueProp />
@@ -29,12 +32,13 @@ const Home = () => {
       <section className="mentors-section">
         <MentorsList />
       </section>
-      <section>
+      <section className="testimonials-section">
         <Testimonials />
       </section>
       <section className="faq-section">
         <Faqs />
       </section>
+      <Footer />
       <BackToTopBtn />
     </>
   );
