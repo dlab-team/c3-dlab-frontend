@@ -8,7 +8,9 @@ import Profile from "../pages/profile";
 import ProfileType from "../pages/profileType";
 import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
+import Register from "../pages/register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Route path="/signup-form" element={<SignUpForm />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/profileType" element={<ProfileType />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
     </BrowserRouter>
   );
