@@ -51,7 +51,7 @@ const SignUpForm = () => {
             })
             .then(function (response) {
               if (response.data.success === true) {
-                navigate("/dashboard", { replace: true });
+                setTimeout(() => navigate("/Dashboard", { replace: true }) , 2000)
               }
             })
             .catch(function (error) {
@@ -61,7 +61,7 @@ const SignUpForm = () => {
           console.log("Formulario enviado");
           console.log(valores);
           cambiarFormularioEnviado(true);
-          setTimeout(() => cambiarFormularioEnviado(false), 5000);
+          setTimeout(() => cambiarFormularioEnviado(false), 2000);
         }}
       >
         {({ errors }) => (
@@ -115,7 +115,7 @@ const SignUpForm = () => {
               <div class="ui success message">
                 {" "}
                 <i class="close icon"></i>
-                <div className="header">Tu registro fue exitoso.</div>
+                <div className="header">Tu registro fue exitoso</div>
               </div>
             )}
             <div className="signup-terms">
