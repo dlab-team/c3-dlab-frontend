@@ -1,24 +1,123 @@
 import React from 'react'
-import { Container,Checkbox } from 'semantic-ui-react'
+import { Container,Checkbox, Form } from 'semantic-ui-react'
+import Niveles from './Niveles'
 
 export default function Lenguage() {
   return (
     <Container> 
-        <Checkbox label={{ children: 'Python' }} />
-        <Checkbox label={{ children: 'JavaScript' }} />
-        <Checkbox label={{ children: 'HTML/CSS' }} />
-        <Checkbox label={{ children: 'Java' }} />
-        <Checkbox label={{ children: 'PHP' }} />
-        <Checkbox label={{ children: 'Ruby' }} />
-        <Checkbox label={{ children: 'Scala' }} />
-        <Checkbox label={{ children: 'Perl y/o Go' }} />
-        <Checkbox label={{ children: 'C/C++' }} />
-        <Checkbox label={{ children: 'Kotlin' }} />
-        <Checkbox label={{ children: 'C#' }} />
-        <Checkbox label={{ children: 'TypeScript' }} />
-        <Checkbox label={{ children: 'Assembly' }} />
-        <Checkbox label={{ children: 'R' }} />
-        <Checkbox label={{ children: 'Go' }} />
-        <Checkbox label={{ children: 'Bash/Shell' }} />
+      <Form>
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Python' }}>p
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>               
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'JavaScript' }}>p
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>    
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'HTML/CSS' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Java' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'PHP' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Ruby' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Scala' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Perl y/o Go' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'C/C++' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Kotlin' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'TypeScript' }}>p
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'C#' }}>p
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Assembly' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'R' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'GO' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Bash/Shell' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        </Form>
     </Container>  )
 }

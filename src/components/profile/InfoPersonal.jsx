@@ -1,10 +1,38 @@
 import React from 'react'
-import { Container, Form, Header} from 'semantic-ui-react'
+import { Container, Form, Header, Checkbox, Select} from 'semantic-ui-react'
 
+const genderOptions = [
+  { key: "m", text: "Masculino", value: "male" },
+  { key: "f", text: "Femenino", value: "female" },
+  { key: "o", text: "Otro", value: "other" },
+];
+
+const laboralOptions = [
+  {
+    key: "c",
+    text: "Cesante, busco empleo en TI por primera vez.",
+    value: "Cesante, busco empleo en TI por primera vez.",
+  },
+  {
+    key: "c.",
+    text: "Cesante, ya he trabajado antes en TI.",
+    value: "Cesante, ya he trabajado antes en TI.",
+  },
+  {
+    key: "t",
+    text: "Tengo trabajo en TI, pero busco otro.",
+    value: "Tengo trabajo en TI, pero busco otro.",
+  },
+  {
+    key: "t.",
+    text: "Tengo trabajo (en otras áreas), pero busco en TI.",
+    value: "Tengo trabajo (en otras áreas), pero busco en TI.",
+  },
+];
 export default function InfoPersonal() {
   return (
     <Container>
-        <Header as='h2' style={{color:"white"}}>Información Personal</Header>
+        <Header as='h2' >Información Personal</Header>
         <Form>
           <Form.Group widths='equal'>
             <Form.Field required>
@@ -13,7 +41,7 @@ export default function InfoPersonal() {
               type='text'
               id='name'
               placeholder='Name'
-              onChange={(e)=> setForm(e.target.value)}
+              //onChange={(e)=> setForm(e.target.value)}
             />  
             </Form.Field>
             <Form.Field required>
@@ -69,6 +97,7 @@ export default function InfoPersonal() {
               />       
             </Form.Field>        
           </Form.Group>
+          <br />
           <Form.Group widths= 'equal'>
             <Form.Field require>
               <label>A cuáles cargos te gustaría optar</label>
