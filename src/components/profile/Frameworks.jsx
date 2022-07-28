@@ -1,32 +1,180 @@
 import React from 'react'
-import { Checkbox, Container} from 'semantic-ui-react'
+import { Form, Container, Header} from 'semantic-ui-react'
+import Niveles from './Niveles'
+
 export default function Frameworks() {
   return (
     <Container>
-        <Checkbox label={{ children: 'Oracle' }} />
-            <Checkbox label={{ children: 'Cassandra' }} />
-            <Checkbox label={{ children: 'SQLite' }} />
-            <Checkbox label={{ children: 'Redis' }} />
-            <Checkbox label={{ children: 'MongoDB' }} />
-            <Checkbox label={{ children: 'PostgreSQL' }} />
-            <Checkbox label={{ children: 'MySQL' }} />
-            <Checkbox label={{ children: 'Firebase Realtime Database' }} />
-            <Checkbox label={{ children: 'MariaDB' }} />
-            <Checkbox label={{ children: 'Microsoft SQL Server' }} />
-            <Checkbox label={{ children: 'JQuery' }} />
-            <Checkbox label={{ children: 'React' }} />
-            <Checkbox label={{ children: 'Spring' }} />
-            <Checkbox label={{ children: 'Angular' }} />
-            <Checkbox label={{ children: 'Vue.js' }} />
-            <Checkbox label={{ children: 'Laravel' }} />
-            <Checkbox label={{ children: 'Django' }} />
-            <Checkbox label={{ children: 'Ruby On Rails' }} />
-            <Checkbox label={{ children: 'Flask' }} />
-            <Checkbox label={{ children: 'Express.js' }} />
-            <Checkbox label={{ children: 'ASP.NET o ASP.NETCore' }} />
-            <Checkbox label={{ children: 'FastAPI' }} />
-            <Checkbox label={{ children: '.NET' }} />
-            <Checkbox label={{ children: 'Node.js' }} />
+       <Form>
+         <Form.Group widths='equal'>  
+            <Form.Field label={{ children: 'Oracle' }}>
+            </Form.Field>
+              <Form.Field>
+              <Niveles/>            
+            </Form.Field>
+          </Form.Group> 
+         <Form.Group widths='equal'>  
+            <Form.Field label={{ children: 'Cassandra' }}>
+            </Form.Field>
+              <Form.Field>
+              <Niveles/>            
+            </Form.Field>
+          </Form.Group> 
+           <Form.Group widths='equal'>  
+            <Form.Field label={{ children: 'SQLite' }}>
+            </Form.Field>
+              <Form.Field>
+              <Niveles/>            
+            </Form.Field>
+          </Form.Group> 
+          <Form.Group widths='equal'>  
+            <Form.Field label={{ children: 'Redis' }}>
+            </Form.Field>
+              <Form.Field>
+              <Niveles/>            
+            </Form.Field>
+          </Form.Group> 
+          <Form.Group widths='equal'>  
+            <Form.Field label={{ children: 'MongoDB' }}>
+            </Form.Field>
+              <Form.Field>
+              <Niveles/>            
+            </Form.Field>
+          </Form.Group> 
+          <Form.Group widths='equal'>  
+            <Form.Field label={{ children: 'PostgreSQL' }}>
+            </Form.Field>
+              <Form.Field>
+              <Niveles/>            
+            </Form.Field>
+          </Form.Group> 
+          <Form.Group widths='equal'>  
+            <Form.Field label={{ children: 'MySQL' }}>
+            </Form.Field>
+              <Form.Field>
+              <Niveles/>            
+            </Form.Field>
+          </Form.Group> 
+          <Form.Group widths='equal'>  
+          <Form.Field label={{ children: 'Firebase Realtime Database' }}>
+          </Form.Field>
+            <Form.Field>
+            <Niveles/>            
+          </Form.Field>
+          </Form.Group>        
+        <Form.Group widths='equal'>  
+         <Form.Field label={{ children: 'MariaDB' }}>
+         </Form.Field>
+          <Form.Field>
+           <Niveles/>            
+         </Form.Field>
+        </Form.Group>         
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Microsoft SQL Server' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>    
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'JQuery' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'React' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Spring' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Angular' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Vue.js' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Django' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Laravel' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Ruby On Rails' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Flask' }}>p
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Express.js' }}>p
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'ASP.NET o ASP.NETCore' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'FastAPI' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'NET' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        <Form.Group widths='equal'>
+        <Form.Field label={{ children: 'Node.js' }}>
+        </Form.Field>
+        <Form.Field>
+          <Niveles/>            
+        </Form.Field>
+        </Form.Group>  
+        </Form>
     </Container>
   )
 }

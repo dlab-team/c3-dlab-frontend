@@ -10,6 +10,7 @@ import Dashboard from "../pages/profile/Dashboard";
 import ProfileForm from "../components/profile/ProfileForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+
 function App() {
   return (
     <BrowserRouter>
