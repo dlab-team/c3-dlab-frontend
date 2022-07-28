@@ -101,9 +101,9 @@ const SignUpForm = () => {
                 placeholder="Confirmar Contraseña"
               />
               <ErrorMessage
-                name="password"
+                name="confirmPassword"
                 component={() => (
-                  <div className="error">{errors.confirmPassword}</div>
+                <div className="error">{errors.confirmPassword}</div>
                 )}
               />
             </div>
