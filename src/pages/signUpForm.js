@@ -20,6 +20,7 @@ const SignUpForm = () => {
           password: "",
           confirmPassword: "",
         }}
+        
         validationSchema={Yup.object().shape({
           correo: Yup.string()
             .email("Correo no valido")
@@ -29,21 +30,19 @@ const SignUpForm = () => {
           password: Yup.string()
             .equals(
               [Yup.ref("confirmPassword"), null],
-              "las contraseñas no son iguales"
-            )
+              "las contraseñas no son iguales")
             .min(8, "La clave debe contener más de 8 caractes")
             .required("Por favor ingrese una contraseña"),
 
           confirmPassword: Yup.string()
             .equals(
               [Yup.ref("password"), null],
-              "las contraseñas no son iguales"
-            )
+              "las contraseñas no son iguales")
             .min(8, "La clave debe contener más de 8 caractes")
             .required("Por favor ingrese la confirmación de la contraseña"),
         })}
+
         onSubmit={(valores, { resetForm }) => {
-          resetForm();
           axios
             .post("http://localhost:8080/api/1/users/signup/", {
               email: valores.correo,
@@ -51,17 +50,18 @@ const SignUpForm = () => {
             })
             .then(function (response) {
               if (response.data.success === true) {
-                setTimeout(() => navigate("/Dashboard", { replace: true }) , 2000)
+                console.log("ok",response.data)
+                cambiarFormularioEnviado(true);
+                setTimeout(() => cambiarFormularioEnviado(false), 2000); 
+                resetForm();
+                setTimeout(() => navigate("/profile-form", { replace: true }) , 2000)
               }
             })
             .catch(function (error) {
               alert(error.response.data.message);
+              console.log(error)
             });
-
-          console.log("Formulario enviado");
-          console.log(valores);
-          cambiarFormularioEnviado(true);
-          setTimeout(() => cambiarFormularioEnviado(false), 2000);
+          console.log("Valores onSubmit",valores);
         }}
       >
         {({ errors }) => (
