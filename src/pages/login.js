@@ -38,18 +38,21 @@ const Login2 = () => {
             })
             .then(function (response) {
               if (response.data.success === true) {
-                navigate("/dashboard", { replace: true });
+                console.log("ok", response.data);
+                cambiarFormularioEnviado(true);
+                setTimeout(() => cambiarFormularioEnviado(false), 2000);
+                resetForm();
+                setTimeout(
+                  () => navigate("/dashboard", { replace: true }),
+                  2000
+                );
               }
             })
             .catch(function (error) {
               alert(error.response.data.message);
-              console.log("error:", error.response.data.message);
+              console.log("error login:", error.response.data.message);
             });
-
-          console.log("Formulario login enviado");
-          console.log("datos ingresados por usuario:", values);
-          cambiarFormularioEnviado(true);
-          setTimeout(() => cambiarFormularioEnviado(false), 5000);
+          console.log("Valores onSubmit", values);
         }}
       >
         {({ errors }) => (
