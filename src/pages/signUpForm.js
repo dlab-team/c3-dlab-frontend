@@ -31,14 +31,14 @@ const SignUpForm = () => {
             .equals(
               [Yup.ref("confirmPassword"), null],
               "las contraseñas no son iguales")
-            .min(8, "La clave debe contener más de 8 caractes")
+            .min(8, "La clave debe contener al menos 8 caracteres")
             .required("Por favor ingrese una contraseña"),
 
           confirmPassword: Yup.string()
             .equals(
               [Yup.ref("password"), null],
               "las contraseñas no son iguales")
-            .min(8, "La clave debe contener más de 8 caractes")
+            .min(8, "La clave debe contener al menos 8 caracteres")
             .required("Por favor ingrese la confirmación de la contraseña"),
         })}
 
