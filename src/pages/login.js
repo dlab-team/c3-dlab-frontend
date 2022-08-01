@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
-import { useFormik } from "formik";
+import { replace, useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "../assets/styles.css";
 import Navbar from "../components/navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       // initial values for the form
@@ -21,25 +22,27 @@ function Login() {
         .required("El email es requerido"),
       password: Yup.string() // validation for the password field
         .required("La contraseña es requerida")
-        .min(8, "La contraseña debe tener 8 caracteres minimo")
-        .matches(
+        .min(8, "La contraseña debe tener 8 caracteres minimo"),
+      /* .matches(
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
           "la contraseña debe tener al menos una letra mayuscula, una minuscula, un numero y un caracter especial"
-        ),
+        ), */
     }),
 
     onSubmit: (forminfo, { resetForm }) => {
       resetForm();
       axios
         .post("http://localhost:8080/api/1/users/signin/", {
-          correo: forminfo.correo,
+          email: forminfo.email,
           password: forminfo.password,
         })
         .then(function (response) {
-          console.log("respuesta ok", response);
+          if (response.data.success === true) {
+            navigate("/dashboard", { replace: true });
+          }
         })
         .catch(function (error) {
-          console.log("error, no funcionó", error);
+          alert(error.response.data.message);
         });
       console.log("Formulario enviado");
       console.log(forminfo);

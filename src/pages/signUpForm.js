@@ -4,9 +4,12 @@ import * as Yup from "yup";
 import axios from "axios";
 import Navbar from "../components/navbar";
 import { Button } from "semantic-ui-react";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+  const [errorRegistro, setErrorRegistro] = useState("");
+  const navigate = useNavigate();
 
   return (
     <>
@@ -43,14 +46,16 @@ const SignUpForm = () => {
           resetForm();
           axios
             .post("http://localhost:8080/api/1/users/signup/", {
-              correo: valores.correo,
+              email: valores.correo,
               password: valores.password,
             })
             .then(function (response) {
-              console.log("respuesta ok", response);
+              if (response.data.success === true) {
+                navigate("/dashboard", { replace: true });
+              }
             })
             .catch(function (error) {
-              console.log("error, no funcionó", error);
+              alert(error.response.data.message);
             });
 
           console.log("Formulario enviado");
