@@ -54,7 +54,7 @@ const SignUpForm = () => {
                 cambiarFormularioEnviado(true);
                 setTimeout(() => cambiarFormularioEnviado(false), 2000); 
                 resetForm();
-                setTimeout(() => navigate("/profile-form", { replace: true }) , 2000)
+                setTimeout(() => navigate("/dashboard", { replace: true }) , 2000)
               }
             })
             .catch(function (error) {
