@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container,Checkbox, Form } from 'semantic-ui-react'
+import { Container, Form } from 'semantic-ui-react'
 import Niveles from './Niveles'
 
 export default function Lenguage() {

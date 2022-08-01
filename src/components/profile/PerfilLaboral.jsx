@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
-import {Form, Header, Input,} from 'semantic-ui-react'
-import Lenguage from './Lenguage'
-import Frameworks from './Frameworks'
-import Herramientas from './Herramientas'
+import { Form, Header, Input,} from 'semantic-ui-react'
+import Acordeon from './Acordeon'
 
 export default function PerfilLaboral() {
   return (
@@ -30,17 +28,8 @@ export default function PerfilLaboral() {
           práctica durante el proceso de selección
         </p>
         <Form.Field>
-          <label>Lenguajes</label>
+          <Acordeon></Acordeon>
         </Form.Field>
-        <Lenguage/>
-        <Form.Field>
-          <label>Bases o frameworks</label>
-        </Form.Field>
-        <Frameworks></Frameworks>
-        <Form.Field>
-          <label>Herramientas </label>
-        </Form.Field>
-        <Herramientas></Herramientas>
         <Input label='Alguna otra tecnologìa que consideres importante agregar?' />
         <br />
     </Fragment>

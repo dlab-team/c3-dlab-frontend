@@ -1,5 +1,7 @@
 import React from 'react'
-import { Container, Form, Header, Checkbox, Select} from 'semantic-ui-react'
+import { useState } from 'react';
+import { useFormik } from 'formik';
+import { Container, Form, Header, Checkbox, Select, Button} from 'semantic-ui-react'
 
 const genderOptions = [
   { key: "m", text: "Masculino", value: "male" },
@@ -30,49 +32,87 @@ const laboralOptions = [
   },
 ];
 export default function InfoPersonal() {
+  const formik= useFormik({
+    initialValues:{
+      nombre:'',
+      apellido:'',
+      email:'',
+      telefono:'',
+      ciudad:'',
+      pais:''
+    },
+    onSubmit:(values)=>{
+      console.log(JSON.stringify(values))
+    }
+  })
+
   return (
     <Container>
         <Header as='h2' >Información Personal</Header>
-        <Form>
+        <Form onSubmit={formik.handleSubmit}>
           <Form.Group widths='equal'>
             <Form.Field required>
               <label htmlFor='name'>Nombre</label>
               <Form.Input
               type='text'
               id='name'
-              placeholder='Name'
-              //onChange={(e)=> setForm(e.target.value)}
+              name='name'
+              value={formik.values.nombre}
+              onChange={formik.handleChange}
             />  
             </Form.Field>
             <Form.Field required>
-              <label>Apellido</label>
+              <label htmlFor='lastname'>Apellido</label>
               <Form.Input
-              placeholder='Apellido'
-              name='LastName'
+              type='text'
+              id='lastname'
+              name='lastname'
+              value={formik.values.apellido}
+              onChange={formik.handleChange}
             />
             </Form.Field>
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Field required>
-              <label>Email</label>
+              <label htmlFor='email'>Email</label>
               <Form.Input
-              placeholder='Email'
+              type='text'
+              id='email'
+              name='email'
+              value={formik.values.email}
+              onChange={formik.handleChange}
             />
             </Form.Field>   
             <Form.Field required>
               <label>Número de teléfono Móvil</label>
               <Form.Input
-              placeholder='Numero de teléfono'/>
+              type='text'
+              id='telefono'
+              name='telefono'
+              value={formik.values.telefono}
+              onChange={formik.handleChange}/>
             </Form.Field>               
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Field required>
               <label>Ciudad</label>
-            <Form.Input/>
+            <Form.Input
+              type='text'
+              id='ciudad'
+              name='ciudad'
+              value={formik.values.ciudad}
+              onChange={formik.handleChange}
+              />
             </Form.Field>
             <Form.Field required>
               <label>País/Región</label>
-              <Form.Input/>
+              <Form.Input
+              type='text'
+              id='pais'
+              name='pais'
+              value={formik.values.pais}
+              onChange={formik.handleChange}
+              />
             </Form.Field>                  
           </Form.Group>
           <Form.Group widths='equal'>
@@ -116,6 +156,8 @@ export default function InfoPersonal() {
               <Form.Field control={Checkbox} label='Ingeniería de Datos'/> 
             </Form.Field>
           </Form.Group>
+          
+          <Form.Button type="submit" content="Enviar" primary />
         </Form>
     </Container>
   )

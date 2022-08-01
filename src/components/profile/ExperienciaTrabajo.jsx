@@ -15,38 +15,49 @@ export default function ExperienciaTrabajo() {
     <Form >
       <Header as='h2' >Experiencia y Trabajo</Header>
         <Form.Input 
-          label='URL CV*' 
+          required
+          label='URL CV' 
           name='Subir como documento público en Google Drive o similar' />
-        <Form.Input label='URL de LinkedIn*' />
-        <Form.Input label='URL Github'/>
-        <Form.Input label='URL Portafolio/Sitio Web'/>
+        <Form.Input 
+          required
+          label='URL de LinkedIn' />
+        <Form.Input 
+          required
+          label='URL Github'/>
+        <Form.Input 
+          required
+          label='URL Portafolio/Sitio Web'/>
         <Form.Input label='Explícanos en detalle algún proyecto que te enorgullece. Describe de que trató, tu rol en el proyecto y por qué lo elegiste (por ejemplo: arquitectura de desarrollo, equipo y tu rol en el proyecto, tecnologías utilizadas, dificultades y soluciones, funcionalidades, objetivos, etc. Recuerda NO esperamos link, sino explicación)'/>
-        <Header>Selecciona 3 habilidades blandas que te representen:*</Header>
+        <Header>Selecciona 3 habilidades blandas que te representen:</Header>
         <Form.Group inline>
-          <Form.Checkbox radio label='Líder'/>
-          <Form.Checkbox radio label='Resiliente/Perseverante' />
-          <Form.Checkbox radio label='Comunicación/Sociable' />         
-          <Form.Checkbox radio label='Responsable' />
-        </Form.Group>
-        <Form.Group inline>
-          <Form.Checkbox radio label='Colaborativo/Empatía' />
-          <Form.Checkbox radio label='Aprendizaje ágil/Autónomo' />
-          <Form.Checkbox radio label='Flexible/Adaptable' />
-          <Form.Checkbox radio label='Productividad/Iniciativa' />
-        </Form.Group>
-        <Form.Group>
-          <Form.Checkbox radio label='Innovador/Curioso' />
-          <Form.Checkbox radio label='Negociación' />
-          <Form.Checkbox radio label='Resolución de problemas' />          
+          <Form.Group grouped>
+            <Form.Checkbox radio label='Líder'/>
+            <Form.Checkbox radio label='Resiliente/Perseverante' />
+            <Form.Checkbox radio label='Comunicación/Sociable' />         
+            <Form.Checkbox radio label='Responsable' />
+          </Form.Group>
+          <Form.Group grouped>
+            <Form.Checkbox radio label='Colaborativo/Empatía' />
+            <Form.Checkbox radio label='Aprendizaje ágil/Autónomo' />
+            <Form.Checkbox radio label='Flexible/Adaptable' />
+            <Form.Checkbox radio label='Productividad/Iniciativa' />
+          </Form.Group>
+          <Form.Group grouped>
+            <Form.Checkbox radio label='Innovador/Curioso' />
+            <Form.Checkbox radio label='Negociación' />
+            <Form.Checkbox radio label='Resolución de problemas' />          
+          </Form.Group>          
         </Form.Group>
         <br />
         <Form.Select 
-          label='¿Cuántos años de experiencia laboral posees en desarrollo de software y/o diseño?*'
+          required
+          label='¿Cuántos años de experiencia laboral posees en desarrollo de software y/o diseño?'
           placeholder='Escoge opción'
           options={experienceOptions} />
         <Header as='h3'>¿Qué tipo de trabajo estás buscando?</Header>    
         <Form.Input 
-          label='Déjanos una breve descripción con respecto tu trabajo ideal*'
+          required
+          label='Déjanos una breve descripción con respecto tu trabajo ideal'
           name='string' />
         <br />
         <Form.Field>

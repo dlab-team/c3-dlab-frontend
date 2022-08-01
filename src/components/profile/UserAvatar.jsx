@@ -8,7 +8,7 @@ export default function UserAvatar() {
 
   useEffect(() => {
     const getUser = async () => {
-      const BaseURL = "https://thronesapi.com/api/v2/Characters";
+      const BaseURL = "http://jsonplaceholder.typicode.com/users/5";
       const result = await axios.get(BaseURL);
       console.log(result.data);
       setListUser(result.data);
