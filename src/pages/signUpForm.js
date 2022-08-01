@@ -20,6 +20,7 @@ const SignUpForm = () => {
           password: "",
           confirmPassword: "",
         }}
+        
         validationSchema={Yup.object().shape({
           correo: Yup.string()
             .email("Correo no valido")
@@ -29,21 +30,19 @@ const SignUpForm = () => {
           password: Yup.string()
             .equals(
               [Yup.ref("confirmPassword"), null],
-              "las contraseñas no son iguales"
-            )
-            .min(8, "La clave debe contener más de 8 caractes")
+              "las contraseñas no son iguales")
+            .min(8, "La clave debe contener al menos 8 caracteres")
             .required("Por favor ingrese una contraseña"),
 
           confirmPassword: Yup.string()
             .equals(
               [Yup.ref("password"), null],
-              "las contraseñas no son iguales"
-            )
-            .min(8, "La clave debe contener más de 8 caractes")
+              "las contraseñas no son iguales")
+            .min(8, "La clave debe contener al menos 8 caracteres")
             .required("Por favor ingrese la confirmación de la contraseña"),
         })}
+
         onSubmit={(valores, { resetForm }) => {
-          resetForm();
           axios
             .post("http://localhost:8080/api/1/users/signup/", {
               email: valores.correo,
@@ -51,17 +50,18 @@ const SignUpForm = () => {
             })
             .then(function (response) {
               if (response.data.success === true) {
-                navigate("/dashboard", { replace: true });
+                console.log("ok",response.data)
+                cambiarFormularioEnviado(true);
+                setTimeout(() => cambiarFormularioEnviado(false), 2000); 
+                resetForm();
+                setTimeout(() => navigate("/dashboard", { replace: true }) , 2000)
               }
             })
             .catch(function (error) {
               alert(error.response.data.message);
+              console.log(error)
             });
-
-          console.log("Formulario enviado");
-          console.log(valores);
-          cambiarFormularioEnviado(true);
-          setTimeout(() => cambiarFormularioEnviado(false), 5000);
+          console.log("Valores onSubmit",valores);
         }}
       >
         {({ errors }) => (
@@ -101,9 +101,9 @@ const SignUpForm = () => {
                 placeholder="Confirmar Contraseña"
               />
               <ErrorMessage
-                name="password"
+                name="confirmPassword"
                 component={() => (
-                  <div className="error">{errors.confirmPassword}</div>
+                <div className="error">{errors.confirmPassword}</div>
                 )}
               />
             </div>
@@ -115,7 +115,7 @@ const SignUpForm = () => {
               <div class="ui success message">
                 {" "}
                 <i class="close icon"></i>
-                <div className="header">Tu registro fue exitoso.</div>
+                <div className="header">Tu registro fue exitoso</div>
               </div>
             )}
             <div className="signup-terms">
