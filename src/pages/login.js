@@ -6,7 +6,7 @@ import Navbar from "../components/navbar";
 import { Button } from "semantic-ui-react";
 import { useNavigate, Link } from "react-router-dom";
 
-const Login2 = () => {
+const Login = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   //   const [errorRegistro, setErrorRegistro] = useState("");
   const navigate = useNavigate();
@@ -107,4 +107,4 @@ const Login2 = () => {
   );
 };
 
-export default Login2;
+export default Login;
