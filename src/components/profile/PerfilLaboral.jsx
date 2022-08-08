@@ -12,7 +12,7 @@ export default function PerfilLaboral() {
         </p>
         <p>
           <strong>Nivel 1: </strong>
-          No tengo experiencia laboral, pero he desarrollado proyectos utilizado
+          No tengo experiencia laboral, pero he desarrollado proyectos utilizando
           esta tecnología/herramienta.
         </p>
         <p>
@@ -30,7 +30,7 @@ export default function PerfilLaboral() {
         <Form.Field>
           <Acordeon></Acordeon>
         </Form.Field>
-        <Input label='Alguna otra tecnologìa que consideres importante agregar?' />
+        <Input label='Alguna otra tecnología que consideres importante agregar?' />
         <br />
     </Fragment>
   )
