@@ -1,7 +1,6 @@
 import React from 'react'
-import { useState } from 'react';
-import { useFormik } from 'formik';
-import { Container, Form, Header, Checkbox, Select, Button} from 'semantic-ui-react'
+import { useFormik, } from 'formik';
+import { Container, Form, Header, Checkbox, Select } from 'semantic-ui-react'
 
 const genderOptions = [
   { key: "m", text: "Masculino", value: "male" },
@@ -31,15 +30,61 @@ const laboralOptions = [
     value: "Tengo trabajo (en otras áreas), pero busco en TI.",
   },
 ];
+
+const jobOptions = [
+  {
+    key:"fs",
+    text:"Desarrollador/a Full Stack",
+    value:"Desarrollador/a Full Stack"
+  },
+  {
+    key:"be",
+    text:"Desarrollador/a Back End",
+    value:"Desarrollador/a Back End"
+  },
+  {
+    key:"fe",
+    text:"Desarrollador/a Front End",
+    value:"Desarrollador/a Front End"
+  },
+  {
+    key:"ux",
+    text:"Diseñador/a UX / UX Research o UI",
+    value:"Diseñador/a UX / UX Research o UI"
+  },
+  {
+    key:"dm",
+    text:"Desarrollador/a Móvil",
+    value:"Desarrollador/a Móvil"
+  },
+  {
+    key:"ds",
+    text:"Data Scientist o especialista machine learning",
+    value:"Data Scientist o especialista machine learning"
+  },
+  {
+    key:"id",
+    text:"Ingeniería de Datos",
+    value:"Ingeniería de Datos"
+  },
+]
 export default function InfoPersonal() {
   const formik= useFormik({
     initialValues:{
-      nombre:'',
-      apellido:'',
+      name:'',
+      lastName:'',
       email:'',
-      telefono:'',
-      ciudad:'',
-      pais:''
+      phone:'',
+      city:'',
+      country:'',
+      gender:'',
+      laboral:'',
+      job_0:'',
+      job_1:'',
+      job_2:'',
+      job_3:'',
+      job_4:'',
+      job_5:''
     },
     onSubmit:(values)=>{
       console.log(JSON.stringify(values))
@@ -52,24 +97,23 @@ export default function InfoPersonal() {
         <Form onSubmit={formik.handleSubmit}>
           <Form.Group widths='equal'>
             <Form.Field required>
-              <label htmlFor='name'>Nombre</label>
+              <label>Nombre</label>
               <Form.Input
-              type='text'
-              id='name'
-              name='name'
-              value={formik.values.nombre}
-              onChange={formik.handleChange}
-            />  
+                type='text'
+                id='name' 
+                name='name'
+                value={formik.values.name}
+                onChange={formik.handleChange} />
             </Form.Field>
             <Form.Field required>
-              <label htmlFor='lastname'>Apellido</label>
+              <label>Apellido</label>
               <Form.Input
               type='text'
-              id='lastname'
-              name='lastname'
-              value={formik.values.apellido}
+              id='lastName'
+              name='lastName'
+              value={formik.values.lastName}
               onChange={formik.handleChange}
-            />
+              />
             </Form.Field>
           </Form.Group>
           <Form.Group widths='equal'>
@@ -87,9 +131,9 @@ export default function InfoPersonal() {
               <label>Número de teléfono Móvil</label>
               <Form.Input
               type='text'
-              id='telefono'
-              name='telefono'
-              value={formik.values.telefono}
+              id='phone'
+              name='phone'
+              value={formik.values.phone}
               onChange={formik.handleChange}/>
             </Form.Field>               
           </Form.Group>
@@ -98,9 +142,9 @@ export default function InfoPersonal() {
               <label>Ciudad</label>
             <Form.Input
               type='text'
-              id='ciudad'
-              name='ciudad'
-              value={formik.values.ciudad}
+              id='city'
+              name='city'
+              value={formik.values.city}
               onChange={formik.handleChange}
               />
             </Form.Field>
@@ -108,9 +152,9 @@ export default function InfoPersonal() {
               <label>País/Región</label>
               <Form.Input
               type='text'
-              id='pais'
-              name='pais'
-              value={formik.values.pais}
+              id='country'
+              name='country'
+              value={formik.values.country}
               onChange={formik.handleChange}
               />
             </Form.Field>                  
@@ -122,8 +166,9 @@ export default function InfoPersonal() {
                 control={Select}
                 options={genderOptions}
                 placeholder='Género'
-                search
-                searchInput={{ id: 'form-select-control-gender' }}
+                selection
+                value={formik.values.gender}
+                onChange={(_, data) => formik.setFieldValue('gender', data.value)}
               />
             </Form.Field>  
             <Form.Field>
@@ -132,8 +177,9 @@ export default function InfoPersonal() {
                 control={Select}
                 options={laboralOptions}
                 placeholder='Estado laboral'
-                search
-                searchInput={{ id: 'form-select-control-laboral' }}
+                selection
+                value={formik.values.laboral}
+                onChange={(_, data)=> formik.setFieldValue('laboral', data.value)}
               />       
             </Form.Field>        
           </Form.Group>
@@ -143,17 +189,59 @@ export default function InfoPersonal() {
               <label>A cuáles cargos te gustaría optar</label>
             </Form.Field>  
             <Form.Field>
-              <Form.Field control={Checkbox} label='Desarrollador/a Full Stack'/>
-              <Form.Field control={Checkbox} label='Desarrollador/a Back End'/>
-              <Form.Field control={Checkbox} label='Desarrollador/a Front End'/>
+              <Form.Checkbox
+                control={Checkbox} 
+                label='Desarrollador Full Stack'
+                name='job[0]'
+                value='Desarrollador Full Stack'
+                onChange={(_, data)=> formik.setFieldValue('job_0', data.value)}
+                />
+              <Form.Field 
+                control={Checkbox} 
+                label='Desarrollador/a Back End'
+                name='job[1]'
+                value='Desarrollador/a Back End'
+                onChange={(_, data)=> formik.setFieldValue('job_1', data.value)}
+       />
+              <Form.Field 
+                control={Checkbox} 
+                label='Desarrollador/a Front End'
+                name='job'
+                value='Desarrollador/a Front End'
+                onChange={(_, data)=> formik.setFieldValue('job_2', data.value)}
+             />
             </Form.Field> 
             <Form.Field>
-              <Form.Field control={Checkbox} label='Diseñador/a UX / UX Research o UI'/>
-              <Form.Field control={Checkbox} label='Desarrollador/a Móvil'/>         
+              <Form.Field 
+                control={Checkbox} 
+                label='Diseñador/a UX / UX Research o UI'
+                name='job'
+                value='Diseñador/a UX / UX Research o UI'
+                onChange={(_, data)=> formik.setFieldValue('job_3', data.value)}
+                />
+              <Form.Field 
+                control={Checkbox} 
+                label='Desarrollador/a Móvil'
+                name='job'
+                value='Desarrollador Móvil'
+                onChange={(_, data)=> formik.setFieldValue('job_4', data.values)}
+                />         
             </Form.Field>  
             <Form.Field>
-              <Form.Field control={Checkbox} label='Data Scientist o especialista machine learning'/>
-              <Form.Field control={Checkbox} label='Ingeniería de Datos'/> 
+              <Form.Field 
+                control={Checkbox} 
+                label='Data Scientist o especialista machine learning'
+                name='job'
+                value='Data Scientist o especialista machine learning'
+                onChange={(_, data)=> formik.setFieldValue('job_5', data.value)}
+                />
+              <Form.Field 
+                control={Checkbox} 
+                label='Ingeniería de Datos'
+                name='job'
+                value='Ingeniería de Datos'
+                onChange={(_, data)=> formik.setFieldValue('job_6', data.value)}
+                /> 
             </Form.Field>
           </Form.Group>
           
