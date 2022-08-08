@@ -11,7 +11,7 @@ import BackToTopBtn from "../../components/backToTopBtn";
 import "../../assets/styles.css";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-
+// un comentario
 const Home = () => {
   return (
     <>
