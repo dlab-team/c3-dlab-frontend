@@ -1,6 +1,6 @@
 import React from "react";
 import { List, ListItem } from "semantic-ui-react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const DashboardNavbar = () => {
   return (
@@ -15,10 +15,12 @@ const DashboardNavbar = () => {
         <NavLink to="/profile-form">
           <ListItem icon="user" content="Mi Perfil" />
         </NavLink>
-        <ListItem icon="star" content="Tests" />
+        <NavLink to="/showthecode">
+        <ListItem content="Show The Code"/>
+        </NavLink>
         <ListItem icon="suitcase" content="Ofertas" />
         <ListItem icon="users" content="Networking" />
-        <ListItem icon="sign-out" content="Cerrar Sesión" />
+        <ListItem component={Link} to="/showthecode" icon="sign-out" content="Cerrar Sesión" />
       </List>
     </>
   );

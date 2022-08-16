@@ -8,6 +8,8 @@ import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
 import Dashboard from "../pages/profile/Dashboard";
 import ProfileForm from "../components/profile/ProfileForm";
+import ShowTheCode from "../components/profile/ShowTheCode";
+import ShowTheCodeAccepted from "../components/profile/ShowTheCodeAccepted";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />}></Route>
+        <Route path="/showthecode/invitations" element={<ShowTheCode />}></Route>
+        <Route path="/showthecode/accepted" element={<ShowTheCodeAccepted />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup-btn" element={<SignUpBtn />}></Route>
