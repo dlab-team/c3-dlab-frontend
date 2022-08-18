@@ -10,16 +10,19 @@ import Dashboard from "../pages/profile/Dashboard";
 import ProfileForm from "../components/profile/ProfileForm";
 import ShowTheCode from "../components/profile/ShowTheCode";
 import ShowTheCodeAccepted from "../components/profile/ShowTheCodeAccepted";
+import DataProvider from "../context/Context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
-    <BrowserRouter>
+    <DataProvider>
+      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />}></Route>
-        <Route path="/showthecode/invitations" element={<ShowTheCode />}></Route>
-        <Route path="/showthecode/accepted" element={<ShowTheCodeAccepted />}></Route>
+        <Route path="/showthecode/invitations" element={<ShowTheCode/>}></Route>
+        <Route path="/showthecode/accepted" element={<ShowTheCodeAccepted/>}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup-btn" element={<SignUpBtn />}></Route>
@@ -29,6 +32,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
     </BrowserRouter>
+    </DataProvider>
   );
 }
 
