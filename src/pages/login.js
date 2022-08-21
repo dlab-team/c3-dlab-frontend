@@ -81,9 +81,14 @@ function Login() {
           <Button primary type="submit" className="login-btn">
             Iniciar Sesión
           </Button>
-          <Link to="/dashboard">
+          <Link to="/profile-form">
             <Button color="teal" style={{ marginTop: "40px" }}>
               Link Temporal a Dashboard-Profile
+            </Button>
+          </Link>
+          <Link to="/formik-container">
+            <Button color="teal" style={{ marginTop: "40px" }}>
+              Link Temporal a WorkProfileWithAccordion
             </Button>
           </Link>
         </Form>
