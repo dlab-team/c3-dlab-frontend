@@ -10,15 +10,15 @@ const ShowTheCode = () => {
   
       console.log(data.sort((a, b) => new Date(a.fecha).getTime() > new Date(b.fecha).getTime()));
 
-      const changeTrue = () => {
-        let index = data.findIndex(position => position.id === "101")
+      const changeTrue = (id) => {
+        let index = data.findIndex(position => position.id === id)
         console.log("position is: ",index)
         data[index].status = true;
         console.log(data[index])
        }
 
-       const changeFalse = () => {
-        let index = data.findIndex(position => position.id === "101")
+       const changeFalse = (id) => {
+        let index = data.findIndex(position => position.id === id)
         console.log("position is: ",index)
         data[index].status = false;
         console.log(data[index])
@@ -52,10 +52,10 @@ const ShowTheCode = () => {
 
       <Card.Content extra>
         <div className='ui two buttons'>
-          <Button key={data.id} onClick={changeTrue} basic color='green'>
+          <Button key={data.id} onClick={() => {changeTrue(data.id)}} basic color='green'>
             Aceptar
           </Button>
-          <Button onClick={(changeFalse)} basic color='red'>
+          <Button  key={data.id} onClick={() => {changeFalse(data.id)}} basic color='red'>
             Rechazar
           </Button>
         </div>
