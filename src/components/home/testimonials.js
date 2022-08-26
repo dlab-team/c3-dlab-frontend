@@ -22,8 +22,8 @@ const Testimonials = () => {
         autoplay={{ delay: 5000 }}
         pagination={{ clickable: true }}
         centeredSlides={true}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
       >
         {testimonialsData.map((testimonial) => (
           <SwiperSlide key={testimonial.id} className="swiper-slide">
