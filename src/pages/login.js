@@ -86,9 +86,9 @@ function Login() {
               Link Temporal a Dashboard-Profile
             </Button>
           </Link>
-          <Link to="/formik-container">
+          <Link to="/profile-form-container">
             <Button color="teal" style={{ marginTop: "40px" }}>
-              Link Temporal a WorkProfileWithAccordion
+              Link Temporal Profile Check boxes
             </Button>
           </Link>
         </Form>

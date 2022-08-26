@@ -1,15 +1,6 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
-import {
-  Container,
-  Form,
-  ListItem,
-  List,
-  Header,
-  Accordion,
-  AccordionContent,
-  AccordionTitle,
-} from "semantic-ui-react";
+import { ListItem, List, Header } from "semantic-ui-react";
 // import TextError from "./TextError";
 
 function FrameworkLevel(props) {

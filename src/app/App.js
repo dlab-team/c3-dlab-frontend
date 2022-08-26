@@ -8,8 +8,9 @@ import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
 import Dashboard from "../pages/profile/Dashboard";
 import ProfileForm from "../components/profile/ProfileForm";
-import FormikContainer from "../components/profile/FormikContainer";
+import ProfileFormContainer from "../components/profile/ProfileFormContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProfileAccordion from "../components/profile/ProfileAccordion";
 
 function App() {
   return (
@@ -22,7 +23,10 @@ function App() {
         <Route path="/signup-btn" element={<SignUpBtn />}></Route>
         <Route path="/signup-form" element={<SignUpForm />}></Route>
         <Route path="/profile-form" element={<ProfileForm />}></Route>
-        <Route path="/formik-container" element={<FormikContainer />}></Route>
+        <Route
+          path="/profile-form-container"
+          element={<ProfileFormContainer />}
+        ></Route>
         <Route path="/profileType" element={<ProfileType />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
