@@ -11,6 +11,7 @@ import ProfileForm from "../components/profile/ProfileForm";
 import ProfileFormContainer from "../components/profile/ProfileFormContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProfileAccordion from "../components/profile/ProfileAccordion";
+import EjemploForm from "../components/profile/EjemploForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/signup-btn" element={<SignUpBtn />}></Route>
         <Route path="/signup-form" element={<SignUpForm />}></Route>
         <Route path="/profile-form" element={<ProfileForm />}></Route>
+        <Route path="/ejemplo-form" element={<EjemploForm />}></Route>
         <Route
           path="/profile-form-container"
           element={<ProfileFormContainer />}
