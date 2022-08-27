@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik, Field } from 'formik'
 import {  Container, Header, Select, Form, Input, Button } from 'semantic-ui-react'
-import AddStudy from './AddStudy';
 
 const educacionalOptions = [
   { 
@@ -126,7 +125,6 @@ export default function PerfilEducacional() {
                   onChange={(_, data)=> values.studies['institutionType']= data.value}
                 />
             </Form.Field>
-            <AddStudy name= {values.studies['name']}></AddStudy>
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Field>
