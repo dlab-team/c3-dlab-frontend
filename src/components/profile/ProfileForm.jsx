@@ -9,26 +9,19 @@ import Postula from "./Postula";
 import PerfilEducacional from "./PerfilEducacional"
 import PerfilLaboral from "./PerfilLaboral";
 
-
 export default function ProfileForm() {
-
-
-  const add = () => {};
   return (
     <Container>
       <Postula/>
       <Container className="profile-form-wrapper">
-          <InfoPersonal/>
-          <PerfilEducacional/>
-          <PerfilLaboral/>
-          <br />
-          <ExperienciaTrabajo/>
-          <Form.Button type="submit" content="Enviar" primary />
-        
+        <InfoPersonal/>
+        <br />
+        <PerfilEducacional/>
+        <br />
+        <PerfilLaboral/>          
+        <br />
+        <ExperienciaTrabajo/>
       </Container>
     </Container>
-    
-   
-    
   );
 }

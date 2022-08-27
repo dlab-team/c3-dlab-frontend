@@ -2,7 +2,7 @@ import React from 'react'
 import { Accordion } from 'semantic-ui-react'
 import Frameworks from './Frameworks'
 import Herramientas from './Herramientas'
-import Lenguage from './Lenguage'
+import Lenguage from './Language'
 
 const level1Panels = [
     <Lenguage></Lenguage>

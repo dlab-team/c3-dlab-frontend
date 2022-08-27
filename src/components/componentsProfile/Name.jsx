@@ -8,11 +8,11 @@ export default function Name(props) {
     return
     <Modal></Modal>
   }*/
-    const [NameUser, setListUser] = useState([])
+    const [userName, setListUser] = useState([])
     useEffect(()=>{
       const getUser= async () =>{
-        const BaseURL="https://thronesapi.com/api/v2/Characters"
-        const result = await axios.get(BaseURL)
+        const BaseUrl="https://thronesapi.com/api/v2/Characters"
+        const result = await axios.get(BaseUrl)
         console.log(result.data)
         setListUser(result.data)
       }
@@ -21,7 +21,7 @@ export default function Name(props) {
     
   return (
     <Fragment>
-      {NameUser.map((usuario, i)=>{
+      {userName.map((usuario, i)=>{
         return(
           <Fragment>
             <h1 key={i}><Image src={usuario.imageUrl} avatar />Hola {usuario.fullName}!</h1>

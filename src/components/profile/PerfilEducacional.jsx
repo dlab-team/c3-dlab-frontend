@@ -1,100 +1,103 @@
 import React from 'react'
-import { Form, Header, Select, } from 'semantic-ui-react'
-import { useFormik } from 'formik';
+import { Formik, Field } from 'formik'
+import {  Container, Header, Select, Form, Input, Button } from 'semantic-ui-react'
+import AddStudy from './AddStudy';
 
-
-const EducacionalOptions = [
-  { key: "u", text: "Universidad completa", value: "Universidad completa" },
+const educacionalOptions = [
+  { 
+    key: "1", 
+    text: "Universidad completa", 
+    value: "Universidad completa" },
   {
-    key: "ui",
+    key: "2",
     text: "Universidad incompleta o cursando",
     value: "Universidad incompleta o cursando",
   },
   {
-    key: "ip",
+    key: "3",
     text: "Instituto profesional o CFT completa",
     value: "Instituto profesional o CFT completa",
   },
   {
-    key: "ic",
+    key: "4",
     text: "Instituto profesional o CFT en curso",
     value: "Instituto profesional o CFT en curso",
   },
   {
-    key: "em",
+    key: "5",
     text: "Educación media completa",
-    value: "Educaión media completa",
+    value: "Educación media completa",
   },
   {
-    key: "ei",
+    key: "6",
     text: "Educación media incompleta",
     value: "Educación media incompleta",
   },
-  { key: "ec", text: "Escolar completa", value: "Escolar completa" },
-  { key: "pc", text: "Postgrado completo", value: "Postgrado completo" },
-  { key: "pi", text: "Postgrado incompleto", value: "Postgrado incompleto" },
+  { key: "7", text: "Escolar completa", value: "Escolar completa" },
+  { key: "8", text: "Postgrado completo", value: "Postgrado completo" },
+  { key: "9", text: "Postgrado incompleto", value: "Postgrado incompleto" },
 ];
 
-const ActualOptions = [
+const actualOptions = [
   { key: "e", text: "Egresado", value: "egresado" },
   { key: "t", text: "titulado", value: "titulado" },
   { key: "ec", text: "en curso", value: "en curso" },
 ];
-const EnglishOptions = [
+
+const englishOptions = [
   { key: "b", text: "básico", value: "basic" },
   { key: "m", text: "medio", value: "medio" },
   { key: "t", text: "técnico", value: "tecnico" },
   { key: "f", text: "fluido", value: "fluido" },
 ];
+
 export default function PerfilEducacional() {
-  const formik= useFormik({
-    initialValues:{
-      education:'',
-      english:'',
-      career_0:'',
-      institution_0:'',
-      typeInstitution_0:'',
-      career_1:'',
-      institution_1:'',
-      typeInstitution_1:'',
-      career_2:'',
-      institution_2:'',
-      typeInstitution_2:'',
-      career_3:'',
-      institution_3:'',
-      typeInstitution_3:'',
-      actual:'',
-      more:''
-    },
-    onSubmit:(values)=>{
-      console.log(JSON.stringify(values))
-    }
-  })
   return (
-    <div>
-        <Form onSubmit={formik.handleSubmit}>
+    <Container>
+      <Formik
+        initialValues={{
+          educationLevelId:'',
+          englishLevel:'',
+          studies:[{
+            name:'',
+            institution:'',
+            institutionType:''
+          }],
+          actual:'',
+          more:''
+        }}
+        onSubmit={(data, {setSubmitting}) => {
+          setSubmitting(true);
+          console.log("submit:", data);
+          setSubmitting(false);
+        }}>
+        {({values, isSubmitting, handleChange, handleBlur, handleSubmit, setFieldValue}) => (        
+        <Form onSubmit={handleSubmit}>
           <Header as='h2'>Perfil Educacional</Header>
           <Form.Group widths='equal'>
-            <Form.Field>
+            <Form.Field required>
               <label>Máximo nivel educacional</label>
-              <Form.Field
-                 control={Select}
-                 options={EducacionalOptions}
-                  placeholder='Seleccionar'
-                  selection
-                  value={formik.values.education}
-                  onChange={(_, data) => formik.setFieldValue('education', data.value)}  
+              <Field required
+                as={Select}
+                options={educacionalOptions}
+                id='educationLevelId'
+                name='educationLevelId'
+                placeholder='Nivel Educacional'
+                selection
+                value={values.educationLevelId}
+                onChange={(_, data) => setFieldValue('educationLevelId', data.value)}  
                 />               
             </Form.Field>
             <Form.Field>
               <label>Nivel Inglés</label>
               <Form.Field
-                control={Select}
-                options={EnglishOptions}
-                placeholder='Seleccionar'
+                as={Select}
+                options={englishOptions}
+                id='englishLevel'
+                placeholder='Nivel inglés'
                 selection
-                value={formik.values.english}
-                onChange={(_, data) => formik.setFieldValue('english', data.value)}  
+                value={values.englishLevel}
+                onChange={(_, data) => setFieldValue('englishLevel', data.value)}  
                 /> 
             </Form.Field>
           </Form.Group>
@@ -103,38 +106,38 @@ export default function PerfilEducacional() {
             <Form.Field required>
                 <Form.Input
                   label='Nombre de la carrera, curso o bootcamp'
-                  id='career_0'
-                  name='career_0'
-                  value={formik.values.career_0}
-                  onChange={formik.handleChange}
-                />
+                  id='studies'
+                  name='studies[]'
+                  value={values.studies['name']}
+                  onChange={(_, data)=> values.studies['name']=data.value}
+                  />
                 <Form.Input
                   label='Nombre Institución'
-                  id='institution_0'
-                  name='institution_0'
-                  value={formik.values.institution_0}
-                  onChange={formik.handleChange}
+                  id='institution'
+                  name='institution'
+                  value={values.studies['institution']}
+                  onChange={(_, data)=> values.studies['institution']= data.value}
                 />
                 <Form.Input
                   label='Tipo Institución'
-                  id='typeInstitution_0'
-                  name='typeInstitution_0'
-                  value={formik.values.typeInstitution_0}
-                  onChange={formik.handleChange}
+                  id='institutionType'
+                  name='institutionType'
+                  value={values.institutionType}
+                  onChange={(_, data)=> values.studies['institutionType']= data.value}
                 />
             </Form.Field>
-            <Form.Button >Agregar Institución</Form.Button>
+            <AddStudy name= {values.studies['name']}></AddStudy>
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Situación educacional actual(Bootcamp)</label>
               <Form.Field
                 control={Select}
-                options={ActualOptions}
+                options={actualOptions}
                 placeholder='Seleccionar'
                 selection
-                value={formik.values.actual}
-                onChange={(_, data) => formik.setFieldValue('actual', data.value)}
+                value={values.actual}
+                onChange={(_, data) => setFieldValue('actual', data.value)}  
                 /> 
             </Form.Field>
           </Form.Group >
@@ -142,10 +145,12 @@ export default function PerfilEducacional() {
             type='text' 
             label='alguna otra competencia que quieras mencionar?'
             name='more'
-            value={formik.values.more}
-            onChange={formik.handleChange} />
-        <Form.Button type='submit' content='Enviar' primary/>
+            value={values.more}
+            onChange={handleChange} />
+        <Form.Button disabled={isSubmitting} type='submit' content='Enviar' primary/>
         </Form>
-    </div>
+        )}
+      </Formik>
+    </Container>
   )
 }
