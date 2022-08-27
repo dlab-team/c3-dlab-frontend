@@ -1,6 +1,7 @@
 import React from 'react'
 import { Formik, Field } from 'formik'
-import {  Container, Header, Select, Form, Input, Button } from 'semantic-ui-react'
+import {  Container, Header, Select, Form, Button } from 'semantic-ui-react'
+import AddStudy from './AddStudy';
 
 const educacionalOptions = [
   { 
@@ -51,6 +52,11 @@ const englishOptions = [
 ];
 
 export default function PerfilEducacional() {
+  function add(){
+    return(
+      console.log('hghg')
+    )
+  }
   return (
     <Container>
       <Formik
@@ -102,7 +108,7 @@ export default function PerfilEducacional() {
           </Form.Group>
           <p>A continuación, carreras profesionales, cursos, bootcamp o certificaciones cursadas relacionadas al desarrollo de software, diseño o TI (puedes indicarnos las más importantes o actuales):</p>
           <Form.Group widths='equal'>
-            <Form.Field required>
+            <Form.Field>
                 <Form.Input
                   label='Nombre de la carrera, curso o bootcamp'
                   id='studies'
@@ -126,6 +132,7 @@ export default function PerfilEducacional() {
                 />
             </Form.Field>
           </Form.Group>
+          <Button type='button' onClick={add} content='Agregar Institución' primary/>
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Situación educacional actual(Bootcamp)</label>
@@ -145,7 +152,7 @@ export default function PerfilEducacional() {
             name='more'
             value={values.more}
             onChange={handleChange} />
-        <Form.Button disabled={isSubmitting} type='submit' content='Enviar' primary/>
+        <Button disabled={isSubmitting} type='submit' content='Enviar' primary/>
         </Form>
         )}
       </Formik>
