@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Field } from 'formik'
 import {  Container, Header, Select, Form, Button } from 'semantic-ui-react'
-import AddStudy from './AddStudy';
+import AddStudies from './AddStudies';
 
 const educacionalOptions = [
   { 
@@ -52,11 +52,7 @@ const englishOptions = [
 ];
 
 export default function PerfilEducacional() {
-  function add(){
-    return(
-      console.log('hghg')
-    )
-  }
+
   return (
     <Container>
       <Formik
@@ -106,33 +102,9 @@ export default function PerfilEducacional() {
                 /> 
             </Form.Field>
           </Form.Group>
-          <p>A continuación, carreras profesionales, cursos, bootcamp o certificaciones cursadas relacionadas al desarrollo de software, diseño o TI (puedes indicarnos las más importantes o actuales):</p>
           <Form.Group widths='equal'>
-            <Form.Field>
-                <Form.Input
-                  label='Nombre de la carrera, curso o bootcamp'
-                  id='studies'
-                  name='studies[]'
-                  value={values.studies['name']}
-                  onChange={(_, data)=> values.studies['name']=data.value}
-                  />
-                <Form.Input
-                  label='Nombre Institución'
-                  id='institution'
-                  name='institution'
-                  value={values.studies['institution']}
-                  onChange={(_, data)=> values.studies['institution']= data.value}
-                />
-                <Form.Input
-                  label='Tipo Institución'
-                  id='institutionType'
-                  name='institutionType'
-                  value={values.institutionType}
-                  onChange={(_, data)=> values.studies['institutionType']= data.value}
-                />
-            </Form.Field>
+            <AddStudies/>
           </Form.Group>
-          <Button type='button' onClick={add} content='Agregar Institución' primary/>
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Situación educacional actual(Bootcamp)</label>
@@ -159,3 +131,26 @@ export default function PerfilEducacional() {
     </Container>
   )
 }
+/*<Form.Field>
+                <Form.Input
+                  label='Nombre de la carrera, curso o bootcamp'
+                  id='studies'
+                  name='studies[]'
+                  value={values.studies['name']}
+                  onChange={(_, data)=> values.studies['name']=data.value}
+                  />
+                <Form.Input
+                  label='Nombre Institución'
+                  id='institution'
+                  name='institution'
+                  value={values.studies['institution']}
+                  onChange={(_, data)=> values.studies['institution']= data.value}
+                />
+                <Form.Input
+                  label='Tipo Institución'
+                  id='institutionType'
+                  name='institutionType'
+                  value={values.institutionType}
+                  onChange={(_, data)=> values.studies['institutionType']= data.value}
+                />
+            </Form.Field>*/
