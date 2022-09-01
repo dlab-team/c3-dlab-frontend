@@ -1,87 +1,130 @@
 import * as Yup from "yup";
-
-// export const initialValuesNOT = {
-//   languageLevels: [
-//     {
-//       languageId: 1,
-//       level: 0,
-//       name: { language: "react" },
-//     },
-//     {
-//       languageId: 2,
-//       level: 0,
-//       name: { language: "django" },
-//     },
-//     {
-//       languageId: 3,
-//       level: 0,
-//       name: { language: "html" },
-//     },
-//   ],
-//   frameworkLevels: [
-//     {
-//       frameworkId: 1,
-//       level: 0,
-//       name: { framework: "react" },
-//     },
-//     {
-//       frameworkId: 2,
-//       level: 0,
-//       name: { framework: "react" },
-//     },
-//     {
-//       frameworkId: 3,
-//       level: 0,
-//       name: { framework: "react" },
-//     },
-//   ],
-//   toolLevels: [
-//     {
-//       toolId: 1,
-//       level: 0,
-//       name: { tool: "react" },
-//     },
-//     {
-//       toolId: 2,
-//       level: 0,
-//       name: { tool: "react" },
-//     },
-//     {
-//       toolId: 3,
-//       level: 0,
-//       name: { tool: "react" },
-//     },
-//   ],
-// };
+import axios from "axios";
 
 export const initialValues = [
+  { id: 1, level: 0 },
   {
-    frameworkId: 1,
+    id: 2,
     level: 0,
-    frameworkName: "react",
   },
+  { id: 3, level: 0 },
   {
-    frameworkId: 2,
+    id: 4,
     level: 0,
-    frameworkName: "django",
-  },
-  {
-    frameworkId: 3,
-    level: 0,
-    frameworkName: "vue",
   },
 ];
 
-//SWAGGER
-// "FrameworkLevels": [
-//   {
-//     "FrameworkId": 0,
-//     "level": 0,
-//     "Framework": {
-//       "name": "string"
-//     }
-//   }
-// ],
+export const valuesFromDB = [
+  { id: 1, level: 1 },
+  {
+    id: 2,
+    level: 2,
+  },
+  { id: 3, level: 3 },
+  {
+    id: 4,
+    level: 1,
+  },
+];
+
+export const frameworkList = [
+  {
+    id: 1,
+    name: "Oracle",
+  },
+  {
+    id: 2,
+    name: "Cassandra",
+  },
+  {
+    id: 3,
+    name: "SQLite",
+  },
+  {
+    id: 4,
+    name: "Redis",
+  },
+  // {
+  //   id: 5,
+  //   name: "MongoDB",
+  // },
+  // {
+  //   id: 6,
+  //   name: "PostgreSQL",
+  // },
+  // {
+  //   id: 7,
+  //   name: "MySQL",
+  // },
+  // {
+  //   id: 8,
+  //   name: "Firebase Realtime Database",
+  // },
+  // {
+  //   id: 9,
+  //   name: "MariaDB",
+  // },
+  // {
+  //   id: 10,
+  //   name: "Microsoft SQL Server",
+  // },
+  // {
+  //   id: 11,
+  //   name: "JQuery",
+  // },
+  // {
+  //   id: 12,
+  //   name: "React",
+  // },
+  // {
+  //   id: 13,
+  //   name: "Spring",
+  // },
+  // {
+  //   id: 14,
+  //   name: "Angular",
+  // },
+  // {
+  //   id: 15,
+  //   name: "Vue.js",
+  // },
+  // {
+  //   id: 16,
+  //   name: "Laravel",
+  // },
+  // {
+  //   id: 17,
+  //   name: "Django",
+  // },
+  // {
+  //   id: 18,
+  //   name: "Ruby On Rails",
+  // },
+  // {
+  //   id: 19,
+  //   name: "ASP.NET o ASP.NETCore",
+  // },
+  // {
+  //   id: 20,
+  //   name: "Flask",
+  // },
+  // {
+  //   id: 21,
+  //   name: "Express.js",
+  // },
+  // {
+  //   id: 22,
+  //   name: "FastAPI",
+  // },
+  // {
+  //   id: 23,
+  //   name: ".NET",
+  // },
+  // {
+  //   id: 24,
+  //   name: "Node.js",
+  // },
+];
 
 export const profileRadioOptions = [
   { key: "Nivel 1", value: "1" },
@@ -108,43 +151,6 @@ export const onSubmit = (values) => {
   console.log("Form data", values);
   console.log("Saved data stringify", JSON.parse(JSON.stringify(values)));
 };
-
-//   const checkboxOptions = [
-//     {
-//       id: 1,
-//       frameworkName: "React",
-//       frameworkLevels: [
-//         { key: "key-level-Option1-react", value: "value-Option1" },
-//         { key: "key--level-Option2-react", value: "value-Option2" },
-//         { key: "key-level-Option3-react", value: "value-Option3" },
-//       ],
-//     },
-//     {
-//       id: 1,
-//       frameworkName: "Django",
-//       frameworkLevels: [
-//         { key: "key-level-Option1-django", value: "value-Option1" },
-//         { key: "key--level-Option2-django", value: "value-Option2" },
-//         { key: "key-level-Option3-django", value: "value-Option3" },
-//       ],
-//     },
-//   ];
-
-// const makeTranslation = (key) => {
-//   switch (key) {
-//     case "react":
-//       console.log("frameworkIdIs:", 1);
-//       break;
-//     case "django":
-//       console.log("frameworkIdIs:", 2);
-//       break;
-//     case "html":
-//       console.log("frameworkIdIs:", 3);
-//       break;
-//     default:
-//       console.log("not matching options for name");
-//   }
-// };
 
 export const profileAccordionPanels = [
   {

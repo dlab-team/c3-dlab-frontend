@@ -1,47 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Formik, Form } from "formik";
 import FormikControl from "./FormikControl";
 import FrameworkLevel from "./FrameworkLevel";
 import { Accordion, Icon, Container } from "semantic-ui-react";
 import {
-  initialValues,
+  frameworkList,
   profileRadioOptions,
-  ValuesFromDB,
+  valuesFromDB,
   validationSchema,
   onSubmit,
 } from "./data";
-
-const renderFrameworks = () => {
-  return initialValues.map((item, i) => {
-    return (
-      <FrameworkLevel
-        key={i}
-        control="radio"
-        label={item.frameworkName}
-        name={item.frameworkName}
-        options={profileRadioOptions}
-      />
-    );
-  });
-};
+import { FormDataContext } from "../../contexts/formDataContext";
 
 function ProfileFormContainer() {
   const [profileValuesDB, setProfileValuesDB] = useState(null);
+  const { formData, formDataError, getAllFormData } =
+    useContext(FormDataContext);
+
+  console.log(formData.frameworks);
+
+  useEffect(() => {
+    getAllFormData();
+    console.log("useEffect");
+  }, []);
+
+  const renderFrameworks = () => {
+    return frameworkList.map((item, key) => {
+      return (
+        <FrameworkLevel
+          control="radio"
+          label={item.name}
+          name={item.name}
+          options={profileRadioOptions}
+        />
+      );
+    });
+  };
 
   return (
     <Formik
-      // initialValues={profileValuesDB || initialValues}
-      initialValues={initialValues}
+      initialValues={{
+        level: "",
+      }}
+      onSubmit={async (values) => {
+        await new Promise((r) => setTimeout(r, 500));
+        alert(JSON.stringify(values, null, 2));
+      }}
+      // initialValues={initialValues}
       // validationSchema={validationSchema}
-      onSubmit={onSubmit}
-      // enableReinitialize
+      enableReinitialize
     >
       {(formik) => (
         <Form>
-          {renderFrameworks(initialValues)}
+          {renderFrameworks(frameworkList)}
           {/* <button
             type="button"
-            onClick={() => setProfileValuesDB(ValuesFromDB)}
+            onClick={() => setProfileValuesDB(valuesFromDB)}
           >
             Btn to get values from DB
           </button> */}
