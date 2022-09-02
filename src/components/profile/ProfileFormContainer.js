@@ -11,15 +11,16 @@ import {
   onSubmit,
 } from "./data";
 
-const renderFrameworks = () => {
-  return initialValues.map((item, i) => {
+const renderFrameworks = (initVals, setFieldValue) => {
+  return Object.entries(initVals).map((item, i) => {
     return (
       <FrameworkLevel
         key={i}
         control="radio"
-        label={item.frameworkName}
-        name={item.frameworkName}
+        label={item[0]}
+        name={item[0]}
         options={profileRadioOptions}
+        setFieldValue={setFieldValue}
       />
     );
   });
@@ -36,18 +37,22 @@ function ProfileFormContainer() {
       onSubmit={onSubmit}
       // enableReinitialize
     >
-      {(formik) => (
+      {(formik) => {
+        return (
         <Form>
-          {renderFrameworks(initialValues)}
-          {/* <button
+      {renderFrameworks(initialValues, formik.setFieldValue)}
+      {/* <button
             type="button"
             onClick={() => setProfileValuesDB(ValuesFromDB)}
           >
             Btn to get values from DB
           </button> */}
-          <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
         </Form>
-      )}
+        )
+      }
+
+      }
     </Formik>
   );
 }

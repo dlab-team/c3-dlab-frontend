@@ -4,7 +4,7 @@ import { ListItem, List, Header } from "semantic-ui-react";
 // import TextError from "./TextError";
 
 function FrameworkLevel(props) {
-  const { label, name, options, ...rest } = props;
+  const { label, name, options, setFieldValue, ...rest } = props;
   return (
     <div>
       <Header as="h4" color="teal" content={label} />
@@ -21,7 +21,12 @@ function FrameworkLevel(props) {
                     {...field}
                     {...rest}
                     value={option.value}
-                    checked={field.value === option.value}
+                    checked={field.value.level === Number(option.value) }
+                    onChange={(e) => {
+                      const newValue = { ...field.value, level: Number(e.target.value) }
+                      setFieldValue(field.name, newValue)
+                      }
+                    }
                   />
                   <label htmlFor={option.value} style={{ margin: "5px" }}>
                     {option.key}

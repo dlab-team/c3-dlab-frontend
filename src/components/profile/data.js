@@ -54,23 +54,29 @@ import * as Yup from "yup";
 //   ],
 // };
 
-export const initialValues = [
-  {
-    frameworkId: 1,
-    level: 0,
-    frameworkName: "react",
-  },
-  {
-    frameworkId: 2,
-    level: 0,
-    frameworkName: "django",
-  },
-  {
-    frameworkId: 3,
-    level: 0,
-    frameworkName: "vue",
-  },
-];
+export const initialValues = {
+  "react": { id: 1, level: 0 },
+  "django": { id: 2, level: 0 },
+  "vue": { id: 3, level: 0 }
+}
+
+// export const initialValues = [
+//   {
+//     frameworkId: 1,
+//     level: 0,
+//     frameworkName: "react",
+//   },
+//   {
+//     frameworkId: 2,
+//     level: 0,
+//     frameworkName: "django",
+//   },
+//   {
+//     frameworkId: 3,
+//     level: 0,
+//     frameworkName: "vue",
+//   },
+// ];
 
 //SWAGGER
 // "FrameworkLevels": [
@@ -104,9 +110,11 @@ export const profileRadioOptions = [
 // const frameworkIdSelected = (props) => {
 //   Object.keys();
 // };
+
 export const onSubmit = (values) => {
   console.log("Form data", values);
   console.log("Saved data stringify", JSON.parse(JSON.stringify(values)));
+  console.log(Object.values(values))
 };
 
 //   const checkboxOptions = [
