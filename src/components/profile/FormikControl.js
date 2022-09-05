@@ -1,5 +1,5 @@
 import React from "react";
-import FrameworkLevel from "../profile/FrameworkLevel";
+import CompetencyLevel from "./CompetencyLevel";
 import Select from "../profile/Select";
 
 const FormikControl = (props) => {
@@ -8,7 +8,7 @@ const FormikControl = (props) => {
     case "select":
       return <Select {...rest} />;
     case "radio":
-      return <FrameworkLevel {...rest} />;
+      return <CompetencyLevel {...rest} />;
     default:
       return null;
   }

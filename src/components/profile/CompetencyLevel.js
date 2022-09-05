@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from "formik";
 import { ListItem, List, Header } from "semantic-ui-react";
 // import TextError from "./TextError";
 
-function FrameworkLevel(props) {
+function CompetencyLevel(props) {
   const { label, name, options, ...rest } = props;
   return (
     <div>
@@ -35,4 +35,4 @@ function FrameworkLevel(props) {
   );
 }
 
-export default FrameworkLevel;
+export default CompetencyLevel;

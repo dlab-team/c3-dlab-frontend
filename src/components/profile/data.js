@@ -147,10 +147,10 @@ export const profileRadioOptions = [
 // const frameworkIdSelected = (props) => {
 //   Object.keys();
 // };
-export const onSubmit = (values) => {
-  console.log("Form data", values);
-  console.log("Saved data stringify", JSON.parse(JSON.stringify(values)));
-};
+// export const onSubmit = (values) => {
+//   console.log("Form data", values);
+//   console.log("Saved data stringify", JSON.parse(JSON.stringify(values)));
+// };
 
 export const profileAccordionPanels = [
   {
