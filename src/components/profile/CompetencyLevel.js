@@ -21,14 +21,14 @@ function CompetencyLevel(props) {
                   {...field}
                   {...rest}
                   value={option.value}
-                  checked={field.value === Number(option.value)}
-                  // onChange={(e) => {
-                  //   const newValue = {
-                  //     ...field.value,
-                  //     level: Number(e.target.value),
-                  //   };
-                  //   setFieldValue(field.name, newValue);
-                  // }}
+                  checked={field.value.level === Number(option.value)}
+                  onChange={(e) => {
+                    const newValue = {
+                      ...field.value,
+                      level: Number(e.target.value),
+                    };
+                    setFieldValue(field.name, newValue);
+                  }}
                 />
                 <label htmlFor={option.value} style={{ margin: "5px" }}>
                   {option.key}

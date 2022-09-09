@@ -1,7 +1,9 @@
 import * as Yup from "yup";
-import axios from "axios";
 
-export const initialValues = { oracle: "", cassandra: "" };
+export const initialValues = {
+  oracle: { id: 1, level: 0 },
+  cassandra: { id: 2, level: 0 },
+};
 
 export const profileRadioOptions = [
   { key: "Nivel 1", value: "1" },
@@ -9,17 +11,10 @@ export const profileRadioOptions = [
   { key: "Nivel 3", value: "3" },
 ];
 
-// export const validationSchema = Yup.object({
-//   react: Yup.string().required("Required"),
-//   django: Yup.string().required("Required"),
-//   html: Yup.string().required("Required"),
-// });
-
-export const onSubmit = (values) => {
-  console.log("Form data", values);
-  console.log("Saved data stringify", JSON.parse(JSON.stringify(values)));
-  console.log(Object.values(values));
-};
+export const validationSchema = Yup.object({
+  oracle: Yup.string().required("Required"),
+  cassandra: Yup.string().required("Required"),
+});
 
 export const profileAccordionPanels = [
   {

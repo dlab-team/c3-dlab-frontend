@@ -63,12 +63,11 @@ export default function ProfileFormContainer() {
     return (
       <Formik
         initialValues={initialValues}
-        // onSubmit={async (profileFormInfo) => {
+        // onSubmit={async (values) => {
         //   axios
         //     .put("http://localhost:8080/api/1/profile/adduser", {
-        //       react: profileFormInfo.react,
-        //       django: profileFormInfo.django,
-        //       vue: profileFormInfo.vue,
+        //       oracle: values.oracle,
+        //       cassandra: values.cassandra,
         //     })
         //     .then(function (response) {
         //       alert(response);
@@ -76,14 +75,21 @@ export default function ProfileFormContainer() {
         //     .catch(function (error) {
         //       alert(error.response.data.message);
         //     });
-        //   console.log("Formulario enviado");
-        //   console.log(profileFormInfo);
+        //   console.log("Profile Form Sent");
+        //   console.log("ProfileFormValues:", values);
         //   setFormSubmitted(true);
         //   setTimeout(() => setFormSubmitted(false), 5000);
         // }}
-
+        onSubmit={(values) => {
+          console.log("Form data", values);
+          console.log(
+            "Saved data stringify",
+            JSON.parse(JSON.stringify(values))
+          );
+          console.log(Object.values(values));
+        }}
         // validationSchema={validationSchema}
-        enableReinitialize
+        // enableReinitialize
       >
         {(formik) => {
           return (
