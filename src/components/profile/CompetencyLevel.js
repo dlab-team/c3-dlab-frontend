@@ -4,11 +4,12 @@ import { ListItem, List, Header } from "semantic-ui-react";
 // import TextError from "./TextError";
 
 function CompetencyLevel(props) {
-  const { label, name, options, ...rest } = props;
+  const { id, label, name, options, setFieldValue, ...rest } = props;
   return (
     <div>
-      <Header as="h4" color="teal" content={label} />
-      <Field name={name}>
+      <Header as="h4" color="teal" content={`label: ${label} & id: ${id}`} />
+      <Header as="h4" color="teal" content={`name: ${name.toLowerCase()}`} />
+      <Field name={name.toLowerCase()}>
         {({ field }) => {
           return options.map((option) => {
             return (
@@ -20,7 +21,14 @@ function CompetencyLevel(props) {
                   {...field}
                   {...rest}
                   value={option.value}
-                  checked={field.value === option.value}
+                  checked={field.value === Number(option.value)}
+                  // onChange={(e) => {
+                  //   const newValue = {
+                  //     ...field.value,
+                  //     level: Number(e.target.value),
+                  //   };
+                  //   setFieldValue(field.name, newValue);
+                  // }}
                 />
                 <label htmlFor={option.value} style={{ margin: "5px" }}>
                   {option.key}

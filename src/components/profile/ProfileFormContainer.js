@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, setFieldValue } from "formik";
 import FormikControl from "./FormikControl";
 import CompetencyLevel from "./CompetencyLevel";
 import { Accordion, Icon, Container } from "semantic-ui-react";
 import {
+  initialValues,
   frameworkList,
   profileRadioOptions,
   valuesFromDB,
@@ -30,111 +31,81 @@ export default function ProfileFormContainer() {
 
   function handleResponse(response) {
     setFrameworks(response.data.res.frameworks);
-    setLanguages(response.data.res.languages);
-    setTools(response.data.res.tools);
     setIsReady(true);
   }
 
-  const renderFrameworks = () => {
-    const sortedFrameworks = frameworks.sort((a, b) =>
-      a.name > b.name ? 1 : -1
-    );
-    return sortedFrameworks.sort().map((item, key) => {
-      return (
-        <CompetencyLevel
-          control="radio"
-          label={item.name}
-          name={item.name}
-          options={profileRadioOptions}
-        />
-      );
-    });
-  };
+  console.log("framewoksDB:", frameworks);
 
-  const renderLanguages = () => {
-    const sortedLanguages = languages.sort((a, b) =>
-      a.name > b.name ? 1 : -1
-    );
-    return sortedLanguages.map((item, key) => {
-      return (
-        <CompetencyLevel
-          control="radio"
-          label={item.name}
-          name={item.name}
-          options={profileRadioOptions}
-        />
-      );
-    });
-  };
-
-  const renderTools = () => {
-    const sortedTools = tools.sort((a, b) => (a.name > b.name ? 1 : -1));
-    return sortedTools.map((item, key) => {
-      return (
-        <CompetencyLevel
-          control="radio"
-          label={item.name}
-          name={item.name}
-          options={profileRadioOptions}
-        />
-      );
-    });
+  const renderFrameworks = (initVals, setFieldValue) => {
+    // const sortedFrameworks = frameworks.sort((a, b) =>
+    //   a.name > b.name ? 1 : -1
+    // );
+    return Object.entries(initVals)
+      .slice(0, 2)
+      .map((item, i) => {
+        console.log("initVals:", initVals);
+        console.log("item[1].name:", item[1].name);
+        console.log("i", i);
+        return (
+          <CompetencyLevel
+            id={item[1].id}
+            control="radio"
+            label={item[1].name}
+            name={item[1].name}
+            options={profileRadioOptions}
+            setFieldValue={setFieldValue}
+          />
+        );
+      });
   };
 
   if (isReady) {
     return (
       <Formik
-        initialValues={{
-          level: "",
-        }}
-        onSubmit={async (profileFormInfo) => {
-          axios
-            .put("http://localhost:8080/api/1/profile/adduser", {
-              level: profileFormInfo.level,
-            })
-            .then(function (response) {
-              alert(response);
-            })
-            .catch(function (error) {
-              alert(error.response.data.message);
-            });
-          console.log("Formulario enviado");
-          console.log(profileFormInfo);
-          setFormSubmitted(true);
-          setTimeout(() => setFormSubmitted(false), 5000);
-        }}
+        initialValues={initialValues}
+        // onSubmit={async (profileFormInfo) => {
+        //   axios
+        //     .put("http://localhost:8080/api/1/profile/adduser", {
+        //       react: profileFormInfo.react,
+        //       django: profileFormInfo.django,
+        //       vue: profileFormInfo.vue,
+        //     })
+        //     .then(function (response) {
+        //       alert(response);
+        //     })
+        //     .catch(function (error) {
+        //       alert(error.response.data.message);
+        //     });
+        //   console.log("Formulario enviado");
+        //   console.log(profileFormInfo);
+        //   setFormSubmitted(true);
+        //   setTimeout(() => setFormSubmitted(false), 5000);
+        // }}
+
         // validationSchema={validationSchema}
         enableReinitialize
       >
-        {(formik) => (
-          <Form>
-            <h1>Perfil Laboral</h1>
-            <div>
-              Selecciona tu nivel de dominio en cada competencia del listado.
-              Déjala en blanco si no lo manejas.
-            </div>
-            <div className="list-wrapper-test">
+        {(formik) => {
+          return (
+            <Form>
+              <h1>Perfil Laboral</h1>
+              <div>
+                Selecciona tu nivel de dominio en cada competencia del listado.
+                Déjala en blanco si no lo manejas.
+              </div>
               <h1>Frameworks</h1>
-              {renderFrameworks(frameworks)}
-            </div>
-            <div className="list-wrapper-test">
-              <h1>Lenguajes</h1>
-              {renderLanguages(languages)}
-            </div>
-            <div className="list-wrapper-test">
-              <h1>Herramientas</h1>
-              {renderTools(tools)}
-            </div>
+              {renderFrameworks(frameworks, formik.setFieldValue)}
 
-            {/* <button
-              type="button"
-              onClick={() => setProfileValuesDB(valuesFromDB)}
-            >
-              Btn to get values from DB
-            </button> */}
-            <button type="submit">Submit</button>
-          </Form>
-        )}
+              {/* <button
+                type="button"
+                onClick={() => setProfileValuesDB(valuesFromDB)}
+              >
+                Btn to get values from DB
+              </button> */}
+              <button type="submit">Submit</button>
+            </Form>
+          );
+        }}
       </Formik>
     );
   } else {
