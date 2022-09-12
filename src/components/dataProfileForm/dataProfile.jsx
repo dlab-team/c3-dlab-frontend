@@ -1,5 +1,5 @@
 export const formInitialValues = {
-    name:'',
+    nameInfo:'',
     lastName:'',
     email:'',
     phone:'',

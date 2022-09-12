@@ -1,6 +1,7 @@
 import React from 'react'
-import {  Field  } from 'formik'
-import {  Checkbox, Select, Container, Form, Header } from 'semantic-ui-react'
+import { Field } from 'formik'
+import { Select, Container, Form, Header } from 'semantic-ui-react'
+import { CheckboxForm } from './CheckboxForm';
 
 const laboralOptions = [
   {
@@ -24,7 +25,7 @@ const laboralOptions = [
     value: "different_field_jobseeker",
   },
 ];
-const jobOptions = [
+const jobOptionsValues = [
   {
     key:"fs",
     text:"Desarrollador/a Full Stack",
@@ -114,7 +115,7 @@ const InfoPersonal=({
       />
       </Form.Field>   
       <Form.Field required>
-        <label>Número de teléfono Móvil</label>
+        <label htmlFor='phone'>Número de teléfono Móvil</label>
         <Field required
         type='text'
         id='phone'
@@ -126,7 +127,7 @@ const InfoPersonal=({
     </Form.Group>
     <Form.Group widths='equal'>
       <Form.Field required>
-        <label>Ciudad</label>
+        <label htmlFor='city'>Ciudad</label>
       <Field required
         type='text'
         id='city'
@@ -137,7 +138,7 @@ const InfoPersonal=({
         />
       </Form.Field>
       <Form.Field required>
-        <label>País/Región</label>
+        <label htmlFor='country'>País/Región</label>
         <Field required
         type='text'
         id='country'
@@ -150,7 +151,7 @@ const InfoPersonal=({
     </Form.Group>
       <Form.Group widths='equal'>
         <Form.Field required>
-          <label>¿Con cuál género te identificas?</label>
+          <label htmlFor='gender'>¿Con cuál género te identificas?</label>
           <Field required
             as={Select}
             options={options}
@@ -175,80 +176,19 @@ const InfoPersonal=({
           </Form.Field>        
         <br />
         </Form.Group>
+        <Form.Group grouped>
+          <label htmlFor='idealJob'>¿a cuáles cargos te gustaría optar?</label>
+            {jobOptionsValues.map((item)=>(
+              <CheckboxForm
+                key={item.key}
+                label={item.text}
+                value={item.value}
+                options={idealJob}
+                name="idealJob[]"
+                />
+              ))}
+            </Form.Group> 
       </Container>
   )
   }
-      
   export default InfoPersonal;
-
-                    /*      
-                    <Form.Group widths= 'equal'>
-                      <Form.Field require>
-                        <label>A cuáles cargos te gustaría optar</label>
-                      </Form.Field>  
-                      <Form.Field>
-                        <Form.Field
-                          control={Checkbox} 
-                          label='Desarrollador Full Stack'
-                          name='job[]'
-                          value='Desarrollador Full Stack'
-                          options={jobOptions}
-                          onChange={(_, data)=> values.idealJob.push(data.value)}
-                          />
-                        <Form.Field 
-                          control={Checkbox} 
-                          label='Desarrollador/a Back End'
-                          name='jobs'
-                          value='Desarrollador/a Back End'
-                          options={jobOptions}
-                          onChange={(_, data)=> values.idealJob.push(data.value)}
-                         />
-                        <Form.Field 
-                          control={Checkbox} 
-                          label='Desarrollador/a Front End'
-                          name='jobs[]'
-                          value='Desarrollador/a Front End'
-                          options={jobOptions}
-                          onChange={(_, data)=> values.idealJob.push(data.value)}
-                       />
-                      </Form.Field> 
-                      <Form.Field>
-                        <Form.Field 
-                          control={Checkbox} 
-                          label='Diseñador/a UX / UX Research o UI'
-                          name='jobs[]'
-                          value='Diseñador/a UX / UX Research o UI'
-                          options={jobOptions}
-                          onChange={(_, data)=> values.idealJob.push(data.value)}
-                          />
-                        <Form.Field 
-                          control={Checkbox} 
-                          label='Desarrollador/a Móvil'
-                          name='jobs[]'
-                          value='Desarrollador Móvil'
-                          options={jobOptions}
-                          onChange={(_, data)=> values.idealJob.push(data.value)}
-                          />         
-                      </Form.Field>  
-                      <Form.Field>
-                        <Form.Field 
-                          control={Checkbox} 
-                          label='Data Scientist o especialista machine learning'
-                          name='jobs[]'
-                          value='Data Scientist o especialista machine learning'
-                          options={jobOptions}
-                          onChange={(_, data)=> values.idealJob.push(data.value)}
-                          />
-                        <Form.Field 
-                          control={Checkbox} 
-                          label='Ingeniería de Datos'
-                          name='jobs[]'
-                          value='Ingeniería de Datos'
-                          options={jobOptions}
-                          onChange={(_, data)=> values.idealJob.push(data.value)}
-                          /> 
-                      </Form.Field>
-                     </Form.Group>
-                  
-                )}
-                */

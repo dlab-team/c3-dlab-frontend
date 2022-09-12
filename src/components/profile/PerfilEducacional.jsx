@@ -1,7 +1,6 @@
 import React from 'react'
 import { Field } from 'formik'
-import {  Container, Header, Select, Form, Button } from 'semantic-ui-react'
-import AddStudies from './AddStudies';
+import {  Container, Header, Select, Form } from 'semantic-ui-react'
 
 const educacionalOptions = [
   { 
@@ -109,7 +108,7 @@ const PerfilEducacional=({
           <Form.Input 
             type='text' 
             label='alguna otra competencia que quieras mencionar?'
-            name={more}
+            name='more'
             value={more}
             onChange={handleChange} />
     </Container>

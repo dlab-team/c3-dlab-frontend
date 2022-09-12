@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Button, Form } from "semantic-ui-react";
 import { Formik } from "formik";
 import ExperienciaTrabajo from "./ExperienciaTrabajo";
@@ -64,7 +64,7 @@ export default function ProfileForm() {
                  englishLevel={values.englishLevel}
                  studies={values.studies}
                  actual={values.actual}
-                 more={values.actual} 
+                 more={values.more} 
                  errors={errors} 
                  >
                 <AddStudies
@@ -76,10 +76,24 @@ export default function ProfileForm() {
                   handleBlur={handleBlur}
                   />
               </PerfilEducacional>    
-            <br />
-            <PerfilLaboral/>          
-            <br />
-            <ExperienciaTrabajo/>
+              <br />
+              <PerfilLaboral/>          
+              <br />
+              <ExperienciaTrabajo
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                setFieldValue={setFieldValue}
+                urlCv={values.urlCv}
+                urlLinkedin={values.urlLinkedin}
+                urlGithub={values.urlGithub}
+                urlPortafolio={values.urlPortafolio}
+                details={values.details}
+                softSkills={values.softSkills}
+                yearsExperience={values.yearsExperience}
+                availableOptions={values.availableOptions}
+                descriptionIdealJob={values.descriptionIdealJob}
+                workOption={values.workOption}
+                visas={values.visas}/>
           <Button type="submit" disabled={isSubmitting} content='Enviar' primary/>
           </Form>
           )}

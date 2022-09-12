@@ -1,16 +1,17 @@
 import React from "react";
 import { Field } from "formik";
-import { Container, Header, Form, Checkbox, Select } from "semantic-ui-react";
+import { Container, Header, Form, Select } from "semantic-ui-react";
+import { CheckboxForm } from "./CheckboxForm";
 
 
-const experienceOptions = [
+const experienceOptionsValues = [
   { key: '1', text: 'No poseo experiencia laboral', value: 'No poseo experiencia laboral' },
   { key: '2', text: 'Entre 0 a 1 año de experiencia laboral', value: 'Entre 0 a 1 año de experiencia laboral' },
   { key: '3', text: 'Entre 1 a 2 años de experiencia laboral', value: 'Entre 1 a 2 años de experiencia laboral' },
   { key: '4', text: 'Entre 2 a 3 años de experiencia laboral', value: 'Entre 2 a 3 años de experiencia laboral' },
   { key: '5', text: 'Más de 4 años de experiencia laboral', value: 'Más de 4 años de experiencia laboral' },
 ]
-const softSkills= [
+const softSkillsValues= [
   { key: '1', text:'Líder', value:'Líder'},
   { key: '2', text:'Resiliente, Perseverante', value:'Resiliente, Perseverante'},
   { key: '3', text:'Sociable', value:'Sociable'},
@@ -23,15 +24,21 @@ const softSkills= [
   { key: '10', text:'Negociación', value:'Negociación'},
   { key: '11', text:'Resulución de problemas', value:'Resulución de problemas'},
 ]
-const workOption=[
+const workOptionValues=[
   { key:'1', text:'Quiero trabajar desde mi cuidad actual', value:'Quiero trabajar desde mi cuidad actual' },
   { key:'2', text:'Disponible para migrar dentro de mi pais', value:'Disponible para migrar dentro de mi pais' },
   { key:'3', text:'Disponible para migrar a otro país', value:'Disponible para migrar a otro país' },
+  { key:'4', text:'Otros países', value:'Otros países'}
 ]
-const availableOptions=[
+const availableOptionsValues=[
   { key:'1', text:'Full Time', value:'Full Time'},
   { key:'2', text:'Part Time', value:'Part Time'},
   { key:'3', text:'Freelancer', value:'Freelancer'}
+]
+const visasValues=[
+  { key:'1', text:'Mi pais de residencia actual', value:'Mi pais de residencia actual'},
+  { key:'2', text:'Unión Europea', value:'Unión Europea'},
+  { key:'3', text:'Estados Unidos', value:'Estados Unidos'}
 ]
 const ExperienciaTrabajo=({
   handleBlur,
@@ -52,34 +59,34 @@ const ExperienciaTrabajo=({
   return (
     <Container>
      <Header>Experiencia y Trabajo</Header>
-        <Form.Group inline>
+        <Form.Group grouped>
           <Form.Input 
             type="text"
             label='URL CV (Subir como documento público en Google Drive o similar)*' 
-            name={urlCv}
+            name='urlCv'
             id='urlCv'
             value={urlCv}
             onChange={handleChange}/>
           <Form.Input 
             type="text"
             label='URL de LinkedIn*'
-            name={urlLinkedin}
+            name='urlLinkedin'
             id='urlLinkedin'
             value={urlLinkedin}
             onChange={handleChange}/>
         </Form.Group>
-        <Form.Group inline>
+        <Form.Group grouped>
           <Form.Input 
             type="text"
             label='URL Github'
-            name={urlGithub}
+            name='urlGithub'
             id='urlGithub'
             value={urlGithub}
             onChange={handleChange}/>
           <Form.Input 
             type="text"
             label='URL Portafolio/Sitio Web'
-            name={urlPortafolio}
+            name='urlPortafolio'
             id='urlPortfolio'
             value={urlPortafolio}
             onChange={handleChange}
@@ -89,7 +96,7 @@ const ExperienciaTrabajo=({
           <Form.Input 
             type="text"
             label='Explícanos en detalle algún proyecto que te enorgullece. Describe de que trató, tu rol en el proyecto y por qué lo elegiste (por ejemplo: arquitectura de desarrollo, equipo y tu rol en el proyecto, tecnologías utilizadas, dificultades y soluciones, funcionalidades, objetivos, etc. Recuerda NO esperamos link, sino explicación)'
-            name={details}
+            name='details'
             id='details'
             value={details}
             onChange={handleChange} 
@@ -98,88 +105,16 @@ const ExperienciaTrabajo=({
         <Header>Selecciona 3 habilidades blandas que te representen:</Header>
         <Form.Group inline>
           <Form.Group grouped>
-            <Form.Field
-              control={Checkbox}
-              label='Líder'
-              name='softSkills[]'
-              value='Líder'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-            <Form.Field
-              control={Checkbox}
-              label='Resiliente/Perseverante' 
-              name='softSkills[]'
-              value='Resiliente, Perseverante'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-            <Form.Field
-              control={Checkbox}
-              label='Comunicación/Sociable' 
-              name='softSkills[]'
-              value='Sociable'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />         
-            <Form.Field 
-              control={Checkbox}
-              label='Responsable' 
-              name='softSkills[]'
-              value='Responsable'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-          </Form.Group>
-          <Form.Group grouped>
-            <Form.Field 
-              control={Checkbox} 
-              label='Colaborativo/Empatía'
-              name='softSkills[]' 
-              value='Colaborativo, Empático'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-            <Form.Field 
-              control={Checkbox} 
-              label='Aprendizaje ágil/Autónomo' 
-              name='softSkills[]'
-              value='Aprendizaje ágil/Autónomo'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-            <Form.Field 
-              control={Checkbox} 
-              label='Flexible/Adaptable' 
-              name='softSkills[]'
-              value='Flexible, adaptable'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-            <Form.Field 
-              control={Checkbox} 
-              label='Productividad/Iniciativa' 
-              name='softSkills[]'
-              value='Productivo, iniciativa'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-          </Form.Group>
-          <Form.Group grouped>
-            <Form.Field 
-              control={Checkbox}
-              label='Innovador/Curioso' 
-              name='softSkills[]'
-              value='Innovador, curioso'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-            <Form.Field 
-              control={Checkbox}
-              label='Negociación'
-              name='softSkills[]' 
-              value='Negociación'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />
-            <Form.Field 
-              control={Checkbox}
-              label='Resolución de problemas' 
-              name='softSkills[]'
-              value='Resolución de problemas'
-              onChange={(_, data)=> softSkills.push(data.value)}
-              />          
-          </Form.Group>          
+            {softSkillsValues.map((item)=>(
+              <CheckboxForm
+                key={item.key}
+                label={item.text}
+                value={item.value}
+                options={softSkills}
+                name="softSkills[]"
+                />
+              ))}
+            </Form.Group>     
         </Form.Group>
         <br />
         <Form.Field required>
@@ -190,7 +125,7 @@ const ExperienciaTrabajo=({
           as={Select}
           placeholder='Escoge opción'
           name={yearsExperience}
-          options={experienceOptions} 
+          options={experienceOptionsValues} 
           selection
           value={yearsExperience}
           onChange={(_, data) => setFieldValue('yearsExperience', data.value)}
@@ -200,17 +135,18 @@ const ExperienciaTrabajo=({
         <Form.Input 
           type="text"
           id='descriptionIdealJob'
-          name={descriptionIdealJob}
+          name='descriptionIdealJob'
           label='Déjanos una breve descripción con respecto tu trabajo ideal'
           value={descriptionIdealJob} 
-          onChange={handleChange}/>
+          onChange={handleChange}
+          handleBlur={handleBlur}/>
         <br />
         <Form.Field>
           <Header>Indícanos tu disponibilidad laboral</Header>
           <Form.Group>
           <Form.Field
             control={Select}
-            options={availableOptions}
+            options={availableOptionsValues}
             placeholder='Disponibilidad'
             selection
             value={availableOptions}
@@ -222,7 +158,7 @@ const ExperienciaTrabajo=({
           <Header>Qué describe mejor tu situación actual</Header>
           <Form.Field
             control={Select}
-            options={workOption}
+            options={workOptionValues}
             placeholder='Opciones de trabajo'
             selection
             value={workOption}
@@ -233,30 +169,15 @@ const ExperienciaTrabajo=({
           <Header>Cuentas con Visa de trabajo activa en: </Header>
           <br />
           <Form.Group inline>
-            <Form.Checkbox 
-              label='Mi pais de residencia actual'
-              name='visas[]'
-              value='Mi pais de residencia actual' 
-              onChange={(_, data)=> visas.push(data.value)}
-              />
-            <Form.Checkbox 
-              label='Unión Europea'
-              name='visas[]'
-              value='Unión Europea'
-              onChange={(_, data)=> visas.push(data.value)}
-              />
-            <Form.Checkbox 
-              label='Estados Unidos'
-              name='visas[]'
-              value='Estados Unidos' 
-              onChange={(_, data)=> visas.push(data.value)}
-              />
-            <Form.Checkbox 
-              label='Otros Países'
-              name='visas[]'
-              value='Otros Países' 
-              onChange={(_, data)=> visas.push(data.value)}
-              />            
+            {visasValues.map((item)=>(
+              <CheckboxForm
+                key={item.key}
+                label={item.text}
+                value={item.value}
+                options={visas}
+                name="visas[]"
+                />
+              ))}
           </Form.Group>
         </Form.Field>
     </Container>
