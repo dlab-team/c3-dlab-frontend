@@ -5,7 +5,7 @@ import Acordeon from './Acordeon'
 export default function PerfilLaboral() {
   return (
     <Fragment>
-        <Header as="h2">Perfil Laboral</Header>
+        <Header>Perfil Laboral</Header>
         <p>
           Queremos conocer tus competencias y experiencia. A continuación podrás
           elegir las competencias que conoces con respecto a 3 niveles:

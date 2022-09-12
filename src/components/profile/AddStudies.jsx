@@ -1,106 +1,68 @@
 import React from 'react'
-import { Formik, Field, Form, ErrorMessage, FieldArray } from 'formik';
-import { Input, Button } from 'semantic-ui-react';
+import { Field, FieldArray } from 'formik';
+import { Button, Container, Header, Icon } from 'semantic-ui-react';
 
-export default function AddStudies() {
-    const initialValues = {
-      studies: [
-        {
-          name: '',
-          institution: '',
-          typeInstitution: ''
-        },
-      ],
-    };
+
+export const AddStudies = ({
+  values,
+  name,
+  buttonLabel,
+  placeholders,
+  handleChange,
+  handleBlur,
+}) => {
   return (
-    <div>
-      <p>A continuación, carreras profesionales, cursos, bootcamp o certificaciones cursadas relacionadas al desarrollo de software, diseño o TI (puedes indicarnos las más importantes o actuales):</p>
-        <Formik
-          initialValues={initialValues}
-          //onSubmit={async (values) => {
-            //await new Promise((r) => setTimeout(r, 500));
-            //alert(JSON.stringify(values, null, 2));
-            //console.log('hhh', values)
-          //}}
-          onSubmit={(data, {setSubmitting}) => {
-            setSubmitting(true);
-            console.log("submit:", data);
-            setSubmitting(false);
-          }}
-        >
-          {({ values }) => (
-            <Form>
-              <FieldArray name="studies">
-                {({ insert, remove, push, isSubmitting }) => (
-                  <div>
-                    {values.studies.length > 0 &&
-                      values.studies.map((studie, index) => (
-                        <div className="row" key={index}>
-                          <div className="col">
-                            <label htmlFor={`studies.${index}.name`}>Curso o  Bootcamp</label>
-                            <Input
-                              name={`studies.${index}.name`}
-                              placeholder="Nombre intitución"
-                              type="text"
-                            />
-                            <ErrorMessage
-                              name={`studies.${index}.name`}
-                              component="div"
-                              className="field-error"
-                            />
-                          </div>
-                          <div className="col">
-                            <label htmlFor={`studies.${index}.institution`}>Institución</label>
-                            <Field
-                              name={`studies.${index}.institution`}
-                              placeholder="institución"
-                              type="text"
-                            />
-                            <ErrorMessage
-                              name={`studies.${index}.institution`}
-                              component="div"
-                              className="field-error"
-                            />
-                          </div>
-                          <div className="col">
-                            <label htmlFor={`studies.${index}.typeInstitution`}>Tipo Institución</label>
-                            <Field
-                              name={`studies.${index}.typeInstitution`}
-                              placeholder="tipo institución"
-                              type="text"
-                            />
-                            <ErrorMessage
-                              name={`studies.${index}.typeInstitution`}
-                              component="div"
-                              className="field-error"
-                            />
-                          </div>
-                          <div className="row">
-                            <Button
-                              type="button"
-                              primary
-                              onClick={() => remove(index)}
-                            >
-                              Eliminar
-                            </Button>
-                            <Button
-                              type="button"
-                              primary
-                              onClick={() => push({ name: '', institution: '', typeInstitution:'' })}
-                            >
-                            Agregar
-                            </Button>
-                          </div>
-                        </div>
-                      ))}
-
-                    <Button disabled={isSubmitting} primary type='submit'>Enviar</Button>
-                  </div>
-                )}
-              </FieldArray>
-            </Form>
-          )}
-        </Formik>
-      </div>
-  )
-}
+    <Container>
+      <Header>Agregar Estudios</Header>
+      <FieldArray
+        onChange={handleChange}
+        onBlur={handleBlur}
+        name={name}
+        render={(arrayHelpers) => (
+          <div>
+            {values && values.length > 0 ? (
+              values.map((value, index) => (
+                <div key={index}>
+                  {placeholders.map((item) => (
+                    <span key={item.id}>
+                      <label htmlFor={item.name}>{item.placeholder}</label>
+                      <Field
+                        id={item.name}
+                        name={`${name}.${index}.${item.name}`}
+                        placeholder={item.placeholder}
+                      />
+                    </span>
+                  ))}
+                  {/* <Field name={`courses.${index}`} />
+                <Field name={`courses.${index}`} /> */}
+                  <Button
+                    basic
+                    type="button"
+                    color='red'
+                    onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                  >
+                    <Icon name='trash alternate'/>
+                  </Button>
+                  <Button
+                    type="button"
+                    basic
+                    color='blue'
+                    onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
+                  >
+                    <Icon name='add'/>
+                  </Button>
+                </div>
+              ))
+            ) : (
+              <Button type="button" onClick={() => arrayHelpers.push('')}>
+                {/* show this when user has removed all courses from the list */}
+                {buttonLabel}
+              </Button>
+            )}
+          </div>
+        )}
+      />
+    </Container>
+  );
+};
+export default AddStudies;

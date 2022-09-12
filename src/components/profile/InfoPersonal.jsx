@@ -1,12 +1,6 @@
 import React from 'react'
-import { Formik, Field  } from 'formik'
+import {  Field  } from 'formik'
 import {  Checkbox, Select, Container, Form, Header } from 'semantic-ui-react'
-
-const genderOptions = [
-  { key: "m", text: "Masculino", value: "male" },
-  { key: "f", text: "Femenino", value: "female" },
-  { key: "o", text: "Otro", value: "other" },
-];
 
 const laboralOptions = [
   {
@@ -30,7 +24,6 @@ const laboralOptions = [
     value: "different_field_jobseeker",
   },
 ];
-
 const jobOptions = [
   {
     key:"fs",
@@ -68,128 +61,127 @@ const jobOptions = [
     value:"Ingeniería de Datos"
   },
 ]
-export default function Formulario() {
+const InfoPersonal=({
+  handleChange,
+  handleBlur,
+  nameInfo,
+  lastName,
+  email,
+  phone,
+  city,
+  country,
+  options,
+  employmentStatus,
+  gender,
+  idealJob,
+  setFieldValue
+}) => {
   return (
     <Container>
-        <Formik
-            initialValues={{
-                name:'',
-                lastName:'',
-                email:'',
-                phone:'',
-                city:'',
-                country:'',
-                gender:'',
-                employmentStatus:'',
-                idealJob: [
-                ],
-            }}
-            onSubmit={(data, {setSubmitting}) => {
-                setSubmitting(true);
-                console.log("submit:", data);
-                setSubmitting(false);
-            }}>
-                {({values, isSubmitting, handleChange, handleBlur, handleSubmit, setFieldValue}) => (
-                    
-                    <Form onSubmit={handleSubmit}>
-                    <Header>Información Personal</Header>
-                    <Form.Group widths='equal'>
-                      <Form.Field required>
-                        <label>Nombre</label>                        
-                        <Field required
-                        type='text'
-                        id='name'
-                        name='name'
-                        value={values.name}
-                        onChange={handleChange}
-                        onBlur={handleBlur}/>
-                      </Form.Field>
-                      <Form.Field required>
-                        <label>Apellido</label>
-                        <Field required
-                        type='text'
-                        id='lastName'
-                        name='lastName'
-                        value={values.lastName}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        />
-                      </Form.Field>
-                    </Form.Group>
-                    <Form.Group widths='equal'>
-                      <Form.Field required>
-                        <label htmlFor='email'>Email</label>
-                        <Field required
-                        type='email'
-                        id='email'
-                        name='email'
-                        value={values.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
-                      </Form.Field>   
-                      <Form.Field required>
-                        <label>Número de teléfono Móvil</label>
-                        <Field required
-                        type='text'
-                        id='phone'
-                        name='phone'
-                        value={values.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}/>
-                      </Form.Field>               
-                    </Form.Group>
-                    <Form.Group widths='equal'>
-                      <Form.Field required>
-                        <label>Ciudad</label>
-                      <Field required
-                        type='text'
-                        id='city'
-                        name='city'
-                        value={values.city}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        />
-                      </Form.Field>
-                      <Form.Field required>
-                        <label>País/Región</label>
-                        <Field required
-                        type='text'
-                        id='country'
-                        name='country'
-                        value={values.country}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        />
-                      </Form.Field>                  
-                    </Form.Group>
-                    <Form.Group widths='equal'>
-                      <Form.Field required>
-                        <label>¿Con cuál género te identificas?</label>
-                        <Field required
-                          as={Select}
-                          options={genderOptions}
-                          id='gender'
-                          name='gender'
-                          placeholder='Género'
-                          selection
-                          value={values.gender}
-                          onChange={(_, data) => setFieldValue('gender', data.value)}
-                        />
-                      </Form.Field>  
-                      <Form.Field>
-                        <label>¿Cuál es tu estado laboral actual?</label>
-                        <Form.Field
-                          control={Select}
-                          options={laboralOptions}
-                          placeholder='Estado laboral'
-                          selection
-                          value={values.employmentStatus}
-                          onChange={(_, data)=> setFieldValue('employmentStatus', data.value)}
-                        />       
-                      </Form.Field>        
-                    </Form.Group>
-                    <br />
+    <Header>Información Personal</Header>
+    <Form.Group widths='equal'>
+      <Form.Field required>
+        <label htmlFor='nameInfo'>Nombre</label>                        
+        <Field 
+        type='text'
+        onChange={handleChange}
+        onBlur={handleBlur}
+        id='nameInfo'
+        name='nameInfo'
+        value={nameInfo}/>
+      </Form.Field>
+      <Form.Field required>
+        <label htmlFor='lastName'>Apellido</label>                        
+        <Field 
+        type='text'
+        onChange={handleChange}
+        onBlur={handleBlur}
+        id='lastName'
+        name='lastName'
+        value={lastName}/>
+      </Form.Field>
+    </Form.Group>
+    <Form.Group widths='equal'>
+      <Form.Field required>
+        <label htmlFor='email'>Email</label>
+        <Field
+        type='email'
+        id='email'
+        name='email'
+        value={email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+      </Form.Field>   
+      <Form.Field required>
+        <label>Número de teléfono Móvil</label>
+        <Field required
+        type='text'
+        id='phone'
+        name='phone'
+        value={phone}
+        onChange={handleChange}
+        onBlur={handleBlur}/>
+      </Form.Field>               
+    </Form.Group>
+    <Form.Group widths='equal'>
+      <Form.Field required>
+        <label>Ciudad</label>
+      <Field required
+        type='text'
+        id='city'
+        name='city'
+        value={city}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        />
+      </Form.Field>
+      <Form.Field required>
+        <label>País/Región</label>
+        <Field required
+        type='text'
+        id='country'
+        name='country'
+        value={country}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        />
+      </Form.Field>                  
+    </Form.Group>
+      <Form.Group widths='equal'>
+        <Form.Field required>
+          <label>¿Con cuál género te identificas?</label>
+          <Field required
+            as={Select}
+            options={options}
+            id='gender'
+            name={gender}
+            placeholder='Género'
+            selection
+            value={gender}
+            onChange={(_, data) => setFieldValue('gender', data.value)}
+          />
+          </Form.Field>
+          <Form.Field>
+            <label>¿Cuál es tu estado laboral actual?</label>
+            <Form.Field
+              control={Select}
+              options={laboralOptions}
+              placeholder='Estado laboral'
+              selection
+              value={employmentStatus}
+              onChange={(_, data)=> setFieldValue('employmentStatus', data.value)}
+            />       
+          </Form.Field>        
+        <br />
+        </Form.Group>
+      </Container>
+  )
+  }
+      
+  export default InfoPersonal;
+
+                    /*      
                     <Form.Group widths= 'equal'>
                       <Form.Field require>
                         <label>A cuáles cargos te gustaría optar</label>
@@ -257,10 +249,6 @@ export default function Formulario() {
                           /> 
                       </Form.Field>
                      </Form.Group>
-                    <Form.Button disabled={isSubmitting} type="submit" content="Enviar" primary />
-                  </Form>
+                  
                 )}
-        </Formik>
-    </Container>
-  )
-}
+                */
