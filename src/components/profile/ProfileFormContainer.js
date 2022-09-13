@@ -14,23 +14,45 @@ export default function ProfileFormContainer() {
   // const { formData, formDataError, getAllFormData } =
   //   useContext(FormDataContext);
   const [frameworks, setFrameworks] = useState(null);
-  // const [languages, setLanguages] = useState(null);
+  const [languages, setLanguages] = useState(null);
   // const [tools, setTools] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   function handleResponse(response) {
     console.log(response.data.res.frameworks);
+    console.log(response.data.res.languages);
     setFrameworks(response.data.res.frameworks);
+    setLanguages(response.data.res.languages);
     setIsReady(true);
   }
 
   const renderFrameworks = (initVals, setFieldValue) => {
     return Object.entries(initVals)
+      .slice(0, 7)
+      .map((item, i) => {
+        console.log("initVals:", initVals);
+        console.log("item[1].name:", item[1].name);
+        console.log("i", i);
+        return (
+          <CompetencyLevel
+            id={item[1].id}
+            control="radio"
+            label={item[1].name}
+            name={item[1].name}
+            options={profileRadioOptions}
+            setFieldValue={setFieldValue}
+          />
+        );
+      });
+  };
+
+  const renderLanguages = (initVals, setFieldValue) => {
+    return Object.entries(initVals)
       .slice(0, 2)
       .map((item, i) => {
-        // console.log("initVals:", initVals);
-        // console.log("item[1].name:", item[1].name);
-        // console.log("i", i);
+        console.log("initVals:", initVals);
+        console.log("item[1].name:", item[1].name);
+        console.log("i", i);
         return (
           <CompetencyLevel
             id={item[1].id}
@@ -100,6 +122,8 @@ export default function ProfileFormContainer() {
               </div>
               <h1>Frameworks</h1>
               {renderFrameworks(frameworks, formik.setFieldValue)}
+              <h1>Lenguajes</h1>
+              {renderLanguages(languages, formik.setFieldValue)}
 
               {/* <button
                 type="button"
