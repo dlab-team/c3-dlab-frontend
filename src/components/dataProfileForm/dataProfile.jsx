@@ -10,6 +10,7 @@ export const formInitialValues = {
     idealJob: [
     ],
     educationLevelId:'',
+    newTec:'',
     englishLevel:'',
     studies:[],
     actual:'',

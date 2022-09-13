@@ -35,22 +35,25 @@ export const AddStudies = ({
                   ))}
                   {/* <Field name={`courses.${index}`} />
                 <Field name={`courses.${index}`} /> */}
-                  <Button
+                  <br />
+                  <Container>
+                    <Button
                     basic
                     type="button"
                     color='red'
                     onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
-                  >
-                    <Icon name='trash alternate'/>
-                  </Button>
-                  <Button
-                    type="button"
-                    basic
-                    color='blue'
-                    onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
-                  >
-                    <Icon name='add'/>
-                  </Button>
+                    >
+                      <Icon name='trash alternate'/>
+                    </Button>
+                    <Button
+                      type="button"
+                      basic
+                      color='blue'
+                      onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
+                    >
+                      <Icon name='add'/>
+                    </Button>
+                  </Container>                  
                 </div>
               ))
             ) : (

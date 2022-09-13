@@ -1,8 +1,14 @@
 import React, { Fragment } from 'react'
-import { Form, Header, Input,} from 'semantic-ui-react'
+import { Field } from 'formik'
+import { Form, Header } from 'semantic-ui-react'
 import Acordeon from './Acordeon'
 
-export default function PerfilLaboral() {
+const PerfilLaboral=({
+  handleChange,
+  handleBlur,
+  newTec,
+  children
+})=> {
   return (
     <Fragment>
         <Header>Perfil Laboral</Header>
@@ -28,10 +34,20 @@ export default function PerfilLaboral() {
           práctica durante el proceso de selección
         </p>
         <Form.Field>
+          { children }
           <Acordeon></Acordeon>
         </Form.Field>
-        <Input label='Alguna otra tecnología que consideres importante agregar?' />
+        <Form.Input 
+            type='text' 
+            label='alguna otra tecnología que consideres importante agregar?'
+            name='newTec'
+            value={newTec}
+            onChange={handleChange} 
+            handleBlur={handleBlur}
+          />
         <br />
     </Fragment>
   )
 }
+
+export default PerfilLaboral;

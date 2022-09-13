@@ -11,4 +11,4 @@ export const CheckboxForm = ({ label, name, options, value }) => {
       onChange={(_, data) => options.push( data.value)}
     />
   );
-};
+};           

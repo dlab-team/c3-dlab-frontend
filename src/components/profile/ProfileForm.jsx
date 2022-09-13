@@ -77,7 +77,12 @@ export default function ProfileForm() {
                   />
               </PerfilEducacional>    
               <br />
-              <PerfilLaboral/>          
+              <PerfilLaboral
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                newTec={values.newTec}
+                children={values.children}
+              />          
               <br />
               <ExperienciaTrabajo
                 handleChange={handleChange}
