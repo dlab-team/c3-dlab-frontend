@@ -8,8 +8,13 @@ import {
   faGlasses,
 } from "@fortawesome/free-solid-svg-icons";
 import { Card } from "semantic-ui-react";
+import { useContext } from "react";
+import { DataContext } from "../../context/Context";
 
 export function DashboardStats() {
+
+  const {trueTotal} = useContext(DataContext)
+
   return (
     <>
       <Card.Group
@@ -27,7 +32,7 @@ export function DashboardStats() {
         <Target
           icon={faCode}
           titulo="Show The Code Realizados"
-          response="3"
+          response={trueTotal}
         ></Target>
 
         <Target

@@ -12,12 +12,15 @@ const dataFixed = [
     {id:'107',status:true, empresa:'Entel-id107', conocimiento:'Python, JavaScripts y react.js 4', cargo:'Desarrollador Full Stack Python + React.js 4', paginaweb:'https://examedi.com/cl/4', fecha:'2022-07-03', hora:'13:00', link:'https://desafiolatam.zoom.us/j/83350773697?pwd=MGFObm8xbi92MmpYWHJHYnJ5SXMwUT09' },
     ]
 
+const trueTotal = dataFixed.filter(item => item.status).length
+
 function DataProvider ({children}) {
-    const [data, setData] = useState(dataFixed)
+    const [data, setData] = useState(dataFixed,trueTotal)
     return (
         <DataContext.Provider value={{
             data,
-            setData
+            setData,
+            trueTotal
         }}>
             {children}
         </DataContext.Provider>

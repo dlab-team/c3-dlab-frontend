@@ -4,7 +4,7 @@ import { DataContext } from "../../context/Context";
 import { Container, Card, Image, Form, TextArea, Input} from 'semantic-ui-react'
 
  
-const ShowTheAccept = () => {
+const ShowTheCodeAccept = () => {
 
   const {data} = useContext(DataContext)
 
@@ -59,6 +59,6 @@ const ShowTheAccept = () => {
     )
   
 }
-export default ShowTheAccept; 
+export default ShowTheCodeAccept; 
 
 

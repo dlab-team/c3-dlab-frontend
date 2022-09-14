@@ -1,78 +1,41 @@
 import React from "react";
-import { useContext } from "react";
-import { Container,Button, Card, Image } from 'semantic-ui-react'
-import { DataContext } from "../../context/Context";
+import { Grid, GridRow, GridColumn, Card } from "semantic-ui-react";
+import DashboardNavbar from "../../components/profile/DashboardNavbar";
+import BackToHomeBtn from "../../components/backToHomeBtn";
+import { NavLink } from "react-router-dom";
 
 
+ 
 const ShowTheCode = () => {
-      
-      const {data} = useContext(DataContext)
-  
-      console.log(data.sort((a, b) => new Date(a.fecha).getTime() > new Date(b.fecha).getTime()));
-
-      const changeTrue = (id) => {
-        let index = data.findIndex(position => position.id === id)
-        console.log("position is: ",index)
-        data[index].status = true;
-        console.log(data[index])
-       }
-
-       const changeFalse = (id) => {
-        let index = data.findIndex(position => position.id === id)
-        console.log("position is: ",index)
-        data[index].status = false;
-        console.log(data[index])
-       }
-     
-    const card = data.map((data) =>
-
-      <Card>
-      <Card.Content>
-        <Image
-          floated='right'
-          size='mini'
-          src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
-        />
-        <Card.Header>{data.empresa}</Card.Header>
-        <Card.Meta></Card.Meta>
-        
-        <Card.Description>
-        <h6><strong>Cargo:</strong> {data.cargo}</h6>
-        <br />
-        <h6><strong>Habilidades:</strong> {data.conocimiento}</h6>
-        <br />
-        <h6><strong>Fecha:</strong> {data.fecha}</h6>
-       
-        <h6><strong>Hora:</strong> {data.hora}</h6>
-        </Card.Description>
-       
-      
-        <a href={data.paginaweb}>Pagina Web</a>      
-      </Card.Content>
-
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button key={data.id} onClick={() => {changeTrue(data.id)}} basic color='green'>
-            Aceptar
-          </Button>
-          <Button  key={data.id} onClick={() => {changeFalse(data.id)}} basic color='red'>
-            Rechazar
-          </Button>
-        </div>
-      </Card.Content>
-    </Card>
-    );
-    
-
-    return (
-        <Container>
-        <Container textAlign='center'> <h1> Show The Code</h1>  <h4 textAlign='center'> Invitaciones </h4> </Container>
-        <br/>
-          <Card.Group>
-           {card}
-          </Card.Group>
-        </Container>
-    )
+return (
+  <div className="dashboard-wrapper">
+  <Grid celled="internally">
+    <GridRow>
+      <GridColumn width={3}>
+        <DashboardNavbar />
+      </GridColumn>
+      <GridColumn width={13}>
+      <h2>Bienvenido a Show The Code</h2>
+      <Card
+       href='/dashboard/showthecode/invitations'
+       header='Show the Code'
+       meta='Invitations'
+       description='Aca se verán todas las invitaciones a show the code'
+      />
+        <Card
+       href='/dashboard/showthecode/accepted'
+       header='Show the Code'
+       meta='accepted'
+       description='Aca se verán toda los Show The Code Aceptados '
+      />
+      </GridColumn>
+    </GridRow>
+  </Grid>
+  <NavLink to="/">
+    <BackToHomeBtn />
+  </NavLink>
+</div>
+)
   
 }
 export default ShowTheCode; 

@@ -7,11 +7,12 @@ import ProfileType from "../pages/profileType";
 import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
 import Dashboard from "../pages/profile/Dashboard";
+import DashboardStcInvitations from "../pages/profile/DashboardStcInvitations";
 import ProfileForm from "../components/profile/ProfileForm";
 import ShowTheCode from "../components/profile/ShowTheCode";
-import ShowTheCodeAccepted from "../components/profile/ShowTheCodeAccepted";
 import DataProvider from "../context/Context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DashboardStcAccepted from "../pages/profile/DashboardStcAccepted";
 
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />}></Route>
-        <Route path="/showthecode/invitations" element={<ShowTheCode/>}></Route>
-        <Route path="/showthecode/accepted" element={<ShowTheCodeAccepted/>}></Route>
+        <Route path="/dashboard/showthecode/accepted" element={<DashboardStcAccepted/>}></Route>
+        <Route path="/dashboard/showthecode/invitations" element={<DashboardStcInvitations/>}></Route>
+        <Route path="/dashboard/showthecode" element={<ShowTheCode/>}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup-btn" element={<SignUpBtn />}></Route>
