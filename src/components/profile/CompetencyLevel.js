@@ -9,7 +9,7 @@ function CompetencyLevel(props) {
     <div>
       <Header as="h4" color="teal" content={`label: ${label} & id: ${id}`} />
       <Header as="h4" color="teal" content={`name: ${name}`} />
-      <Field name={name.toLowerCase()}>
+      <Field name={name.replace(/[^a-zA-Z0-9]/g, "").toLowerCase()}>
         {({ field }) => {
           return options.map((option) => {
             return (
