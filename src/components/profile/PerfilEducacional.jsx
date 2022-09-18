@@ -37,7 +37,7 @@ const educacionalOptions = [
   { key: "9", text: "Postgrado incompleto", value: "Postgrado incompleto" },
 ];
 
-const actualOptionsValues = [
+const educationStatusValues = [
   { key: "e", text: "Egresado", value: "egresado" },
   { key: "t", text: "titulado", value: "titulado" },
   { key: "ec", text: "en curso", value: "en curso" },
@@ -55,9 +55,8 @@ const PerfilEducacional=({
   handleBlur,
   setFieldValue,
   educationLevelId,
-  englishLevel,
-  actual,
-  more,
+  englishLevelId,
+  educationStatus,
   children
 })=> {
   return (
@@ -83,11 +82,11 @@ const PerfilEducacional=({
                 as={Select}
                 options={englishLevelValues}
                 id='englishLevel'
-                name={englishLevel}
+                name={englishLevelId}
                 placeholder='Nivel inglés'
                 selection
-                value={englishLevel}
-                onChange={(_, data) => setFieldValue('englishLevel', data.value)}  
+                value={englishLevelId}
+                onChange={(_, data) => setFieldValue('englishLevelId', data.value)}  
                 /> 
             </Form.Field>
           </Form.Group>
@@ -97,20 +96,14 @@ const PerfilEducacional=({
               <label>Situación educacional actual(Bootcamp)</label>
               <Form.Field
                 control={Select}
-                options={actualOptionsValues}
+                options={educationStatusValues}
                 placeholder='Seleccionar'
                 selection
-                value={actual}
-                onChange={(_, data) => setFieldValue('actual', data.value)}  
+                value={educationStatus}
+                onChange={(_, data) => setFieldValue('educationStatus', data.value)}  
                 /> 
             </Form.Field>
           </Form.Group >
-          <Form.Input 
-            type='text' 
-            label='alguna otra competencia que quieras mencionar?'
-            name='more'
-            value={more}
-            onChange={handleChange} />
     </Container>
   )
 }

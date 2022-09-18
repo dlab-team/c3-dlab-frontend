@@ -2,29 +2,31 @@ import React from 'react'
 import { Accordion } from 'semantic-ui-react'
 import Frameworks from './Frameworks'
 import Herramientas from './Herramientas'
-import Lenguage from './Language'
+import Language from './Language'
 
-const level1Panels = [
-    <Lenguage></Lenguage>
+const AccordionExampleNested = ({language=[], framework=[], tools=[]}) => {
+  const level1Panels = [
+    <Language
+      language= {language}
+      ></Language>
 ]
-
 const Level1Content = (
   <div>
     <Accordion.Accordion panels={level1Panels} />
   </div>
 )
-
 const level2Panels = [
-    <Herramientas></Herramientas>
+    <Herramientas
+      tools={tools}/>
 ]
-
 const Level2Content = (
   <div>
     <Accordion.Accordion panels={level2Panels} />
   </div>
 )
 const level3Panels = [
-    <Frameworks></Frameworks>
+    <Frameworks
+    framework={framework}/>
 ]
 const Level3Content= (
     <div>
@@ -35,12 +37,8 @@ const rootPanels = [
   { key: 'panel-1', title: 'Lenguajes', content: { content: Level1Content } },
   { key: 'panel-2', title: 'Herramientas', content: { content: Level2Content } },
   { key: 'panel-3', title: 'Frameworks', content: { content: Level3Content } },
-
-
 ]
-
-const AccordionExampleNested = () => (
-  <Accordion defaultActiveIndex={0} panels={rootPanels} styled />
-)
+  return ( <Accordion defaultActiveIndex={0} panels={rootPanels} styled />)
+}
 
 export default AccordionExampleNested

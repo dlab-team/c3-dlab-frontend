@@ -19,13 +19,12 @@ export default function CheckboxGroup(props) {
                         checked={field.value.includes(option.value)}
                        // onChange={(_, data)=> formik.setFieldValue('job_0', data.value)}
                         />   
-                        <label htmlFor={option.valuee}>{option.key}</label>
+                        <label htmlFor={option.value}>{option.key}</label>
                     </Fragment>
                 )
             })
             }}
             </Field>
-    
     </Form>
   )
 }

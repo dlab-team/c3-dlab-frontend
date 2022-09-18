@@ -8,9 +8,14 @@ import PerfilEducacional from "./PerfilEducacional"
 import PerfilLaboral from "./PerfilLaboral";
 import { formInitialValues } from "../dataProfileForm/dataProfile";
 import AddStudies from "./AddStudies";
-
+import { url_api } from "../../constants/api_constants";
+import { req_profile_form } from "../../request/req_profile_form";
+import { useEffect } from "react";
+import { useState } from "react";
+import Acordeon from "./Acordeon";
 
 export default function ProfileForm() {
+  const [data, setData] = useState([])
   const placeholderCourses = [
     { id: 'course-course', name: 'course', placeholder: 'Curso' },
     { id: 'course-inst', name: 'institution', placeholder: 'Institución' },
@@ -21,7 +26,18 @@ export default function ProfileForm() {
     { key: "f", text: "Femenino", value: "female" },
     { key: "o", text: "Otro", value: "other" },
   ];
+
+  useEffect(()=>{
+    async function req_data(){
+     const data_form = await req_profile_form(url_api.profile_form)
+      setData(data_form)
+      console.log(data_form)
+    }
+    req_data()
+  },[])
+
   const formSubmit = async (values, { setSubmitting })=>{
+    
     console.log(values);
   };
   return (
@@ -82,7 +98,13 @@ export default function ProfileForm() {
                 handleBlur={handleBlur}
                 newTec={values.newTec}
                 children={values.children}
-              />          
+              >      
+                <Acordeon
+                  language={data.languages}
+                  framework={data.frameworks}
+                  tools={data.tools}
+                ></Acordeon>
+              </PerfilLaboral>    
               <br />
               <ExperienciaTrabajo
                 handleChange={handleChange}

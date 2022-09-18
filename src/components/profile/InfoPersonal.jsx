@@ -25,7 +25,7 @@ const laboralOptions = [
     value: "different_field_jobseeker",
   },
 ];
-const jobOptionsValues = [
+const jobsValues = [
   {
     key:"fs",
     text:"Desarrollador/a Full Stack",
@@ -65,17 +65,17 @@ const jobOptionsValues = [
 const InfoPersonal=({
   handleChange,
   handleBlur,
+  setFieldValue,
   nameInfo,
   lastName,
-  email,
   phone,
   city,
   country,
   options,
   employmentStatus,
   gender,
-  idealJob,
-  setFieldValue
+  positions,
+  
 }) => {
   return (
     <Container>
@@ -104,17 +104,6 @@ const InfoPersonal=({
     </Form.Group>
     <Form.Group widths='equal'>
       <Form.Field required>
-        <label htmlFor='email'>Email</label>
-        <Field
-        type='email'
-        id='email'
-        name='email'
-        value={email}
-        onChange={handleChange}
-        onBlur={handleBlur}
-      />
-      </Form.Field>   
-      <Form.Field required>
         <label htmlFor='phone'>Número de teléfono Móvil</label>
         <Field required
         type='text'
@@ -123,9 +112,7 @@ const InfoPersonal=({
         value={phone}
         onChange={handleChange}
         onBlur={handleBlur}/>
-      </Form.Field>               
-    </Form.Group>
-    <Form.Group widths='equal'>
+      </Form.Field>
       <Form.Field required>
         <label htmlFor='city'>Ciudad</label>
       <Field required
@@ -136,7 +123,9 @@ const InfoPersonal=({
         onChange={handleChange}
         onBlur={handleBlur}
         />
-      </Form.Field>
+      </Form.Field>         
+    </Form.Group>
+    <Form.Group widths='equal'>
       <Form.Field required>
         <label htmlFor='country'>País/Región</label>
         <Field required
@@ -147,10 +136,8 @@ const InfoPersonal=({
         onChange={handleChange}
         onBlur={handleBlur}
         />
-      </Form.Field>                  
-    </Form.Group>
-      <Form.Group widths='equal'>
-        <Form.Field required>
+      </Form.Field>   
+      <Form.Field required>
           <label htmlFor='gender'>¿Con cuál género te identificas?</label>
           <Field required
             as={Select}
@@ -162,33 +149,34 @@ const InfoPersonal=({
             value={gender}
             onChange={(_, data) => setFieldValue('gender', data.value)}
           />
-          </Form.Field>
-          <Form.Field>
-            <label>¿Cuál es tu estado laboral actual?</label>
-            <Form.Field
-              control={Select}
-              options={laboralOptions}
-              placeholder='Estado laboral'
-              selection
-              value={employmentStatus}
-              onChange={(_, data)=> setFieldValue('employmentStatus', data.value)}
-            />       
-          </Form.Field>        
-        <br />
-        </Form.Group>
-        <Form.Group grouped>
-          <label htmlFor='idealJob'>¿a cuáles cargos te gustaría optar?</label>
-            {jobOptionsValues.map((item)=>(
-              <CheckboxForm
-                key={item.key}
-                label={item.text}
-                value={item.value}
-                options={idealJob}
-                name="idealJob[]"
-                />
-              ))}
-            </Form.Group> 
-      </Container>
+      </Form.Field>                    
+    </Form.Group>
+    <Form.Group widths='equal'>
+      <Form.Field>
+        <label>¿Cuál es tu estado laboral actual?</label>
+        <Form.Field
+          control={Select}
+          options={laboralOptions}
+          placeholder='Estado laboral'
+          selection
+          value={employmentStatus}
+          onChange={(_, data)=> setFieldValue('employmentStatus', data.value)}
+        />       
+      </Form.Field>   
+      <Form.Group grouped>
+      <label htmlFor='positions'>¿a cuáles cargos te gustaría optar?</label>
+        {jobsValues.map((item)=>(
+          <CheckboxForm
+            key={item.key}
+            label={item.text}
+            value={item.value}
+            options={positions}
+            name="positions[]"
+            />
+          ))}
+        </Form.Group>     
+    </Form.Group>
+  </Container>
   )
   }
   export default InfoPersonal;

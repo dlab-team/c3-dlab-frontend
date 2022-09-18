@@ -30,7 +30,7 @@ const workOptionValues=[
   { key:'3', text:'Disponible para migrar a otro país', value:'Disponible para migrar a otro país' },
   { key:'4', text:'Otros países', value:'Otros países'}
 ]
-const availableOptionsValues=[
+const jobsOptionsValues=[
   { key:'1', text:'Full Time', value:'Full Time'},
   { key:'2', text:'Part Time', value:'Part Time'},
   { key:'3', text:'Freelancer', value:'Freelancer'}
@@ -51,8 +51,8 @@ const ExperienciaTrabajo=({
   details,
   softSkills,
   yearsExperience,
-  availableOptions,
-  descriptionIdealJob,
+  jobs,
+  idealJob,
   workOption,
   visas
 }) => {
@@ -137,22 +137,24 @@ const ExperienciaTrabajo=({
           id='descriptionIdealJob'
           name='descriptionIdealJob'
           label='Déjanos una breve descripción con respecto tu trabajo ideal'
-          value={descriptionIdealJob} 
+          value={idealJob} 
           onChange={handleChange}
           handleBlur={handleBlur}/>
         <br />
         <Form.Field>
           <Header>Indícanos tu disponibilidad laboral</Header>
-          <Form.Group>
-          <Form.Field
-            control={Select}
-            options={availableOptionsValues}
-            placeholder='Disponibilidad'
-            selection
-            value={availableOptions}
-            onChange={(_, data)=> setFieldValue('availableOptions', data.value)}
-          /> 
-          </Form.Group>
+          <br />
+          <Form.Group inline>
+            {jobsOptionsValues.map((item)=>(
+              <CheckboxForm
+                key={item.key}
+                label={item.text}
+                value={item.value}
+                options={jobs}
+                name="jobs[]"
+                />
+              ))}
+          </Form.Group>         
         </Form.Field>
         <Form.Field>
           <Header>Qué describe mejor tu situación actual</Header>

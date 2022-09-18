@@ -133,14 +133,14 @@ export default function Herramientas() {
         </Form.Field>
         </Form.Group>  
         <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Power BI' }}>p
+        <Form.Field label={{ children: 'Power BI' }}>
         </Form.Field>
         <Form.Field>
           <Niveles/>            
         </Form.Field>
         </Form.Group>  
         <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Proto.io' }}>p
+        <Form.Field label={{ children: 'Proto.io' }}>
         </Form.Field>
         <Form.Field>
           <Niveles/>            

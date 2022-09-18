@@ -35,11 +35,11 @@ const PerfilLaboral=({
         </p>
         <Form.Field>
           { children }
-          <Acordeon></Acordeon>
+ 
         </Form.Field>
         <Form.Input 
             type='text' 
-            label='alguna otra tecnología que consideres importante agregar?'
+            label='alguna otra competencia, herramienta o tecnología que consideres importante agregar?'
             name='newTec'
             value={newTec}
             onChange={handleChange} 
@@ -49,5 +49,4 @@ const PerfilLaboral=({
     </Fragment>
   )
 }
-
 export default PerfilLaboral;
