@@ -71,7 +71,6 @@ export default function ProfileFormContainer() {
           );
 
           console.log(dataToSend);
-          debugger;
           axios
             .put("http://localhost:8080/api/1/profile/adduser", {
               frameworks: dataToSend,
