@@ -26,27 +26,6 @@ export default function ProfileFormContainer() {
     setIsReady(true);
   }
 
-  // const renderLanguages = (initVals, setFieldValue) => {
-  //   return Object.entries(initVals)
-  //     .slice(0, 2)
-  //     .map((item, i) => {
-  //       console.log("initValsRenderLang:", initVals);
-  //       console.log("itemRenderLang:", item);
-  //       console.log("item[1].nameRenderLang:", item[1].name);
-  //       console.log("iRenderLang", i);
-  //       return (
-  //         <CompetencyLevel
-  //           id={item[1].id}
-  //           control="radio"
-  //           label={item[1].name}
-  //           name={item[1].name}
-  //           options={profileRadioOptions}
-  //           setFieldValue={setFieldValue}
-  //         />
-  //       );
-  //     });
-  // };
-
   if (isReady) {
     return (
       <Formik
@@ -106,7 +85,7 @@ export default function ProfileFormContainer() {
                 initVals={frameworks}
                 setFieldValue={formik.setFieldValue}
               />
-              <h1>Lenguajes</h1>
+              {/* <h1>Lenguajes</h1>
               <CompetencyList
                 initVals={languages}
                 setFieldValue={formik.setFieldValue}
@@ -115,7 +94,7 @@ export default function ProfileFormContainer() {
               <CompetencyList
                 initVals={tools}
                 fieldValue={formik.setFieldValue}
-              />
+              /> */}
               {/* <button
                 type="button"
                 onClick={() => setProfileValuesDB(valuesFromDB)}
