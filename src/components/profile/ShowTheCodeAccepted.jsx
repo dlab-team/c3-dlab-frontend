@@ -17,7 +17,6 @@ const ShowTheCodeAccept = () => {
         <Image
           floated='right'
           size='medium'
-          src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
         />
         <Card.Header>{data.empresa}</Card.Header>
         
