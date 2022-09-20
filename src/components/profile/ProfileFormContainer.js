@@ -1,12 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Formik, Form } from "formik";
-import FormikControl from "./FormikControl";
-import CompetencyLevel from "./CompetencyLevel";
-import { Accordion, Icon, Container } from "semantic-ui-react";
-import { initialValues, profileRadioOptions } from "./data";
-import { FormDataContext } from "../../contexts/formDataContext";
+import { initialValues } from "./data";
+// import { FormDataContext } from "../../contexts/formDataContext";
 import axios from "axios";
 import "../../assets/styles.css";
+import CompetencyList from "./CompetencyList";
 
 export default function ProfileFormContainer() {
   // const [profileValuesDB, setProfileValuesDB] = useState(null);
@@ -14,35 +12,19 @@ export default function ProfileFormContainer() {
   // const { formData, formDataError, getAllFormData } =
   //   useContext(FormDataContext);
   const [frameworks, setFrameworks] = useState(null);
-  // const [languages, setLanguages] = useState(null);
-  // const [tools, setTools] = useState(null);
+  const [languages, setLanguages] = useState(null);
+  const [tools, setTools] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   function handleResponse(response) {
-    console.log(response.data.res.frameworks);
+    // console.log(response.data.res.frameworks);
+    // console.log(response.data.res.languages);
+    // console.log(response.data.res.tools);
     setFrameworks(response.data.res.frameworks);
+    setLanguages(response.data.res.languages);
+    setTools(response.data.res.tools);
     setIsReady(true);
   }
-
-  const renderFrameworks = (initVals, setFieldValue) => {
-    return Object.entries(initVals)
-      .slice(0, 2)
-      .map((item, i) => {
-        // console.log("initVals:", initVals);
-        // console.log("item[1].name:", item[1].name);
-        // console.log("i", i);
-        return (
-          <CompetencyLevel
-            id={item[1].id}
-            control="radio"
-            label={item[1].name}
-            name={item[1].name}
-            options={profileRadioOptions}
-            setFieldValue={setFieldValue}
-          />
-        );
-      });
-  };
 
   if (isReady) {
     return (
@@ -98,8 +80,20 @@ export default function ProfileFormContainer() {
                 Déjala en blanco si no lo manejas.
               </div>
               <h1>Frameworks</h1>
-              {renderFrameworks(frameworks, formik.setFieldValue)}
-
+              <CompetencyList
+                initVals={frameworks}
+                setFieldValue={formik.setFieldValue}
+              />
+              {/* <h1>Lenguajes</h1>
+              <CompetencyList
+                initVals={languages}
+                setFieldValue={formik.setFieldValue}
+              />
+              <h1>Herramientas</h1>
+              <CompetencyList
+                initVals={tools}
+                fieldValue={formik.setFieldValue}
+              /> */}
               {/* <button
                 type="button"
                 onClick={() => setProfileValuesDB(valuesFromDB)}

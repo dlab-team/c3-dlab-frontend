@@ -48,7 +48,6 @@ function Login() {
           if (response.data.success === true) {
             userCtx.setUserData(response.data.res)
             console.log(response)
-            debugger
             navigate("/dashboard", { replace: true });
           }
         })
@@ -78,7 +77,7 @@ function Login() {
                   className="forminputemail"
                   name="email"
                   onChange={formik.handleChange}
-                  error={formik.errors.emai}
+                  error={formik.errors.email}
                   value={formik.values.email}
                 ></Form.Input>
               </div>

@@ -8,10 +8,11 @@ function CompetencyLevel(props) {
   return (
     <div>
       <Header as="h4" color="teal" content={`label: ${label} & id: ${id}`} />
-      <Header as="h4" color="teal" content={`name: ${name.toLowerCase()}`} />
-      <Field name={name.toLowerCase()}>
+      <Header as="h4" color="teal" content={`name: ${name}`} />
+      <Field name={name}>
         {({ field }) => {
           return options.map((option) => {
+            console.log(field);
             return (
               <React.Fragment key={option.key}>
                 <input
