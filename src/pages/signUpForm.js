@@ -5,6 +5,7 @@ import axios from "axios";
 import Navbar from "../components/navbar";
 import { Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../constants/api";
 
 const SignUpForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
@@ -45,7 +46,7 @@ const SignUpForm = () => {
         onSubmit={(valores, { resetForm }) => {
           resetForm();
           axios
-            .post("http://localhost:8080/api/1/users/signup/", {
+            .post(`${BASE_URL}/api/1/users/signup/`, {
               email: valores.correo,
               password: valores.password,
             })

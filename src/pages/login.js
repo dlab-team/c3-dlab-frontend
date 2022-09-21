@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Form, Button } from "semantic-ui-react";
-import { replace, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "../assets/styles.css";
@@ -8,7 +8,7 @@ import Navbar from "../components/navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { Navigate } from 'react-router-dom'
 import UserContext from "../contexts/userContext";
-import Dashboard from "./profile/Dashboard";
+import { BASE_URL } from "../constants/api";
 
 function Login() {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
@@ -38,7 +38,7 @@ function Login() {
     onSubmit: (forminfo, { resetForm }) => {
       resetForm();
       axios
-        .post("http://localhost:8080/api/1/users/signin/", {
+        .post(`${BASE_URL}/api/1/users/signin/`, {
           email: forminfo.email,
           password: forminfo.password,
         }, { withCredentials: true})
@@ -47,8 +47,6 @@ function Login() {
           // setTimeout(() => cambiarFormularioEnviado(false), 5000);
           if (response.data.success === true) {
             userCtx.setUserData(response.data.res)
-            console.log(response)
-            debugger
             navigate("/dashboard", { replace: true });
           }
         })

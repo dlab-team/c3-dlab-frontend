@@ -11,18 +11,18 @@ import ProfileForm from "../components/profile/ProfileForm";
 import ProfileFormContainer from "../components/profile/ProfileFormContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProfileAccordion from "../components/profile/ProfileAccordion";
-import EjemploForm from "../components/profile/EjemploForm";
 import UserContext from "../contexts/userContext";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import ProtectedRoute from "../components/ProtectedRoute";
+import { BASE_URL } from "../constants/api";
 
 function App() {
   const [userData, setUserData] = useState({})
   useEffect( () => {
     const getUserData = async () => {
       if (Object.keys(userData).length === 0 || !userData ) {
-        const resp = await axios.get('http://localhost:8080/api/1/users/currentuser/',
+        const resp = await axios.get(`${BASE_URL}/api/1/users/currentuser/`,
           {withCredentials: true})
         setUserData(resp.data.currentUser)
       }
@@ -41,7 +41,6 @@ function App() {
           <Route path="/signup-btn" element={<SignUpBtn />}></Route>
           <Route path="/signup-form" element={<SignUpForm />}></Route>
           <Route path="/profile-form" element={<ProfileForm />}></Route>
-          <Route path="/ejemplo-form" element={<EjemploForm />}></Route>
           <Route
             path="/profile-form-container"
             element={<ProfileFormContainer />}
