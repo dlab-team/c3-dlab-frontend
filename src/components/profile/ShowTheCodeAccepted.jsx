@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { DataContext } from "../../context/Context";
-import { Container, Card, Image, Form, TextArea, Input} from 'semantic-ui-react'
+import { Container, Card, Image} from 'semantic-ui-react'
 
  
 const ShowTheCodeAccept = () => {
@@ -33,13 +33,13 @@ const ShowTheCodeAccept = () => {
         <a href={data.paginaweb}>Pagina Web</a>  
         <br />
 
-        <Form>
+        {/* <Form>
           <h6><strong>Proyecto:</strong></h6>
           <Form.Field>
           <Input placeholder='First name' />  
           </Form.Field>
           <TextArea rows={2} placeholder='Tell us more' />
-        </Form>
+        </Form> */}
       </Card.Content>
 
     

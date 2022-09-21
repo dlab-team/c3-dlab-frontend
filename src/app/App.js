@@ -7,11 +7,11 @@ import ProfileType from "../pages/profileType";
 import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
 import Dashboard from "../pages/profile/Dashboard";
-import DashboardStcInvitations from "../pages/profile/DashboardStcInvitations";
 import ProfileForm from "../components/profile/ProfileForm";
 import ShowTheCode from "../components/profile/ShowTheCode";
 import DataProvider from "../context/Context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DashboardStcInvitations from "../pages/profile/DashboardStcInvitations";
 import DashboardStcAccepted from "../pages/profile/DashboardStcAccepted";
 
 

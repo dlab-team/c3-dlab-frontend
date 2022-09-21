@@ -4,7 +4,7 @@ import { Container,Button, Card} from 'semantic-ui-react'
 import { DataContext } from "../../context/Context";
 
 
-const ShowTheCode = () => {
+const ShowTheCodeInvitations = () => {
       
       const {data} = useContext(DataContext)
   
@@ -71,6 +71,6 @@ const ShowTheCode = () => {
     )
   
 }
-export default ShowTheCode; 
+export default ShowTheCodeInvitations; 
 
 
