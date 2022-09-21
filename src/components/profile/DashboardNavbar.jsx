@@ -15,7 +15,9 @@ const DashboardNavbar = () => {
         <NavLink to="/profile-form">
           <ListItem icon="user" content="Mi Perfil" />
         </NavLink>
-        <ListItem icon="star" content="Tests" />
+        <NavLink to="/test-container">
+          <ListItem icon="star" content="Tests" />
+        </NavLink>
         <ListItem icon="suitcase" content="Ofertas" />
         <ListItem icon="users" content="Networking" />
         <ListItem icon="sign-out" content="Cerrar Sesión" />
