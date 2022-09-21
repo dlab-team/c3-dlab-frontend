@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Image, Label } from "semantic-ui-react";
+import { Button, Card, Image, Label } from "semantic-ui-react";
 import { testData } from "../../pages/tests/data.js";
 
 const OneTest = () => {
@@ -22,9 +22,16 @@ const OneTest = () => {
               {testItem.name}
             </Card.Header>
             <Card.Meta>{`${testItem.time} min.`}</Card.Meta>
-            <a href={testItem.testLink} target="_blank" rel="noreferrer">
-              Ir al test
-            </a>
+            <Button color="blue">
+              <a
+                href={testItem.testLink}
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                Ir al test
+              </a>
+            </Button>
           </Card.Content>
         </Card>
       ))}
