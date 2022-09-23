@@ -48,7 +48,6 @@ export default function ProfileForm() {
           {({
             values,
             errors,
-            touched,
             handleChange,
             handleBlur,
             handleSubmit,
@@ -65,7 +64,7 @@ export default function ProfileForm() {
                 city={values.city}
                 country={values.country}
                 employmentStatus={values.employmentStatus}
-                idealJob={values.idealJob}
+                positions={values.positions}
                 handleBlur={handleBlur}
                 handleChange={handleChange}
                 options={genderOptions}
@@ -77,7 +76,7 @@ export default function ProfileForm() {
                  handleBlur={handleBlur}
                  setFieldValue={setFieldValue}
                  educationLevelId={values.educationLevelId}
-                 englishLevel={values.englishLevel}
+                 englishLevel={values.englishLevelId}
                  studies={values.studies}
                  actual={values.actual}
                  more={values.more} 
@@ -103,6 +102,7 @@ export default function ProfileForm() {
                   language={data.languages}
                   framework={data.frameworks}
                   tools={data.tools}
+                  values={values}
                 ></Acordeon>
               </PerfilLaboral>    
               <br />
@@ -113,11 +113,11 @@ export default function ProfileForm() {
                 urlCv={values.urlCv}
                 urlLinkedin={values.urlLinkedin}
                 urlGithub={values.urlGithub}
-                urlPortafolio={values.urlPortafolio}
+                urlPortfolio={values.urlPortfolio}
                 details={values.details}
                 softSkills={values.softSkills}
                 yearsExperience={values.yearsExperience}
-                availableOptions={values.availableOptions}
+                jobs={values.jobs}
                 descriptionIdealJob={values.descriptionIdealJob}
                 workOption={values.workOption}
                 visas={values.visas}/>

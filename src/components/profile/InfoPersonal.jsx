@@ -163,7 +163,7 @@ const InfoPersonal=({
           onChange={(_, data)=> setFieldValue('employmentStatus', data.value)}
         />       
       </Form.Field>   
-      <Form.Group grouped>
+      <Form.Field >
       <label htmlFor='positions'>¿a cuáles cargos te gustaría optar?</label>
         {jobsValues.map((item)=>(
           <CheckboxForm
@@ -174,7 +174,7 @@ const InfoPersonal=({
             name="positions[]"
             />
           ))}
-        </Form.Group>     
+        </Form.Field>     
     </Form.Group>
   </Container>
   )

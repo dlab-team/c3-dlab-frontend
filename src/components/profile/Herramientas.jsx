@@ -1,201 +1,64 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { Field } from 'formik'
 import { Container, Form } from 'semantic-ui-react'
-import Niveles from './Niveles'
 
-export default function Herramientas() {
+
+export default function Herramientas({tools=[], nameTools=[], setFieldValue}) {
+  const handleClick = useCallback(
+    (e) => {
+      let data = { name: e.target.name, value: e.target.value };
+
+      if (nameTools.length <= 0) {
+        console.log("si");
+        return nameTools.push(data);
+      }
+
+      let array = nameTools.filter((item) => item.name !== data.name);
+
+      nameTools = [...array, data];
+      // console.log(nameLanguage);
+      setFieldValue('tools', [...nameTools]);
+    },
+    [nameTools]
+  );
   return (
     <Container>
-       <Form>
-         <Form.Group widths='equal'>  
-            <Form.Field label={{ children: 'Github' }}>
-            </Form.Field>
-              <Form.Field>
-              <Niveles/>            
-            </Form.Field>
-          </Form.Group> 
-         <Form.Group widths='equal'>  
-            <Form.Field label={{ children: 'Adobe Illustrator' }}>
-            </Form.Field>
-              <Form.Field>
-              <Niveles/>            
-            </Form.Field>
-          </Form.Group> 
-           <Form.Group widths='equal'>  
-            <Form.Field label={{ children: 'Adobe Photoshop' }}>
-            </Form.Field>
-              <Form.Field>
-              <Niveles/>            
-            </Form.Field>
-          </Form.Group> 
-          <Form.Group widths='equal'>  
-            <Form.Field label={{ children: 'Adobe XDAWS' }}>
-            </Form.Field>
-              <Form.Field>
-              <Niveles/>            
-            </Form.Field>
-          </Form.Group> 
-          <Form.Group widths='equal'>  
-            <Form.Field label={{ children: 'Docker' }}>
-            </Form.Field>
-              <Form.Field>
-              <Niveles/>            
-            </Form.Field>
-          </Form.Group> 
-          <Form.Group widths='equal'>  
-            <Form.Field label={{ children: 'Figma' }}>
-            </Form.Field>
-              <Form.Field>
-              <Niveles/>            
-            </Form.Field>
-          </Form.Group> 
-          <Form.Group widths='equal'>  
-            <Form.Field label={{ children: 'GIT' }}>
-            </Form.Field>
-              <Form.Field>
-              <Niveles/>            
-            </Form.Field>
-          </Form.Group> 
-          <Form.Group widths='equal'>  
-          <Form.Field label={{ children: 'Google Analytics' }}>
-          </Form.Field>
-            <Form.Field>
-            <Niveles/>            
-          </Form.Field>
-          </Form.Group>        
-        <Form.Group widths='equal'>  
-         <Form.Field label={{ children: 'Google Cloud Plataform' }}>
-         </Form.Field>
-          <Form.Field>
-           <Niveles/>            
-         </Form.Field>
-        </Form.Group>         
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Google Data Studio' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>    
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Invision' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'InVision Studio' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Jira' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Kubernetes' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Marvel' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Microsoft Excel' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Microsoft Azure' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Miro' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Power BI' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Proto.io' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Qlik' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Sketch' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'SPSS' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Tableau' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Unity 3D' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Unreal Engine' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        <Form.Group widths='equal'>
-        <Form.Field label={{ children: 'Zepelin' }}>
-        </Form.Field>
-        <Form.Field>
-          <Niveles/>            
-        </Form.Field>
-        </Form.Group>  
-        </Form>
+{tools.map((item) => (
+        <Form.Group inline key={item.id}>
+          <span style={{ display: 'inline-block', marginRight: '2rem' }}>
+            {item.name}:
+          </span>
+          <label>
+            <Field
+              type="radio"
+              name={`${item.name}`}
+              value="1"
+              onClick={handleClick}
+            ></Field>
+            1
+          </label>
+
+          <label>
+            <Field
+              type="radio"
+              name={`${item.name}`}
+              value="2"
+              onClick={handleClick}
+            ></Field>
+            2
+          </label>
+
+          <label>
+            <Field
+              type="radio"
+              name={`${item.name}`}
+              value="3"
+              onClick={handleClick}
+            ></Field>
+            3
+          </label>
+        </Form.Group>
+      ))}
     </Container>
     
   )

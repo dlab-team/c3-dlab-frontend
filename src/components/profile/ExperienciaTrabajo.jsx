@@ -124,7 +124,8 @@ const ExperienciaTrabajo=({
         <Field require
           as={Select}
           placeholder='Escoge opción'
-          name={yearsExperience}
+          id='yearsExperience'
+          name={yearsExperience} 
           options={experienceOptionsValues} 
           selection
           value={yearsExperience}
