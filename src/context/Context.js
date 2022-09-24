@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // importa useEffect
+/* import axios from "axios"; */
+
 
 export const DataContext = React.createContext();
+
+
 
 const dataFixed = [
     {id:'101',status:false, empresa:'Entel', conocimiento:'JavaScripts, React, SQL,GIT, Docker ', cargo:'Full-Stack Junior (React, Node.js)', paginaweb:'https://www.getonbrd.com/', fecha:'04-10-2022', hora:'18:00', link:'https://desafiolatam.zoom.us/j/83350773697?pwd=MGFObm8xbi92MmpYWHJHYnJ5SXMwUT09' },
@@ -14,17 +18,36 @@ const dataFixed = [
 
 const trueTotal = dataFixed.filter(item => item.status).length
 
+
 function DataProvider ({children}) {
     const [data, setData] = useState(dataFixed,trueTotal)
+  
+  /*   useEffect(() => {
+        axios({
+            method: 'get',
+            url: 'https://jsonplaceholder.typicode.com/posts',
+        })
+            .then(function (response) {
+                if (response.status === 200){
+                    const data = response.data
+                    console.log("data:",data)
+                    setData(data)
+                }})
+            .catch(function(error){
+                console.log("error:", error)
+            }) 
+    },[])
+ */
     return (
         <DataContext.Provider value={{
             data,
             setData,
-            trueTotal
+            trueTotal,
         }}>
             {children}
         </DataContext.Provider>
     )
 }
+
 
 export default DataProvider;

@@ -1,13 +1,34 @@
-import React from "react";
-import { Grid, GridRow, GridColumn, Segment, Container } from "semantic-ui-react";
+import  React, {useEffect} from "react";
+import { Grid, GridRow, GridColumn, Container } from "semantic-ui-react";
 import DashboardNavbar from "../../components/profile/DashboardNavbar";
 import BackToHomeBtn from "../../components/backToHomeBtn";
 import { NavLink } from "react-router-dom";
 import {faCode} from "@fortawesome/free-solid-svg-icons";
 import Target from "../../components/profile/Target";
+import axios from 'axios'
 
  
 const ShowTheCode = () => {
+
+  const [datos, setDatos] = React.useState([])
+
+  useEffect(() => {
+    axios({
+        method: 'get',
+        url: 'https://jsonplaceholder.typicode.com/posts',
+      })
+        .then(function (response) {
+            if (response.status === 200){
+                const data = response.data
+                console.log("data:",data)
+                setDatos(data)
+            }})
+        .catch(function(error){
+            console.log("error:", error)
+        }) 
+},[])
+
+
 return (
   <div className="dashboard-wrapper">
   <Grid celled="internally">
@@ -30,6 +51,12 @@ return (
           <br />
           <br />
           <br />
+
+          <ul>
+            {datos.map(item => (
+              <li key="item.id">{item.id} -{item.title} </li>
+            ))}
+          </ul>
 
         <Container>
             <Grid stackable columns={2}>
