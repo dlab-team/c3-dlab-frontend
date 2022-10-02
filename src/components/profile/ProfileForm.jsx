@@ -26,7 +26,7 @@ export default function ProfileForm() {
     { key: "f", text: "Femenino", value: "female" },
     { key: "o", text: "Otro", value: "other" },
   ];
-
+  
   useEffect(()=>{
     async function req_data(){
      const data_form = await req_profile_form(url_api.profile_form)
@@ -75,6 +75,7 @@ export default function ProfileForm() {
                  handleChange={handleChange}
                  handleBlur={handleBlur}
                  setFieldValue={setFieldValue}
+                 educacionalOptions={data.edLevels}
                  educationLevelId={values.educationLevelId}
                  englishLevel={values.englishLevelId}
                  studies={values.studies}
@@ -99,10 +100,11 @@ export default function ProfileForm() {
                 children={values.children}
               >      
                 <Acordeon
-                  language={data.languages}
-                  framework={data.frameworks}
-                  tools={data.tools}
-                  values={values}
+                languages={data.languages}
+                frameworks={data.frameworks}
+                tools={data.tools}
+                values={values}
+                setFieldValue={setFieldValue}
                 ></Acordeon>
               </PerfilLaboral>    
               <br />

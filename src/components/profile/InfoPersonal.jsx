@@ -81,7 +81,7 @@ const InfoPersonal=({
     <Container>
     <Header>Información Personal</Header>
     <Form.Group widths='equal'>
-      <Form.Field required>
+      <Form.Field>
         <label htmlFor='nameInfo'>Nombre</label>                        
         <Field 
         type='text'
@@ -91,7 +91,7 @@ const InfoPersonal=({
         name='nameInfo'
         value={nameInfo}/>
       </Form.Field>
-      <Form.Field required>
+      <Form.Field>
         <label htmlFor='lastName'>Apellido</label>                        
         <Field 
         type='text'
@@ -103,9 +103,9 @@ const InfoPersonal=({
       </Form.Field>
     </Form.Group>
     <Form.Group widths='equal'>
-      <Form.Field required>
+      <Form.Field>
         <label htmlFor='phone'>Número de teléfono Móvil</label>
-        <Field required
+        <Field
         type='text'
         id='phone'
         name='phone'
@@ -115,7 +115,7 @@ const InfoPersonal=({
       </Form.Field>
       <Form.Field required>
         <label htmlFor='city'>Ciudad</label>
-      <Field required
+      <Field
         type='text'
         id='city'
         name='city'
@@ -126,9 +126,9 @@ const InfoPersonal=({
       </Form.Field>         
     </Form.Group>
     <Form.Group widths='equal'>
-      <Form.Field required>
+      <Form.Field>
         <label htmlFor='country'>País/Región</label>
-        <Field required
+        <Field
         type='text'
         id='country'
         name='country'
@@ -137,9 +137,9 @@ const InfoPersonal=({
         onBlur={handleBlur}
         />
       </Form.Field>   
-      <Form.Field required>
+      <Form.Field>
           <label htmlFor='gender'>¿Con cuál género te identificas?</label>
-          <Field required
+          <Field
             as={Select}
             options={options}
             id='gender'

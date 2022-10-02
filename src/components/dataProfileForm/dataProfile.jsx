@@ -1,103 +1,145 @@
 export const formInitialValues = {
-    nameInfo:'Max',
+    nameInfo:'',
+    email:'',
     lastName:'',
     phone:'',
     city:'',
     country:'',
     gender:'',
     employmentStatus:'',
-    positions: [],
+    idealJob:'', 
+    educationLevelId:'',
+    workExperience:{
+      urlCv: '',
+      urlLinkedin: '',
+      urlGithub: '',
+      urlPortfolio: '',
+      details: '',
+      yearsExperience: '', 
+      userId:'',
+    },
+    studies:[
 
-    educationLevelId:3,
-    studies:[],  
-    englishLevelId:2,
+    ],  
+    userProfessionalPositions: [
+
+    ],
+    languages:[
+    ],
+    frameworks:[
+
+    ],
+    tools:[
+
+    ],
+    userJobs:[
+
+    ],
+
+    userSoftSkills: [ ],    
+    visas: [],
+
+
+    englishLevelId:'',
     educationStatus:'',
-
-    languages:[],
-    frameworks:[],
-    tools:[],
     newTec:'',
-
-    urlCv: '',
-    urlLinkedin: '',
-    urlGithub: '',
-    urlPortfolio: '',
-    details: '',
-    softSkills: [], 
-    yearsExperience: '',       
-    idealJob:[], 
     jobs: [],     
     workOption: '',
-    visas: [],
+    
 }
-/*
+
+  /*
   {
-    "name": "string",
-    "lastName": "string",
-    "phone": "string",
-    "city": "string",
-    "country": "string",
-    "gender": "string",
-    "employmentStatus": "string",
-    "idealJob": "string",
-    "educationLevelId": 0,
+  "id": 0,
+  "email": "string",
+  "name": "string",
+  "lastName": "string",
+  "phone": "string",
+  "city": "string",
+  "country": "string",
+  "gender": "string",
+  "employmentStatus": "string",
+  "idealJob": "string",
+  "EducationLevelId": 0,
+  "WorkExperience": {
+    "id": 0,
     "urlCv": "string",
     "urlLinkedin": "string",
     "urlGithub": "string",
     "urlPortfolio": "string",
     "details": "string",
     "yearsExperience": 0,
-    "studies": [
-      {
-        "userId": 0,
-        "name": "string",
-        "institution": "string",
-        "institutionType": "string"
+    "userId": 0
+  },
+  "Studies": [
+    {
+      "id": 0,
+      "name": "string",
+      "institution": "string",
+      "institutionType": "string"
+    }
+  ],
+  "UserProfessionalPositions": [
+    {
+      "ProfessionalPositionId": 0,
+      "ProfessionalPosition": {
+        "name": "string"
       }
-    ],
-    "positions": [
-      {
-        "UserId": 0,
-        "ProfessionalPositionId": 0
+    }
+  ],
+  "LanguageLevels": [
+    {
+      "LanguageId": 0,
+      "level": 0,
+      "Language": {
+        "name": "string"
       }
-    ],
-    "languages": [
-      {
-        "UserId": 0,
-        "LanguageId": 0,
-        "level": 0
+    }
+  ],
+  "FrameworkLevels": [
+    {
+      "FrameworkId": 0,
+      "level": 0,
+      "Framework": {
+        "name": "string"
       }
-    ],
-    "frameworks": [
-      {
-        "UserId": 0,
-        "FrameworkId": 0,
-        "level": 0
+    }
+  ],
+  "ToolLevels": [
+    {
+      "ToolId": 0,
+      "level": 0,
+      "Tool": {
+        "name": "string"
       }
-    ],
-    "tools": [
-      {
-        "UserId": 0,
-        "ToolId": 0,
-        "level": 0
+    }
+  ],
+  "UserJobs": [
+    {
+      "JobId": 0,
+      "UserId": 0,
+      "Job": {
+        "name": "string"
       }
-    ],
-    "jobs": [
-      {
-        "UserId": 0,
-        "JobId": 0
+    }
+  ],
+  "UserSoftSkills": [
+    {
+      "SoftSkillId": 0,
+      "UserId": 0,
+      "SoftSkill": {
+        "name": "string"
       }
-    ],
-    "softSkills": [
-      {
-        "UserId": 0,
-        "SoftSkillId": 0
+    }
+  ],
+  "UserVisas": [
+    {
+      "VisaId": 0,
+      "UserId": 0,
+      "Visa": {
+        "name": "string"
       }
-    ],
-    "visas": [
-      {
-        "UserId": 0,
-        "VisaId": 0
-      }
-    ]
-  }*/
+    }
+  ]
+}
+*/

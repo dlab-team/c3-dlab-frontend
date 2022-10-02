@@ -1,41 +1,9 @@
 import React from 'react'
+import { useEffect } from "react";
+import { useState } from "react";
 import { Field } from 'formik'
 import {  Container, Header, Select, Form } from 'semantic-ui-react'
 
-const educacionalOptions = [
-  { 
-    key: "1", 
-    text: "Universidad completa", 
-    value: "Universidad completa" },
-  {
-    key: "2",
-    text: "Universidad incompleta o cursando",
-    value: "Universidad incompleta o cursando",
-  },
-  {
-    key: "3",
-    text: "Instituto profesional o CFT completa",
-    value: "Instituto profesional o CFT completa",
-  },
-  {
-    key: "4",
-    text: "Instituto profesional o CFT en curso",
-    value: "Instituto profesional o CFT en curso",
-  },
-  {
-    key: "5",
-    text: "Educación media completa",
-    value: "Educación media completa",
-  },
-  {
-    key: "6",
-    text: "Educación media incompleta",
-    value: "Educación media incompleta",
-  },
-  { key: "7", text: "Escolar completa", value: "Escolar completa" },
-  { key: "8", text: "Postgrado completo", value: "Postgrado completo" },
-  { key: "9", text: "Postgrado incompleto", value: "Postgrado incompleto" },
-];
 
 const educationStatusValues = [
   { key: "e", text: "Egresado", value: "egresado" },
@@ -54,11 +22,22 @@ const PerfilEducacional=({
   handleChange,
   handleBlur,
   setFieldValue,
+  educacionalOptions=[],
   educationLevelId,
   englishLevelId,
   educationStatus,
   children
+
 })=> {
+  const [edOptions, setEdOption] = useState([]);
+
+  useEffect(() => {
+    const newEdOpt = educacionalOptions.map((ed) => {
+      return { key: ed.id, text: ed.name, value: ed.id };
+    });
+    setEdOption(newEdOpt);
+  }, [educacionalOptions]);
+
   return (
     <Container>
       <Header>Perfil Educacional</Header>
@@ -67,7 +46,7 @@ const PerfilEducacional=({
               <label>Máximo nivel educacional</label>
               <Field required
                 as={Select}
-                options={educacionalOptions}
+                options={edOptions}
                 id='educationLevelId'
                 name={educationLevelId}
                 placeholder='Nivel Educacional'

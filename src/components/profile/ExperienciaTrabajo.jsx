@@ -40,6 +40,7 @@ const visasValues=[
   { key:'2', text:'Unión Europea', value:'Unión Europea'},
   { key:'3', text:'Estados Unidos', value:'Estados Unidos'}
 ]
+
 const ExperienciaTrabajo=({
   handleBlur,
   handleChange,

@@ -1,67 +1,61 @@
 import React, { useCallback } from 'react'
 import { Field } from 'formik'
 import { Container, Form, Radio } from 'semantic-ui-react'
+import RadioLevels from './RadioLevels';
 
-
-export default function Language({language=[], nameLanguage=[], setFieldValue}) {
-  
-  
-  const handleClick = useCallback(
-    (e) => {
-      let data = { name: e.target.name, value: e.target.value };
-
-      if (nameLanguage.length <= 0) {
-        console.log("si");
-        return nameLanguage.push(data);
-      }
-
-      let array = nameLanguage.filter((item) => item.name !== data.name);
-
-      nameLanguage = [...array, data];
-      // console.log(nameLanguage);
-      setFieldValue('languages', [...nameLanguage]);
-    },
-    [nameLanguage]
-  );
-
+const Languages = ({
+  dataLanguages = [],
+  nameLanguage = [],
+  setFieldValue,//
+}) => {
   return (
-    <Container> 
-           {language.map((item) => (
+    <>
+      {dataLanguages.map((item) => (
         <Form.Group inline key={item.id}>
           <span style={{ display: 'inline-block', marginRight: '2rem' }}>
             {item.name}:
           </span>
-          <label>
-            <Field
-              type="radio"
-              name={`${item.name}`}
-              value="1"
-              onClick={handleClick}
-            ></Field>
-            1
-          </label>
 
-          <label>
-            <Field
-              type="radio"
-              name={`${item.name}`}
-              value="2"
-              onClick={handleClick}
-            ></Field>
-            2
-          </label>
+          <RadioLevels
+            label="1"
+            type="radio"
+            name={`${item.name}`}
+            value="1"
+            id={item.id}
+            nameData={nameLanguage}
+            setFieldValue={setFieldValue}
+            nameValueForm="languages"
+            nameDB="LanguageId"
+          ></RadioLevels>
 
-          <label>
-            <Field
-              type="radio"
-              name={`${item.name}`}
-              value="3"
-              onClick={handleClick}
-            ></Field>
-            3
-          </label>
+          <RadioLevels
+            label="2"
+            type="radio"
+            name={`${item.name}`}
+            value="2"
+            id={item.id}
+            nameData={nameLanguage}
+            setFieldValue={setFieldValue}
+            nameValueForm="languages"
+            nameDB="LanguageId"
+
+          ></RadioLevels>
+
+          <RadioLevels
+            label="3"
+            type="radio"
+            name={`${item.name}`}
+            value="3"
+            id={item.id}
+            nameData={nameLanguage}
+            setFieldValue={setFieldValue}
+            nameValueForm="languages"
+            nameDB="LanguageId"
+
+          ></RadioLevels>
         </Form.Group>
       ))}
-          
-    </Container>  )
-}
+    </>
+  );
+};
+export default Languages
