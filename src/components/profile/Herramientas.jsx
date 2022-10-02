@@ -24,6 +24,7 @@ const Herramientas = ({
          nameData={nameTool}
          setFieldValue={setFieldValue}
          nameValueForm="tools"
+         nameDB="ToolId"
           />
           <RadioLevels
           label= "2"
@@ -34,6 +35,7 @@ const Herramientas = ({
           nameData={nameTool}
           setFieldValue={setFieldValue}
           nameValueForm="tools"
+          nameDB="ToolId"
           />
           <RadioLevels
           label= "3"
@@ -44,6 +46,7 @@ const Herramientas = ({
           nameData={nameTool}
           setFieldValue={setFieldValue}
           nameValueForm="tools"
+          nameDB="ToolId"
           />
         </Form.Group>
       ))}

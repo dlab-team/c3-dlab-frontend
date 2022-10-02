@@ -6,7 +6,7 @@ export const CheckboxForm = ({ label, name, options, value }) => {
     <Form.Field
       control={Checkbox}
       label={label}
-      name={name}
+      name={name} 
       value={value}
       onChange={(_, data) => options.push( data.value)}
     />

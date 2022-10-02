@@ -17,9 +17,9 @@ import Acordeon from "./Acordeon";
 export default function ProfileForm() {
   const [data, setData] = useState([])
   const placeholderCourses = [
-    { id: 'course-course', name: 'course', placeholder: 'Curso' },
+    { id: 'course-course', name: 'name', placeholder: 'Curso' },
     { id: 'course-inst', name: 'institution', placeholder: 'Institución' },
-    { id: 'course-type', name: 'typeIntitution', placeholder: 'Tipo de institución' },
+    { id: 'course-type', name: 'intitutionType', placeholder: 'Tipo de institución' },
   ];
   const genderOptions = [
     { key: "m", text: "Masculino", value: "male" },
@@ -56,9 +56,8 @@ export default function ProfileForm() {
           })=>(
             <Form onSubmit={handleSubmit}>
               <InfoPersonal
-                nameInfo={values.nameInfo}
+                name={values.name}
                 lastName={values.lastName}
-                email={values.email} 
                 gender={values.gender} 
                 phone={values.phone}
                 city={values.city}

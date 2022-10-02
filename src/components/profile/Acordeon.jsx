@@ -39,7 +39,7 @@ const Acordeon = ({languages=[], frameworks=[], tools=[], values, setFieldValue}
       </summary>
       <Herramientas
       dataTools={tools}
-      nameTools={values.tools}
+      nameTool={values.tools}
       setFieldValue={setFieldValue}
       />
 </details>

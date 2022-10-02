@@ -66,7 +66,7 @@ const InfoPersonal=({
   handleChange,
   handleBlur,
   setFieldValue,
-  nameInfo,
+  name,
   lastName,
   phone,
   city,
@@ -82,14 +82,14 @@ const InfoPersonal=({
     <Header>Información Personal</Header>
     <Form.Group widths='equal'>
       <Form.Field>
-        <label htmlFor='nameInfo'>Nombre</label>                        
+        <label htmlFor='name'>Nombre</label>                        
         <Field 
         type='text'
         onChange={handleChange}
         onBlur={handleBlur}
-        id='nameInfo'
-        name='nameInfo'
-        value={nameInfo}/>
+        id='name'
+        name='name'
+        value={name}/>
       </Form.Field>
       <Form.Field>
         <label htmlFor='lastName'>Apellido</label>                        

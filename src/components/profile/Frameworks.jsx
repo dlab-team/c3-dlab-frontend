@@ -24,6 +24,7 @@ const Frameworks=({
             nameData={nameFramework}
             setFieldValue={setFieldValue}
             nameValueForm="frameworks"
+            nameDB="FrameworkId"
             />
             <RadioLevels
             label="2"
@@ -34,6 +35,7 @@ const Frameworks=({
             nameData={nameFramework}
             setFieldValue={setFieldValue}
             nameValueForm="frameworks"
+            nameDB="FrameworkId"
             />
             <RadioLevels
             label="3"
@@ -44,6 +46,7 @@ const Frameworks=({
             nameData={nameFramework}
             setFieldValue={setFieldValue}
             nameValueForm="frameworks"
+            nameDB="FrameworkId"
             />
             </Form.Group>
           ))}

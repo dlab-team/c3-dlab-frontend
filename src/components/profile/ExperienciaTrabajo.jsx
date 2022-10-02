@@ -136,8 +136,8 @@ const ExperienciaTrabajo=({
         <Header as='h3'>¿Qué tipo de trabajo estás buscando?</Header>    
         <Form.Input 
           type="text"
-          id='descriptionIdealJob'
-          name='descriptionIdealJob'
+          id='idealJob'
+          name='idealJob'
           label='Déjanos una breve descripción con respecto tu trabajo ideal'
           value={idealJob} 
           onChange={handleChange}
