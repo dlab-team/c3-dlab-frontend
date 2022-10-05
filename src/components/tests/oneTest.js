@@ -8,7 +8,7 @@ const OneTest = () => {
       {testData.map((testItem, index) => (
         <Card key={index}>
           <Image
-            src={testItem.logo}
+            src={testItem.testLogo}
             wrapped
             ui={false}
             style={{ padding: "25px", minHeight: "50px" }}
@@ -19,9 +19,9 @@ const OneTest = () => {
               {testItem.role}
             </Label>
             <Card.Header style={{ marginTop: "10px" }}>
-              {testItem.name}
+              {testItem.testName}
             </Card.Header>
-            <Card.Meta>{`${testItem.time} min.`}</Card.Meta>
+            <Card.Meta>{`${testItem.testTime} min.`}</Card.Meta>
             <Button color="blue">
               <a
                 href={testItem.testLink}
