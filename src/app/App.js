@@ -8,6 +8,7 @@ import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
 import Dashboard from "../pages/profile/Dashboard";
 import ProfileForm from "../components/profile/ProfileForm";
+import TestContainer from "../pages/tests/testContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile-form" element={<ProfileForm />}></Route>
         <Route path="/profileType" element={<ProfileType />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/test-container" element={<TestContainer />}></Route>
       </Routes>
     </BrowserRouter>
   );
