@@ -25,43 +25,6 @@ const laboralOptions = [
     value: "different_field_jobseeker",
   },
 ];
-const jobsValues = [
-  {
-    key:"fs",
-    text:"Desarrollador/a Full Stack",
-    value:"Desarrollador/a Full Stack"
-  },
-  {
-    key:"be",
-    text:"Desarrollador/a Back End",
-    value:"Desarrollador/a Back End"
-  },
-  {
-    key:"fe",
-    text:"Desarrollador/a Front End",
-    value:"Desarrollador/a Front End"
-  },
-  {
-    key:"ux",
-    text:"Diseñador/a UX / UX Research o UI",
-    value:"Diseñador/a UX / UX Research o UI"
-  },
-  {
-    key:"dm",
-    text:"Desarrollador/a Móvil",
-    value:"Desarrollador/a Móvil"
-  },
-  {
-    key:"ds",
-    text:"Data Scientist o especialista machine learning",
-    value:"Data Scientist o especialista machine learning"
-  },
-  {
-    key:"id",
-    text:"Ingeniería de Datos",
-    value:"Ingeniería de Datos"
-  },
-]
 const InfoPersonal=({
   handleChange,
   handleBlur,
@@ -74,9 +37,11 @@ const InfoPersonal=({
   options,
   employmentStatus,
   gender,
-  positions,
-  
+  professionalPositions=[],
 }) => {
+  const positionOpt= professionalPositions.map((pos)=>{
+    return {key:pos.id, name:pos.name, value:pos.id};
+  });
   return (
     <Container>
     <Header>Información Personal</Header>
@@ -165,13 +130,13 @@ const InfoPersonal=({
       </Form.Field>   
       <Form.Field >
       <label htmlFor='positions'>¿a cuáles cargos te gustaría optar?</label>
-        {jobsValues.map((item)=>(
+        {professionalPositions.map((item)=>(
           <CheckboxForm
             key={item.key}
-            label={item.text}
+            label={item.name}
             value={item.value}
-            options={positions}
-            name="positions[]"
+            options={positionOpt}
+            name="professionalPositions[]"
             />
           ))}
         </Form.Field>     

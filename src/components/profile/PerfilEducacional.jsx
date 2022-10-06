@@ -1,23 +1,18 @@
 import React from 'react'
-import { useEffect } from "react";
-import { useState } from "react";
 import { Field } from 'formik'
 import {  Container, Header, Select, Form } from 'semantic-ui-react'
-
 
 const educationStatusValues = [
   { key: "e", text: "Egresado", value: "egresado" },
   { key: "t", text: "titulado", value: "titulado" },
   { key: "ec", text: "en curso", value: "en curso" },
 ];
-
 const englishLevelValues = [
   { key: "b", text: "básico", value: "basic" },
   { key: "m", text: "medio", value: "medio" },
   { key: "t", text: "técnico", value: "tecnico" },
   { key: "f", text: "fluido", value: "fluido" },
 ];
-
 const PerfilEducacional=({
   handleChange,
   handleBlur,
@@ -27,17 +22,10 @@ const PerfilEducacional=({
   englishLevelId,
   educationStatus,
   children
-
 })=> {
-  const [edOptions, setEdOption] = useState([]);
-
-  useEffect(() => {
-    const newEdOpt = educacionalOptions.map((ed) => {
+    const edOptions = educacionalOptions.map((ed) => {
       return { key: ed.id, text: ed.name, value: ed.id };
     });
-    setEdOption(newEdOpt);
-  }, [educacionalOptions]);
-
   return (
     <Container>
       <Header>Perfil Educacional</Header>
@@ -47,7 +35,7 @@ const PerfilEducacional=({
               <Field required
                 as={Select}
                 options={edOptions}
-                id='educationLevelId'
+                id='educationLevelId' 
                 name={educationLevelId}
                 placeholder='Nivel Educacional'
                 selection

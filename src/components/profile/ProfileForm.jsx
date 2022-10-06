@@ -26,7 +26,6 @@ export default function ProfileForm() {
     { key: "f", text: "Femenino", value: "female" },
     { key: "o", text: "Otro", value: "other" },
   ];
-  
   useEffect(()=>{
     async function req_data(){
      const data_form = await req_profile_form(url_api.profile_form)
@@ -35,9 +34,16 @@ export default function ProfileForm() {
     }
     req_data()
   },[])
-
+ /* useEffect(()=>{
+   // async function req_current(){
+    //  const userId= await req_profile_form(url_api.current_user)
+     // setData(userId)
+     // console.log(userId)
+   // }*/
+   // req_current()
+  //}, [])*/
+  
   const formSubmit = async (values, { setSubmitting })=>{
-    
     console.log(values);
   };
   return (
@@ -63,7 +69,7 @@ export default function ProfileForm() {
                 city={values.city}
                 country={values.country}
                 employmentStatus={values.employmentStatus}
-                positions={values.positions}
+                professionalPositions={data.professionalPositions}
                 handleBlur={handleBlur}
                 handleChange={handleChange}
                 options={genderOptions}
@@ -116,12 +122,12 @@ export default function ProfileForm() {
                 urlGithub={values.urlGithub}
                 urlPortfolio={values.urlPortfolio}
                 details={values.details}
-                softSkills={values.softSkills}
+                softSkills={data.softSkills}
                 yearsExperience={values.yearsExperience}
-                jobs={values.jobs}
+                jobs={data.jobs}
                 descriptionIdealJob={values.descriptionIdealJob}
                 workOption={values.workOption}
-                visas={values.visas}/>
+                visasOptions={data.visas}/>
           <Button type="submit" disabled={isSubmitting} content='Enviar' primary/>
           </Form>
           )}
@@ -130,57 +136,3 @@ export default function ProfileForm() {
     </Container>
   );
 }
-
-
-
-
-
-/*
-
-
-        <Formik
-          initialValues={{
-            name:'',
-            lastName:'',
-            email:'',
-            phone:'',
-            city:'',
-            country:'',
-            gender:'',
-            employmentStatus:'',
-            idealJob: [
-            ],
-            educationLevelId:'',
-            englishLevel:'',
-            studies:[{
-              name:'',
-              institution:'',
-              institutionType:''
-            }],
-            actual:'',
-            more:'',
-            urlCv:'',
-            urlLinkedin:'',
-            urlGithub:'',
-            urlPortfolio:'',
-            details:'',
-            softSkills:[],
-            yearsExperience:'',
-            availableOptions:'',
-            descriptionIdealJob:'',
-            workOption:'',
-            visas:[]
-          }}
-          onSubmit={(data, {setSubmitting}) => {
-            setSubmitting(true);
-            console.log("submit:", data);
-           // setSubmitting(false);
-          }}>
-        {({ values, isSubmitting, handleChange, handleBlur, handleSubmit, setFieldValue}) => (
-          <Form onSubmit={handleSubmit}>
-            
-
-            <Button disabled={isSubmitting} type="submit">Enviar Formulario</Button>
-          </Form>
-        )}
-        </Formik>    */
