@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import Navbar from "../components/navbar";
 import { Button } from "semantic-ui-react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Navigate } from "react-router-dom";
+import UserContext from "../contexts/userContext";
 
 const Login = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   //   const [errorRegistro, setErrorRegistro] = useState("");
   const navigate = useNavigate();
+  const userCtx = useContext(UserContext)
+  const { userData } = userCtx
 
   return (
     <>
       <Navbar />
+      { userData ? <Navigate replace to='/dashboard'></Navigate>
+        :
       <Formik
         initialValues={{
           email: "",
@@ -35,10 +40,12 @@ const Login = () => {
             .post("http://localhost:8080/api/1/users/signin/", {
               email: values.email,
               password: values.password,
-            })
+            }, { withCredentials: true})
             .then(function (response) {
               if (response.data.success === true) {
                 console.log("ok", response.data);
+                userCtx.setUserData(response.data.res)
+                console.log(response)
                 cambiarFormularioEnviado(true);
                 setTimeout(() => cambiarFormularioEnviado(false), 2000);
                 resetForm();
@@ -103,6 +110,7 @@ const Login = () => {
           </Form>
         )}
       </Formik>
+      }
     </>
   );
 };
