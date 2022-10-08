@@ -18,7 +18,7 @@ const ShowTheCodeAccept = () => {
           floated='right'
           size='medium'
         />
-        <Card.Header>{data.title}</Card.Header>
+        <Card.Header>{data.empresa}</Card.Header>
         
         <Card.Description>
           <h6><strong>Cargo:</strong> {data.cargo}</h6>

@@ -9,6 +9,7 @@ import SignUpBtn from "../components/home/signUpBtn";
 import Dashboard from "../pages/profile/Dashboard";
 import ProfileForm from "../components/profile/ProfileForm";
 import ShowTheCode from "../components/profile/ShowTheCode";
+import PruebaPut from "../components/profile/PruebaPut";
 import DataProvider from "../context/Context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DashboardStcInvitations from "../pages/profile/DashboardStcInvitations";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/profile-form" element={<ProfileForm />}></Route>
         <Route path="/profileType" element={<ProfileType />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/prueba" element={<PruebaPut />}></Route>
       </Routes>
     </BrowserRouter>
     </DataProvider>
