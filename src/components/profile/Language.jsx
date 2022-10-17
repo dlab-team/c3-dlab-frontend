@@ -1,12 +1,11 @@
 import React, { useCallback } from 'react'
-import { Field } from 'formik'
 import { Container, Form, Radio } from 'semantic-ui-react'
 import RadioLevels from './RadioLevels';
 
 const Languages = ({
   dataLanguages = [],
   nameLanguage = [],
-  setFieldValue,//
+  setFieldValue,
 }) => {
   return (
     <>
@@ -15,7 +14,6 @@ const Languages = ({
           <span style={{ display: 'inline-block', marginRight: '2rem' }}>
             {item.name}:
           </span>
-
           <RadioLevels
             label="1"
             type="radio"
@@ -26,8 +24,7 @@ const Languages = ({
             setFieldValue={setFieldValue}
             nameValueForm="languages"
             nameDB="LanguageId"
-          ></RadioLevels>
-
+          ></RadioLevels> 
           <RadioLevels
             label="2"
             type="radio"
@@ -38,9 +35,7 @@ const Languages = ({
             setFieldValue={setFieldValue}
             nameValueForm="languages"
             nameDB="LanguageId"
-
           ></RadioLevels>
-
           <RadioLevels
             label="3"
             type="radio"
@@ -51,7 +46,6 @@ const Languages = ({
             setFieldValue={setFieldValue}
             nameValueForm="languages"
             nameDB="LanguageId"
-
           ></RadioLevels>
         </Form.Group>
       ))}

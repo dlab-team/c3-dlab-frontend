@@ -10,8 +10,7 @@ const RadioLevels = ({
   ...props
 }) => {
   // this will return field props for an <input />
-  const [field, meta, helpers] = useField(props.name);
-  
+  const [field, meta, helpers] = useField(props.name); 
   const handleChange = () => {
     let data = {
       [nameDB]: props.id,
@@ -19,20 +18,16 @@ const RadioLevels = ({
       UserId: 1,
     };
     console.log(data);
-
     if (nameData.length <= 0) {
       return nameData.push(data);
     }
-
     const array = nameData.filter(
-      (item) => item.LanguageId !== data.LanguageId
-    );
-
+      (item) => item[nameDB] !== data[nameDB]
+      );
     nameData = [...array, data];
     // // console.log(nameLanguage);
     setFieldValue(nameValueForm, nameData);
   };
-
   return (
     <>
       <label>
@@ -43,5 +38,4 @@ const RadioLevels = ({
     </>
   );
 };
-
 export default RadioLevels;

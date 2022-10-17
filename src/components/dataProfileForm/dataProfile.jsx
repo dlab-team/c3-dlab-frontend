@@ -1,6 +1,6 @@
 export const formInitialValues = {
+    userId:'',
     name:'',
-    email:'',
     lastName:'',
     phone:'',
     city:'',

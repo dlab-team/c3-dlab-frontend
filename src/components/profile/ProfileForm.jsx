@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Button, Form } from "semantic-ui-react";
 import { Formik } from "formik";
 import ExperienciaTrabajo from "./ExperienciaTrabajo";
@@ -13,9 +13,12 @@ import { req_profile_form } from "../../request/req_profile_form";
 import { useEffect } from "react";
 import { useState } from "react";
 import Acordeon from "./Acordeon";
+import UserContext from "../../contexts/userContext";
 
 export default function ProfileForm() {
   const [data, setData] = useState([])
+  
+const {userData}= useContext(UserContext)
   const placeholderCourses = [
     { id: 'course-course', name: 'name', placeholder: 'Curso' },
     { id: 'course-inst', name: 'institution', placeholder: 'Institución' },
@@ -33,17 +36,9 @@ export default function ProfileForm() {
       console.log(data_form)
     }
     req_data()
-  },[])
- /* useEffect(()=>{
-   // async function req_current(){
-    //  const userId= await req_profile_form(url_api.current_user)
-     // setData(userId)
-     // console.log(userId)
-   // }*/
-   // req_current()
-  //}, [])*/
-  
+  },[]); 
   const formSubmit = async (values, { setSubmitting })=>{
+    values.userId= userData.id
     console.log(values);
   };
   return (
@@ -127,7 +122,8 @@ export default function ProfileForm() {
                 jobs={data.jobs}
                 descriptionIdealJob={values.descriptionIdealJob}
                 workOption={values.workOption}
-                visasOptions={data.visas}/>
+                visas={data.visas}
+                visasValue={values.visas}/>
           <Button type="submit" disabled={isSubmitting} content='Enviar' primary/>
           </Form>
           )}

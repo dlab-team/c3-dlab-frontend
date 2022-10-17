@@ -10,7 +10,7 @@ const Acordeon = ({languages=[], frameworks=[], tools=[], values, setFieldValue}
     <details >
       <summary>
         <h4>
-          Lenguages
+          Lenguajes
         </h4>
       </summary>
       <Language

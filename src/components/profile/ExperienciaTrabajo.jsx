@@ -30,11 +30,18 @@ const ExperienciaTrabajo=({
   jobs=[],
   idealJob,
   workOption,
-  visasOptions=[],
+  visas=[],
+  visasValue
 }) => {
-    const visasOpt= visasOptions.map((visa)=>{
-      return {key:visa.id, name:visa.name, value:visa.id};
+  const [visasOpt, setVisasOpt] = useState([]);
+
+  useEffect(() => {
+    const newVisasOpt = visas.map((visa) => {
+      return { key: visa.id, name: visa.name, value: visa.id };
     });
+    setVisasOpt(newVisasOpt);
+  }, [visas]);
+
     const softSkillsOpt= softSkills.map((skill)=>{
       return {key:skill.id, name:skill.name, value:skill.id}
     });
@@ -162,8 +169,9 @@ const ExperienciaTrabajo=({
                 key={item.key}
                 label={item.name}
                 value={item.value}
-                options={visasOptions}
+                options={visasValue}
                 name="visas[]"
+                nameID="VisaId"
                 />
               ))}
           </Form.Group>

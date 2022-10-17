@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react'
-import { Field } from 'formik'
 import { Form, Container } from 'semantic-ui-react'
 import RadioLevels from './RadioLevels';
 
@@ -26,7 +25,7 @@ const Frameworks=({
             nameValueForm="frameworks"
             nameDB="FrameworkId"
             />
-            <RadioLevels
+            <RadioLevels 
             label="2"
             type="radio"
             name={`${item.name}`}
