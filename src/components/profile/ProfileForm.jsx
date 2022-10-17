@@ -70,6 +70,7 @@ const {userData}= useContext(UserContext)
                 options={genderOptions}
                 setFieldValue={setFieldValue}
                 errors={errors}
+                positionValue={values.professionalPositions}
                 />
               <PerfilEducacional
                  handleChange={handleChange}
@@ -118,8 +119,10 @@ const {userData}= useContext(UserContext)
                 urlPortfolio={values.urlPortfolio}
                 details={values.details}
                 softSkills={data.softSkills}
+                skillsValue={values.softSkills}
                 yearsExperience={values.yearsExperience}
                 jobs={data.jobs}
+                jobsValue={values.jobs}
                 descriptionIdealJob={values.descriptionIdealJob}
                 workOption={values.workOption}
                 visas={data.visas}

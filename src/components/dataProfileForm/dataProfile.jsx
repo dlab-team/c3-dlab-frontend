@@ -16,7 +16,7 @@ export const formInitialValues = {
     details: '',
     yearsExperience: '', 
     studies:[ ],  
-    positions: [ ],
+    professionalPositions: [ ],
     languages:[ ],
     frameworks:[],
     tools:[],

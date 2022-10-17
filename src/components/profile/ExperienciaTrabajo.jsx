@@ -26,8 +26,10 @@ const ExperienciaTrabajo=({
   urlPortafolio,
   details,
   softSkills=[],
+  skillsValue,
   yearsExperience,
   jobs=[],
+  jobsValue,
   idealJob,
   workOption,
   visas=[],
@@ -42,12 +44,25 @@ const ExperienciaTrabajo=({
     setVisasOpt(newVisasOpt);
   }, [visas]);
 
-    const softSkillsOpt= softSkills.map((skill)=>{
-      return {key:skill.id, name:skill.name, value:skill.id}
+  const [softSkillsOpt, setSkillsOpt]= useState([]);
+
+  useEffect(()=>{
+    const newSoftSkillsOpt= softSkills.map((skill)=>{
+      return {key: skill.id, name: skill.name, value:skill.id}
     });
-    const jobsOpt= jobs.map((job)=>{
-      return {key:job.id, name:job.name, value:job.id}
+    setSkillsOpt(newSoftSkillsOpt);
+  },[softSkills]);
+
+  const [jobsOpt, setJobsOpt]= useState([]);
+
+  useEffect(()=>{
+    const newJobsOpt= jobs.map((job)=>{
+    return {key:job.id, name:job.name, value:job.id}
     });
+    
+    setJobsOpt(newJobsOpt);
+    },[jobs]);
+
   return (
     <Container>
      <Header>Experiencia y Trabajo</Header>
@@ -102,8 +117,9 @@ const ExperienciaTrabajo=({
                 key={item.key}
                 label={item.name}
                 value={item.value}
-                options={softSkillsOpt}
+                options={skillsValue}
                 name="softSkills[]"
+                nameID="SoftSkillId"
                 />
               ))}
             </Form.Group>     
@@ -143,8 +159,9 @@ const ExperienciaTrabajo=({
                 key={item.key}
                 label={item.name}
                 value={item.value}
-                options={jobs}
+                options={jobsValue}
                 name="jobs[]"
+                nameID="JobId"
                 />
               ))}
           </Form.Group>         

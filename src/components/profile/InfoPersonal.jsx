@@ -2,6 +2,8 @@ import React from 'react'
 import { Field } from 'formik'
 import { Select, Container, Form, Header } from 'semantic-ui-react'
 import { CheckboxForm } from './CheckboxForm';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const laboralOptions = [
   {
@@ -38,10 +40,17 @@ const InfoPersonal=({
   employmentStatus,
   gender,
   professionalPositions=[],
+  positionValue
 }) => {
-  const positionOpt= professionalPositions.map((pos)=>{
-    return {key:pos.id, name:pos.name, value:pos.id};
-  });
+  const [positionOpt, setPositionOpt]= useState([]);
+
+  useEffect(()=> {
+    const newPositionOpt = professionalPositions.map((pos)=>{
+      return { key: pos.id, name:pos.name, value:pos.id};
+    });
+    setPositionOpt(newPositionOpt);
+  }, [professionalPositions]);
+
   return (
     <Container>
     <Header>Información Personal</Header>
@@ -130,13 +139,14 @@ const InfoPersonal=({
       </Form.Field>   
       <Form.Field >
       <label htmlFor='positions'>¿a cuáles cargos te gustaría optar?</label>
-        {professionalPositions.map((item)=>(
+        {positionOpt.map((item)=>(
           <CheckboxForm
             key={item.key}
             label={item.name}
             value={item.value}
-            options={positionOpt}
-            name="professionalPositions[]"
+            options={positionValue}
+            name="positions[]"
+            nameID="ProfessionalPositionId"
             />
           ))}
         </Form.Field>     
