@@ -4,6 +4,7 @@ import About from "../pages/about";
 import Blog from "../pages/blog";
 import Login from "../pages/login";
 import ProfileType from "../pages/profileType";
+import ProfileView from "../pages/profileView";
 import SignUpForm from "../pages/signUpForm";
 import SignUpBtn from "../components/home/signUpBtn";
 import Dashboard from "../pages/profile/Dashboard";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/signup-btn" element={<SignUpBtn />}></Route>
         <Route path="/signup-form" element={<SignUpForm />}></Route>
         <Route path="/profile-form" element={<ProfileForm />}></Route>
+        <Route path="/profileView" element={<ProfileView/>}></Route>
         <Route path="/profileType" element={<ProfileType />}></Route>
         <Route exact path="/dashboard" element={<ProtectedRoute/>}>
           <Route exact path="/dashboard" element={<Dashboard />}></Route>
