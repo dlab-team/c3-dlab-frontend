@@ -8,27 +8,23 @@ export const formInitialValues = {
     gender:'',
     employmentStatus:'',
     idealJob:'', 
-    educationLevelId:'',
+    educationLevelId:3,
     urlCv: '',
     urlLinkedin: '',
     urlGithub: '',
     urlPortfolio: '',
     details: '',
-    yearsExperience: '', 
+    yearsExperience: 0, 
     studies:[ ],  
-    professionalPositions: [ ],
+    positions: [ ],
     languages:[ ],
     frameworks:[],
     tools:[],
     jobs:[],
     softSkills: [ ],    
     visas: [],
-
-
-    englishLevelId:'',
-    educationStatus:'',
-    newTec:'',   
-    workOption: '',
-    
+    englishLevel:[],
+    currentSituation:[],
+    betterSituation: []
 }
 

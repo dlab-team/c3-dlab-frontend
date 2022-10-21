@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Acordeon from "./Acordeon";
 import UserContext from "../../contexts/userContext";
+import { post_add_user } from "../../send/send_add_user";
 
 export default function ProfileForm() {
   const [data, setData] = useState([])
@@ -37,10 +38,13 @@ const {userData}= useContext(UserContext)
     }
     req_data()
   },[]); 
-  const formSubmit = async (values, { setSubmitting })=>{
+
+  const formSubmit = async (values, { setSubmitting,  })=>{
+    
     values.userId= userData.id
+    post_add_user(url_api.add_user, {values})
     console.log(values);
-  };
+  }
   return (
     <Container>
       <Postula/>
@@ -78,9 +82,9 @@ const {userData}= useContext(UserContext)
                  setFieldValue={setFieldValue}
                  educacionalOptions={data.edLevels}
                  educationLevelId={values.educationLevelId}
-                 englishLevel={values.englishLevelId}
+                 englishLevel={values.englishLevel}
                  studies={values.studies}
-                 actual={values.actual}
+                 currentSituation={values.currentSituation}
                  more={values.more} 
                  errors={errors} 
                  >
@@ -124,7 +128,7 @@ const {userData}= useContext(UserContext)
                 jobs={data.jobs}
                 jobsValue={values.jobs}
                 descriptionIdealJob={values.descriptionIdealJob}
-                workOption={values.workOption}
+                betterSituation={values.betterSituation}
                 visas={data.visas}
                 visasValue={values.visas}/>
           <Button type="submit" disabled={isSubmitting} content='Enviar' primary/>

@@ -8,10 +8,10 @@ const educationStatusValues = [
   { key: "ec", text: "en curso", value: "en curso" },
 ];
 const englishLevelValues = [
-  { key: "b", text: "básico", value: "basic" },
-  { key: "m", text: "medio", value: "medio" },
-  { key: "t", text: "técnico", value: "tecnico" },
-  { key: "f", text: "fluido", value: "fluido" },
+  { key: "b", text: "básico", value: "1" },
+  { key: "m", text: "medio", value: "2" },
+  { key: "t", text: "técnico", value: "3" },
+  { key: "f", text: "fluido", value: "4" },
 ];
 const PerfilEducacional=({
   handleChange,
@@ -19,8 +19,8 @@ const PerfilEducacional=({
   setFieldValue,
   educacionalOptions=[],
   educationLevelId,
-  englishLevelId,
-  educationStatus,
+  englishLevel,
+  currentSituation,
   children
 })=> {
     const edOptions = educacionalOptions.map((ed) => {
@@ -49,11 +49,11 @@ const PerfilEducacional=({
                 as={Select}
                 options={englishLevelValues}
                 id='englishLevel'
-                name={englishLevelId}
+                name={englishLevel}
                 placeholder='Nivel inglés'
                 selection
-                value={englishLevelId}
-                onChange={(_, data) => setFieldValue('englishLevelId', data.value)}  
+                value={englishLevel}
+                onChange={(_, data) => setFieldValue('englishLevel', data.value)}  
                 /> 
             </Form.Field>
           </Form.Group>
@@ -66,8 +66,8 @@ const PerfilEducacional=({
                 options={educationStatusValues}
                 placeholder='Seleccionar'
                 selection
-                value={educationStatus}
-                onChange={(_, data) => setFieldValue('educationStatus', data.value)}  
+                value={currentSituation}
+                onChange={(_, data) => setFieldValue('currentSituation', data.value)}  
                 /> 
             </Form.Field>
           </Form.Group >

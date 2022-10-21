@@ -23,7 +23,7 @@ const ExperienciaTrabajo=({
   urlCv,
   urlLinkedin,
   urlGithub,
-  urlPortafolio,
+  urlPortfolio,
   details,
   softSkills=[],
   skillsValue,
@@ -31,7 +31,7 @@ const ExperienciaTrabajo=({
   jobs=[],
   jobsValue,
   idealJob,
-  workOption,
+  betterSituation,
   visas=[],
   visasValue
 }) => {
@@ -95,7 +95,7 @@ const ExperienciaTrabajo=({
             label='URL Portafolio/Sitio Web'
             name='urlPortafolio'
             id='urlPortfolio'
-            value={urlPortafolio}
+            value={urlPortfolio}
             onChange={handleChange}
             />
         </Form.Group>
@@ -173,8 +173,8 @@ const ExperienciaTrabajo=({
             options={workOptionValues}
             placeholder='Opciones de trabajo'
             selection
-            value={workOption}
-            onChange={(_, data)=> setFieldValue('workOption', data.value)}
+            value={betterSituation}
+            onChange={(_, data)=> setFieldValue('betterSituation', data.value)}
           /> 
         </Form.Field>
         <Form.Field inline>
