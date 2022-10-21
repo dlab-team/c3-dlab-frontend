@@ -42,7 +42,7 @@ const {userData}= useContext(UserContext)
   const formSubmit = async (values, { setSubmitting,  })=>{
     
     values.userId= userData.id
-    post_add_user(url_api.add_user, {values})
+    post_add_user(url_api.add_user, values)
     console.log(values);
   }
   return (
