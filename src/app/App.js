@@ -43,7 +43,9 @@ function App() {
           <Route path="/signup-form" element={<SignUpForm />}></Route>
           <Route path="/profile-form" element={<ProfileForm />}></Route>
           <Route path="/profileType" element={<ProfileType />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route exact path="/dashboard" element={<ProtectedRoute />}>
+            <Route exact path="/dashboard" element={<Dashboard />}></Route>
+          </Route>
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
