@@ -5,6 +5,11 @@ import { CheckboxForm } from './CheckboxForm';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+const genderOptions = [
+  { key: "m", text: "Masculino", value: "male" },
+  { key: "f", text: "Femenino", value: "female" },
+  { key: "o", text: "Otro", value: "other" },
+];
 const laboralOptions = [
   {
     key: "c",
@@ -115,7 +120,7 @@ const InfoPersonal=({
           <label htmlFor='gender'>¿Con cuál género te identificas?</label>
           <Field
             as={Select}
-            options={options}
+            options={genderOptions}
             id='gender'
             name={gender}
             placeholder='Género'

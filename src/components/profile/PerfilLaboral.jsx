@@ -43,7 +43,7 @@ const PerfilLaboral=({
             name='newTec'
             value={newTec}
             onChange={handleChange} 
-            handleBlur={handleBlur}
+            onBlur={handleBlur}
           />
         <br />
     </Fragment>

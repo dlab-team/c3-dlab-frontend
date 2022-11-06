@@ -8,10 +8,12 @@ export const CheckboxForm = ({
   options, 
   value,
   nameID
-}) => {
-const {userData}= useContext(UserContext)
+  }) => {
+  const {userData}= useContext(UserContext);
   const handleChange = (data) => {
     if (data.checked) {
+     // console.log(data.checked)
+      //console.log(options);
       if (options.indexOf(data.value) !== -1) {
         return;
       } else {

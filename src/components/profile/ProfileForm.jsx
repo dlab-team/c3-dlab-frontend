@@ -10,8 +10,7 @@ import { formInitialValues } from "../dataProfileForm/dataProfile";
 import AddStudies from "./AddStudies";
 import { url_api } from "../../constants/api_constants";
 import { req_profile_form } from "../../request/req_profile_form";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Acordeon from "./Acordeon";
 import UserContext from "../../contexts/userContext";
 import { post_add_user } from "../../send/send_add_user";
@@ -43,7 +42,7 @@ const {userData}= useContext(UserContext)
     
     values.userId= userData.id
     post_add_user(url_api.add_user, values)
-    console.log(values);
+    //console.log(values);
   }
   return (
     <Container>
@@ -74,7 +73,7 @@ const {userData}= useContext(UserContext)
                 options={genderOptions}
                 setFieldValue={setFieldValue}
                 errors={errors}
-                positionValue={values.professionalPositions}
+                positionValue={values.positions}
                 />
               <PerfilEducacional
                  handleChange={handleChange}

@@ -4,17 +4,17 @@ import { Container, Header, Form, Select } from "semantic-ui-react";
 import { CheckboxForm } from "./CheckboxForm";
 
 const experienceOptionsValues = [
-  { key: '1', text: 'No poseo experiencia laboral', value: 'No poseo experiencia laboral' },
-  { key: '2', text: 'Entre 0 a 1 año de experiencia laboral', value: 'Entre 0 a 1 año de experiencia laboral' },
-  { key: '3', text: 'Entre 1 a 2 años de experiencia laboral', value: 'Entre 1 a 2 años de experiencia laboral' },
-  { key: '4', text: 'Entre 2 a 3 años de experiencia laboral', value: 'Entre 2 a 3 años de experiencia laboral' },
-  { key: '5', text: 'Más de 4 años de experiencia laboral', value: 'Más de 4 años de experiencia laboral' },
+  { key: '1', text: 'No poseo experiencia laboral', value: 0 },
+  { key: '2', text: 'Entre 0 a 1 año de experiencia laboral', value: 1},
+  { key: '3', text: 'Entre 1 a 2 años de experiencia laboral', value: 2 },
+  { key: '4', text: 'Entre 2 a 3 años de experiencia laboral', value: 3 },
+  { key: '5', text: 'Más de 4 años de experiencia laboral', value: 4 },
 ]
 const workOptionValues=[
-  { key:'1', text:'Quiero trabajar desde mi cuidad actual', value:'Quiero trabajar desde mi cuidad actual' },
-  { key:'2', text:'Disponible para migrar dentro de mi pais', value:'Disponible para migrar dentro de mi pais' },
-  { key:'3', text:'Disponible para migrar a otro país', value:'Disponible para migrar a otro país' },
-  { key:'4', text:'Otros países', value:'Otros países'}
+  { key:'1', text:'Quiero trabajar desde mi cuidad actual', value:1 },
+  { key:'2', text:'Disponible para migrar dentro de mi pais', value:2 },
+  { key:'3', text:'Disponible para migrar a otro país', value:3 },
+  { key:'4', text:'Otros países', value:4}
 ]
 const ExperienciaTrabajo=({
   handleBlur,
@@ -125,11 +125,11 @@ const ExperienciaTrabajo=({
             </Form.Group>     
         </Form.Group>
         <br />
-        <Form.Field required>
+        <Form.Field>
         <label>
           ¿Cuántos años de experiencia laboral posees en desarrollo de software y/o diseño?
         </label>
-        <Field require
+        <Field 
           as={Select}
           options={experienceOptionsValues} 
           id='yearsExperience'
@@ -148,7 +148,7 @@ const ExperienciaTrabajo=({
           label='Déjanos una breve descripción con respecto tu trabajo ideal'
           value={idealJob} 
           onChange={handleChange}
-          handleBlur={handleBlur}/>
+          onBlur={handleBlur}/>
         <br />
         <Form.Field>
           <Header>Indícanos tu disponibilidad laboral</Header>
@@ -168,14 +168,19 @@ const ExperienciaTrabajo=({
         </Form.Field>
         <Form.Field>
           <Header>Qué describe mejor tu situación actual</Header>
-          <Form.Field
-            control={Select}
-            options={workOptionValues}
-            placeholder='Opciones de trabajo'
-            selection
-            value={betterSituation}
-            onChange={(_, data)=> setFieldValue('betterSituation', data.value)}
-          /> 
+          <br />
+          <Form.Group inline>
+            {workOptionValues.map((item)=>(
+              <CheckboxForm
+                key={item.key}
+                label={item.text}
+                value={item.value}
+                options={betterSituation}
+                name="betterSituation[]"
+                nameID="betterSituationId"
+                />
+              ))}
+          </Form.Group>         
         </Form.Field>
         <Form.Field inline>
           <Header>Cuentas con Visa de trabajo activa en: </Header>
