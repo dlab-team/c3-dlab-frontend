@@ -61,7 +61,8 @@
   text-align: center !important;
 }
 
-.mentor-card {
+.mentor-card,
+.test-card {
   margin-top: 5px !important;
 }
 
